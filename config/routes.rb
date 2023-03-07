@@ -2,8 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :places, only: %i[index show new create]
+  resources :places, only: %i[index show]
+  resources :bookmarks, except: %i[:new, :show] do
+    resources :bookmark_tags, only: %i[create]
+  end
+
   resources :trips
+  resources :bookmark_tags, only: %i[destroy]
+
+
+  get 'profiles/definition', to: 'profiles#definition'
+  patch 'profiles/define', to: 'profiles#define'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

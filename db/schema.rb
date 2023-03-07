@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_110252) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_154010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_110252) do
     t.bigint "place_id", null: false
     t.bigint "user_id", null: false
     t.bigint "trip_id", null: false
-    t.integer "status"
+    t.integer "status", default: 0
     t.integer "rating"
     t.text "comment"
     t.datetime "created_at", null: false
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_110252) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
-    t.integer "category"
+    t.integer "category", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,7 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_110252) do
     t.string "name"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,8 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_110252) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "pseudo"
-    t.integer "profile"
-    t.bigint "profile_id", null: false
+    t.bigint "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["profile_id"], name: "index_users_on_profile_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
