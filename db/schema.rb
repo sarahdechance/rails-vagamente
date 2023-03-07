@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_164820) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_110252) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmark_tags", force: :cascade do |t|
+    t.bigint "bookmark_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookmark_id"], name: "index_bookmark_tags_on_bookmark_id"
+    t.index ["tag_id"], name: "index_bookmark_tags_on_tag_id"
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "place_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "trip_id", null: false
+    t.integer "status"
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_bookmarks_on_place_id"
+    t.index ["trip_id"], name: "index_bookmarks_on_trip_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -30,6 +53,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_164820) do
     t.string "name"
     t.string "image"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,5 +89,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_164820) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmark_tags", "bookmarks"
+  add_foreign_key "bookmark_tags", "tags"
+  add_foreign_key "bookmarks", "places"
+  add_foreign_key "bookmarks", "trips"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "users", "profiles"
 end
