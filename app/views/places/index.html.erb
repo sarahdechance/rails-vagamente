@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <% if ((params[:controller] == "places" && params[:action] == "index") || (params[:controller] == "pages" && params[:action] == "home")) %>
+        <form class="d-flex" action="<%= places_path %>" method="GET">
+        <%= form_with url: places_path, method: :get, class: "d-flex me-2 " do %>
+        <%= text_field_tag :query, params[:query], class: "search-navbar", placeholder: "Votre recherche..." %>
+        <button class="btn btn-secondary ml-auto" type="submit" style="border-radius: 30px">Rechercher</button>
+        <% end %>
+      <% end %>
+    </form>
+</div>
+
+
+
+<div class="container my-4">
+<% if @query.present? && @places.empty? %>
+  <h2><strong>No places in <%= @query.capitalize %></strong></h2>
+<% elsif @query.nil? %>
+  <h2><strong>Places</strong></h2>
+<% else %>
+  <h2 class="my-4"><strong>Places in <%= @query.capitalize %> :</strong></h2>
+<% end %>
+</div>
