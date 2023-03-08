@@ -1,6 +1,6 @@
 class Tag < ApplicationRecord
   has_many :bookmark_tags
-  has_many :bookmarks, through: :bookmark_tags
+  has_many :bookmarks, through: :bookmark_tags, dependent: :destroy
   has_many :places, through: :bookmarks
 
   validates :name, :category, presence: true
