@@ -8,6 +8,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :pseudo,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "pseudo" }%>
     <%= f.input :profile_picture, as: :file %>
     <%= f.input :password,
                 required: true,
