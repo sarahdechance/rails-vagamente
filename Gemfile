@@ -80,5 +80,8 @@ end
 # my gems
 gem "devise"
 gem "dotenv-rails", groups: [:development, :test]
-gem "cloudinary"
 gem "faker"
+
+gem "cloudinary"
+
+gem "geocoder"
