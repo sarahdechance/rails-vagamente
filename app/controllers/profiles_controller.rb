@@ -5,8 +5,8 @@ class ProfilesController < ApplicationController
   end
 
   def define
+    answers = form_params.to_hash
     raise
-    answers = form_params.to_a
     #update current_user.profiling attr_accessor
   end
 
