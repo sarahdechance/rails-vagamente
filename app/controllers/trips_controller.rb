@@ -8,9 +8,10 @@ class TripsController < ApplicationController
 
   def new
     @tags = Tag.all
+    @query = params[:query]
   end
 
-  def create
+  def createl
   end
 
   def edit
