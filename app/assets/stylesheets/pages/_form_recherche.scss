@@ -1,0 +1,19 @@
+.form-button {
+  display: none;
+}
+
+.form-button-label {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.form-button:checked + .form-button-label {
+  background-color: #0066cc;
+  color: #fff;
+  border-color: #0066cc;
+}
+

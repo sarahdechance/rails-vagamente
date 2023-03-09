@@ -6,26 +6,35 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
 puts "Setting profiles..."
-profile_party = Profile.new({
+profile_party = Profile.create!({
   name: "Party Animal",
   description: "XX"
 })
 
-profile_moderate = Profile.new({
+puts profile_party
+
+profile_moderate = Profile.create!({
   name:"BarHopper",
   description: "XX"
 })
 
-profile_chill = Profile.new({
+puts profile_moderate
+
+profile_chill = Profile.create!({
   name: "Insta Chill",
   description: "XX"
 })
 
-profile_boring = Profile.new({
+puts profile_chill
+
+profile_boring = Profile.create!({
   name: "Gourmet explorer",
   description: "XX"
 })
+
+puts profile_boring
 
 puts "Profiles done!"
 

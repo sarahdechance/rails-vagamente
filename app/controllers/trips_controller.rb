@@ -7,6 +7,7 @@ class TripsController < ApplicationController
   end
 
   def new
+    @tags = Tag.all
   end
 
   def create

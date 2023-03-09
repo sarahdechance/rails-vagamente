@@ -1,1 +1,40 @@
 <h1>Mon form de recherche</h1>
+<%= form_tag(results_path, method: 'get') do %>
+  <!-- Form inputs go here -->
+  <%= submit_tag("Obtenir les résultats") %>
+<% end %>
+
+<% if @results.present? %>
+  <!-- Display the results -->
+<% end %>
+
+
+<%= form_tag('/results', method: 'get') do %>
+  <div class="form-section">
+    <%= label_tag(:name, "Choisis ton mood?") %><br>
+    <%= radio_button_tag(:name, 'Party Animal', checked: true, class: 'form-button') %>
+    <%= label_tag(:name_party, "Party Animal", class: 'form-button-label') %>
+    <%= radio_button_tag(:name, 'Chillseeker', class: 'form-button') %>
+    <%= label_tag(:name_chill, "Chillseeker", class: 'form-button-label') %>
+    <%= radio_button_tag(:name, 'Gourmet explorer', class: 'form-button') %>
+    <%= label_tag(:name_restaurant, "Gourmet explorer", class: 'form-button-label') %>
+    <%= radio_button_tag(:name, 'Bar Hopper', class: 'form-button') %>
+    <%= label_tag(:name_bar, "Bar Hopper", class: 'form-button-label') %>
+  </div>
+
+  <div class="form-section">
+    <%= label_tag(:place, "Quelle type de lieu?") %><br>
+    <%= radio_button_tag(:place, 'Night-club', checked: true, class: 'form-button') %>
+    <%= label_tag(:place_club, "Night-club", class: 'form-button-label') %>
+    <%= radio_button_tag(:place, 'Bar', class: 'form-button') %>
+    <%= label_tag(:place_bar, "Bar", class: 'form-button-label') %>
+    <%= radio_button_tag(:place, 'Restaurant', class: 'form-button') %>
+    <%= label_tag(:place_restaurant, "Restaurant", class: 'form-button-label') %>
+  </div>
+
+  <%= submit_tag("Obtenir les résultats") %>
+<% end %>
+
+<% @tags.each do |tag| %>
+<%= tag.name %>
+<% end %>
