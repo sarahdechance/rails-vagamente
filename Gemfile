@@ -76,9 +76,11 @@ group :test do
   gem "webdrivers"
 end
 
-gem "devise"
 
+# my gems
+gem "devise"
 gem "dotenv-rails", groups: [:development, :test]
+gem "faker"
 
 gem "cloudinary"
 
