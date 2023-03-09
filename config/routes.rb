@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'profiles/definition', to: 'profiles#definition'
   post 'profiles/define', to: 'profiles#define'
   # patch 'profiles/switch', to: 'profiles#switch'
-  get 'profiles/dashboard', to: 'pages#dashboard'
+
+  get 'user/dashboard', to: 'pages#dashboard'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -5,7 +5,7 @@ class Place < ApplicationRecord
 
   validates :name, :address, :type, presence: true
 
-  enum type: {
+  enum genre: {
     resto: 0,
     bar: 1,
     club: 2
