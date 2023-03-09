@@ -7,41 +7,54 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+puts "Deleting data..."
+Place.destroy_all
+Tag.destroy_all
+User.destroy_all
+Profile.destroy_all
+
+
 puts "Setting profiles..."
 profile_party = Profile.create!({
   name: "Party Animal",
   description: "XX"
 })
 
-puts profile_party
+
 
 profile_moderate = Profile.create!({
   name:"BarHopper",
   description: "XX"
 })
 
-puts profile_moderate
+
+
 
 profile_chill = Profile.create!({
   name: "Insta Chill",
   description: "XX"
 })
 
-puts profile_chill
+
+
 
 profile_boring = Profile.create!({
   name: "Gourmet explorer",
   description: "XX"
 })
 
-puts profile_boring
 
-puts "Profiles done!"
 
 profiles = Profile.all
 
+puts "Profiles done!"
+
+
 p "-" * 40
-puts "Setting tags..."
+
+puts "Removing previous Tags"
+
+puts "Setting up new tags..."
 
 tag1 = Tag.create!({
   name: "Cheap"
@@ -127,9 +140,6 @@ puts "Tags done!"
 
 p "-" * 40
 
-puts "removing previous Users"
-User.destroy_all
-
 puts "Generating new users"
 
 # profil teufeur
@@ -138,7 +148,7 @@ teuf_users = []
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
-  profile_id = 1
+  profile_id = Profile.first.id
   user = User.create!({
     pseudo: pseudo,
     email: email,
@@ -154,7 +164,7 @@ gv_users = []
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
-  profile_id = 2
+  profile_id = Profile.second.id
   user = User.create!({
     pseudo: pseudo,
     email: email,
@@ -170,7 +180,7 @@ insta_users = []
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
-  profile_id = 3
+  profile_id = Profile.third.id
   user = User.create!({
     pseudo: pseudo,
     email: email,
@@ -186,7 +196,7 @@ food_users = []
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
-  profile_id = 4
+  profile_id = Profile.last.id
   user = User.create!({
     pseudo: pseudo,
     email: email,
@@ -200,7 +210,7 @@ end
 pseudo = "chiara"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = 1
+profile_id = Profile.first.id
 chiara = User.create!({
   pseudo: pseudo,
   email: email,
@@ -212,7 +222,7 @@ teuf_users << chiara
 pseudo = "aubry"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = 2
+profile_id = Profile.second.id
 aubry = User.create!({
   pseudo: pseudo,
   email: email,
@@ -224,7 +234,7 @@ gv_users << aubry
 pseudo = "edouard"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = 2
+profile_id = Profile.second.id
 edouard = User.create!({
   pseudo: pseudo,
   email: email,
@@ -236,26 +246,26 @@ gv_users << edouard
 pseudo = "samuel"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = 3
+profile_id = Profile.third.id
 sam = User.create!({
   pseudo: pseudo,
   email: email,
   password: password,
   profile_id: profile_id
 })
-teuf_users << sam
+insta_users << sam
 
 pseudo = "sarah"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = 4
+profile_id = Profile.last.id
 sarah = User.create!({
   pseudo: pseudo,
   email: email,
   password: password,
   profile_id: profile_id
 })
-teuf_users << sarah
+food_users << sarah
 
 puts "Users generated"
 
@@ -264,111 +274,111 @@ p "-" * 40
 puts "Setting places..."
 
 # hipster clubs
-hipst_cl1 = Place.new({
+hipst_cl1 = Place.create({
   name: "La Gare / Le Gore",
   address: "1, avenue Corentin Cariou, 75019 Paris",
   genre: 2
 })
 
-hipst_cl2 = Place.new({
+hipst_cl2 = Place.create({
   name: "Badaboum",
   address: "2 bis Rue des Taillandiers, 75011 Paris",
   genre: 2
 })
 
-hipst_cl3 = Place.new({
+hipst_cl3 = Place.create({
   name: "Cabaret Sauvage",
   address: "59 Bd Macdonald, 75019 Paris",
   genre: 2
 })
 
-hipst_cl4 = Place.new({
+hipst_cl4 = Place.create({
   name: "La Station - Gare des mines",
   address: "29 Av. de la Prte d'Aubervilliers, 75018 Paris",
   genre: 2
 })
 
-hipst_cl5 = Place.new({
+hipst_cl5 = Place.create({
   name: "La Machine du Moulin Rouge",
   address: "90 Bd de Clichy, 75018 Paris",
   genre: 2
 })
 
-hipst_cl6 = Place.new({
+hipst_cl6 = Place.create({
   name: "T7",
   address: "Pl. des Insurgés de Varsovie, 75015 Paris",
   genre: 2
 })
 
-hipst_cl7 = Place.new({
+hipst_cl7 = Place.create({
   name: "À la folie",
   address: "A la Folie - Folie L2 - Parc de, 26 Av. Corentin Cariou, 75019 Paris",
   genre: 2
 })
 
-hipst_cl8 = Place.new({
+hipst_cl8 = Place.create({
   name: "Rex Club",
   address: "5 Bd Poissonnière, 75002 Paris",
   genre: 2
 })
 
 # hipster bar
-hipst_b1 = Place.new({
+hipst_b1 = Place.create({
   name: "Café Pop",
   address: "102 Rue Saint-Maur, 75011 Paris",
   genre: 1
 })
 
-hipst_b2 = Place.new({
+hipst_b2 = Place.create({
   name: "L'épicier",
   address: "24 Rue Notre Dame de Nazareth, 75003 Paris",
   genre: 1
 })
 
-hipst_b3 = Place.new({
+hipst_b3 = Place.create({
   name: "Oplato",
   address: "69 Rue de Charonne, 75011 Paris",
   genre: 1
 })
 
-hipst_b4 = Place.new({
+hipst_b4 = Place.create({
   name: "Lou Pascalou",
   address: "14 Rue des Panoyaux, 75020 Paris",
   genre: 1
 })
 
 # mainstream clubs
-main_cl1 = Place.new({
+main_cl1 = Place.create({
   name: "Les Etoiles",
   address: "61 Rue du Château d'Eau, 75010 Paris",
   genre: 2
 })
 
-main_cl2 = Place.new({
+main_cl2 = Place.create({
   name: "Globo",
   address: "61 Rue du Château d'Eau, 75010 Paris",
   genre: 2
 })
 
-main_cl3 = Place.new({
+main_cl3 = Place.create({
   name: "L'Arc Paris",
   address: "12 Rue de Presbourg, 75116 Paris",
   genre: 2
 })
 
-main_cl4 = Place.new({
+main_cl4 = Place.create({
   name: "Le Rive Gauche",
   address: "1 Rue du Sabot, 75006 Paris",
   genre: 2
 })
 
-main_cl5 = Place.new({
+main_cl5 = Place.create({
   name: "Le Flow",
   address: "4 Port Des Invalides, 75007 Paris",
   genre: 2
 })
 
-main_cl6 = Place.new({
+main_cl6 = Place.create({
   name: "Cova Club Paris",
   address: "4 Port Des Invalides, 75007 Paris",
   genre: 2
@@ -376,62 +386,62 @@ main_cl6 = Place.new({
 
 
 # beauf bars
-main_b1 = Place.new({
+main_b1 = Place.create({
   name: "Café Oz",
   address: "8 Rue Saint-Denis, 75001 Paris",
   genre: 1
 })
 
-main_b2 = Place.new({
+main_b2 = Place.create({
   name: "Le Café de la Plage",
   address: "59 Rue de Charonne, 75011 Paris",
   genre: 1
 })
 
-main_b3 = Place.new({
+main_b3 = Place.create({
   name: "The Holy Savior",
   address: "11 Rue des Panoyaux, 75020 Paris",
   genre: 1
 })
 
-main_b4 = Place.new({
+main_b4 = Place.create({
   name: "L'Attirail",
   address: "9 Rue au Maire, 75003 Paris",
   genre: 1
 })
 
 # insta bars
-inst_b1 = Place.new({
+inst_b1 = Place.create({
   name: "Spootnik Bar",
   address: "57 rue des Gravilliers, 75003 Paris",
   genre: 1
 })
 
-inst_b2 = Place.new({
+inst_b2 = Place.create({
   name: "Andy Wahloo",
   address: "69 Rue des Gravilliers, 75003 Paris",
   genre: 1
 })
 
-inst_b3 = Place.new({
+inst_b3 = Place.create({
   name: "Yagō",
   address: "25 Rue Victor Massé, 75009 Paris",
   genre: 1
 })
 
-inst_b4 = Place.new({
+inst_b4 = Place.create({
   name: "Little Red Door",
   address: "60 Rue Charlot, 75003 Paris",
   genre: 1
 })
 
-inst_b5 = Place.new({
+inst_b5 = Place.create({
   name: "Mobster Bar",
   address: "8 Rue de Crussol, 75011 Paris",
   genre: 1
 })
 
-inst_b5 = Place.new({
+inst_b5 = Place.create({
   name: "Bisou",
   address: "15 Bd du Temple, 75003 Paris",
   genre: 1
@@ -439,31 +449,31 @@ inst_b5 = Place.new({
 
 
 # insta resto
-inst_res1 = Place.new({
+inst_res1 = Place.create({
   name: "Django",
   address: "24 Rue Victor Massé, 75009 Paris",
   genre: 0
 })
 
-inst_res2 = Place.new({
+inst_res2 = Place.create({
   name: "Passionné Restaurant",
   address: "17 Rue Bergère, 75009 Paris",
   genre: 0
 })
 
-inst_res3 = Place.new({
+inst_res3 = Place.create({
   name: "Le Sergent Recruteur",
   address: "41 Rue Saint-Louis en l'Île, 75004 Paris",
   genre: 0
 })
 
-inst_res4 = Place.new({
+inst_res4 = Place.create({
   name: "Septime",
   address: "80 Rue de Charonne, 75011 Paris",
   genre: 0
 })
 
-inst_res5 = Place.new({
+inst_res5 = Place.create({
   name: "Le Servan",
   address: "32 Rue Saint-Maur, 75011 Paris",
   genre: 0

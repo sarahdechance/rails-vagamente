@@ -3,7 +3,7 @@ class Place < ApplicationRecord
   has_many :users, through: :bookmarks
   has_many :tags, through: :bookmarks
 
-  validates :name, :address, :type, presence: true
+  validates :name, :address, presence: true
 
   enum genre: {
     resto: 0,
