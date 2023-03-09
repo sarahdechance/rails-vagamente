@@ -13,7 +13,7 @@ profile_party = Profile.new({
 })
 
 profile_moderate = Profile.new({
-  name:"XX",
+  name:"Good vibes",
   description: "Sorties nocturnes. Bars confortables, ambiance décontractée. Restos moyen de gamme type tapas à partager, classique border trendy."
 })
 
@@ -23,7 +23,7 @@ profile_chill = Profile.new({
 })
 
 profile_boring = Profile.new({
-  name: "Homebird",
+  name: "Snooze",
   description: "Pantouflard par excellence. Bar classique, adepte des bistrots. Restos locaux à fancy "
 })
 
@@ -126,7 +126,7 @@ User.destroy_all
 
 puts "Generating new users"
 # profil teufeur
-4.times do
+8.times do
   pseudo = Faker::name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
@@ -139,8 +139,8 @@ puts "Generating new users"
   })
 end
 
-3.times do
-  # profil modéré
+# profil good vibes
+5.times do
   pseudo = Faker::name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
@@ -153,8 +153,8 @@ end
   })
 end
 
-2.times do
-  # profil chill
+# profil Insta chill
+4.times do
   pseudo = Faker::name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
@@ -167,8 +167,8 @@ end
   })
 end
 
-2.times do
-  # profil chiant
+# profil chiant
+3.times do
   pseudo = Faker::name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
@@ -187,8 +187,83 @@ p "-" * 40
 
 puts "Setting places..."
 
-# à faire
+# hipster clubs
+hipst_cl1 = Places.new({
+  name: "La Gare / Le Gore"
+  address: "1, avenue Corentin Cariou, 75019 Paris"
+  type: 2
+})
 
+hipst_cl2 = Places.new({
+  name: "Badaboum"
+  address: "2 bis Rue des Taillandiers, 75011 Paris"
+  type: 2
+})
+
+hipst_cl3 = Places.new({
+  name: "Cabaret Sauvage"
+  address: "59 Bd Macdonald, 75019 Paris"
+  type: 2
+})
+
+# hipster bar
+hipst_b1 = Places.new({
+  name: "Café Pop"
+  address: "102 Rue Saint-Maur, 75011 Paris"
+  type: 1
+})
+
+hipst_b2 = Places.new({
+  name: "L'épicier"
+  address: "24 Rue Notre Dame de Nazareth, 75003 Paris"
+  type: 1
+})
+
+
+# mainstream clubs
+main_cl1 = Places.new({
+  name: "Les Etoiles"
+  address: "61 Rue du Château d'Eau, 75010 Paris"
+  type: 2
+})
+
+main_cl2 = Places.new({
+  name: "Globo"
+  address: "61 Rue du Château d'Eau, 75010 Paris"
+  type: 2
+})
+
+
+# beauf bars
+main_b1 = Places.new({
+  name: "Café Oz"
+  address: "8 Rue Saint-Denis, 75001 Paris"
+  type: 1
+})
+
+
+# insta bars
+inst_b1 = Places.new({
+  name: "Spootnik Bar"
+  address: "57 rue des Gravilliers, 75003 Paris"
+  type: 1
+})
+
+inst_b2 = Places.new({
+  name: ""
+  address: ""
+  type: 1
+})
+
+# insta resto
+inst_res1 = Places.new({
+  name: "Django"
+  address: "24 Rue Victor Massé, 75009 Paris"
+  type: 0
+})
+
+
+inst_places = []
 puts "Places generated"
 
 p "-" * 40
