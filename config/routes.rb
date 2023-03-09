@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
 
   get 'profiles/definition', to: 'profiles#definition'
-  patch 'profiles/define', to: 'profiles#define'
+  post 'profiles/define', to: 'profiles#define'
+  # patch 'profiles/switch', to: 'profiles#switch'
 
   get 'profiles/dashboard', to: 'pages#dashboard'
 

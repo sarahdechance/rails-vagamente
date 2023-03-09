@@ -1,56 +1,63 @@
 <h1>Let's staaart</h1>
 
-<%# FORM AVEC PLAVE ORDER SANS SIMPLE FORM %>
-
-<form action="/profiles/define" method="patch" name='toto' class="" id="profile">
+<form action="/profiles/define" method="post">
   <div class="form-question">
-      <label for="Q1">Q1:</label><br>
-      <input type="checkbox" label="A1" name="Q1" value="A1" class="profil-form-button" >
-      <label for="A1">Answer 1</label><br>
-      <input type="checkbox" label="A1" name="Q1" value="A2" class="profil-form-button" >
-      <label for="A2">Answer 2</label><br>
-      <input type="checkbox" label="A1" name="Q1" value="A3" class="profil-form-button" >
-      <label for="A3">Answer 3</label><br>
-      <input type="checkbox" label="A1" name="Q1" value="A4" class="profil-form-button" >
-      <label for="A4">Answer 4</label><br>
+
+    <label for="Q1">Question 1</label><br>
+    <select name="Q1" id="question1" required>
+      <option value="">Choose an answer</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="A3">A3</option>
+      <option value="A4">A4</option>
+    </select>
   </div>
 
-    <div class="form-question">
-      <label for="Q2">Q2:</label><br>
-      <input type="checkbox" label="A1" name="Q2" value="A1" class="profil-form-button" >
-      <label for="A1">Answer 1</label><br>
-      <input type="checkbox" label="A1" name="Q2" value="A2" class="profil-form-button" >
-      <label for="A2">Answer 2</label><br>
-      <input type="checkbox" label="A1" name="Q2" value="A3" class="profil-form-button" >
-      <label for="A3">Answer 3</label><br>
-      <input type="checkbox" label="A1" name="Q2" value="A4" class="profil-form-button" >
-      <label for="A4">Answer 4</label><br>
+  <div class="form-question">
+    <label for="Q2">Question 2</label><br>
+    <select name="Q2" id="question2" required>
+      <option value="">Choose an answer</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="A3">A3</option>
+      <option value="A4">A4</option>
+    </select>
   </div>
 
-    <div class="form-question">
-      <label for="Q3">Q3:</label><br>
-      <input type="checkbox" label="A1" name="Q3" value="A1" class="profil-form-button" >
-      <label for="A1">Answer 1</label><br>
-      <input type="checkbox" label="A1" name="Q3" value="A2" class="profil-form-button" >
-      <label for="A2">Answer 2</label><br>
-      <input type="checkbox" label="A1" name="Q3" value="A3" class="profil-form-button" >
-      <label for="A3">Answer 3</label><br>
-      <input type="checkbox" label="A1" name="Q3" value="A4" class="profil-form-button" >
-      <label for="A4">Answer 4</label><br>
+  <div class="form-question">
+    <label for="Q3">Question 3</label><br>
+    <select name="Q3" id="question3" required>
+      <option value="">Choose an answer</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="A3">A3</option>
+      <option value="A4">A4</option>
+    </select>
   </div>
 
-    <div class="form-question">
-      <label for="Q4">Q2:</label><br>
-      <input type="checkbox" label="A1" name="Q4" value="A1" class="profil-form-button" >
-      <label for="A1">Answer 1</label><br>
-      <input type="checkbox" label="A1" name="Q4" value="A2" class="profil-form-button" >
-      <label for="A2">Answer 2</label><br>
-      <input type="checkbox" label="A1" name="Q4" value="A3" class="profil-form-button" >
-      <label for="A3">Answer 3</label><br>
-      <input type="checkbox" label="A1" name="Q4" value="A4" class="profil-form-button" >
-      <label for="A4">Answer 4</label><br>
+  <div class="form-question">
+    <label for="Q4">Question 4</label><br>
+    <select name="Q4" id="question4" required>
+      <option value="">Choose an answer</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="A3">A3</option>
+      <option value="A4">A4</option>
+    </select>
   </div>
+
+  <div class="form-question">
+    <label for="Q5">Question 5</label><br>
+    <select name="Q5" id="question5" required>
+      <option value="">Choose an answer</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="A3">A3</option>
+      <option value="A4">A4</option>
+    </select>
+  </div>
+
   <div class="form-submit">
-    <input type="submit" value="Gogogo!">
+    <input type="submit" value="Zébartiiiii!">
   </div>
 </form>
