@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_115840) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_162341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_115840) do
   create_table "bookmarks", force: :cascade do |t|
     t.bigint "place_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "trip_id", null: false
+    t.bigint "trip_id"
     t.integer "status", default: 0
     t.integer "rating"
     t.text "comment"
@@ -75,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_115840) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "profiles", force: :cascade do |t|

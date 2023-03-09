@@ -20,5 +20,4 @@ class PagesController < ApplicationController
   def dashboard
     # page de profil : penser à ajouter la photo de profil
   end
-
 end

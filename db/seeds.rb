@@ -23,7 +23,7 @@ profile_party = Profile.create!({
 
 
 profile_moderate = Profile.create!({
-  name:"BarHopper",
+  name:"Bar Hopper",
   description: "XX"
 })
 
@@ -31,7 +31,7 @@ profile_moderate = Profile.create!({
 
 
 profile_chill = Profile.create!({
-  name: "Insta Chill",
+  name: "Chill Seeker",
   description: "XX"
 })
 
@@ -39,7 +39,7 @@ profile_chill = Profile.create!({
 
 
 profile_boring = Profile.create!({
-  name: "Gourmet explorer",
+  name: "Gourmet Explorer",
   description: "XX"
 })
 
@@ -452,6 +452,7 @@ inst_b5 = Place.create({
 inst_res1 = Place.create({
   name: "Django",
   address: "24 Rue Victor Massé, 75009 Paris",
+  image: "https://media.timeout.com/images/105588062/1024/576/image.jpg",
   genre: 0
 })
 

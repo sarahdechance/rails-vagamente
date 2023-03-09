@@ -1,3 +1,53 @@
-<%= place.name %>
-<%= place.adress %>
-<%= place.users %>
+<div class="place-show-image">
+  <%= image_tag @place.image %>
+</div>
+
+<div class="place-show-details">
+  <h1><%= @place.name %></h1>
+  <div class="address">
+    <i class="fa-solid fa-location-dot"></i>
+    <%= @place.address %>
+  </div>
+
+  <% if @place.users.count == 0 %>
+    <p><em>Not recommended yet</em></p>
+  <% elsif @place.users.count == 1 %>
+    <p>Recommended by <%= @place.users.count %> person</p>
+  <% else %>
+    <p>Recommended by <%= @place.users.count %> people</p>
+  <% end %>
+  <div class="place-tag-list">
+    <% @place.tags.each do |tag| %>
+      <div class="place-tag">
+      <p><%= tag.name %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="place-link_button">
+    <%= link_to "Add a bookmark", new_bookmark_path %>
+  </div>
+
+  <h3>About</h3>
+    <% if @place.description.nil? %>
+      <p><em>No description yet</em></p>
+    <% else %>
+      <p><%= @place.description %></p>
+    <% end %>
+
+    <p><%#= @place.website %></p>
+    <p><%= @place.phone_number %></p>
+
+  <div class="place-show-map">
+    <%= render "shared/geocoder" %>
+  </div>
+</div>
+
+<div class="place-show-reco">
+  <h2>Similar places you might like</h2>
+    <% @reco_places.each do |place| %>
+      <div class="place-cards">
+       <%= render "shared/place_card", place: place %>
+      </div>
+    <% end %>
+</div>
