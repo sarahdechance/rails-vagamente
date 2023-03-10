@@ -1,1 +1,41 @@
-<h1>Mon form de recherche</h1>
+<div class="container">
+  <h1>Tell us a little bit more about your trip to <%= @query.capitalize %></h1><br>
+
+  <h2>What's your mood?</h2>
+  <p>One answer only</p>
+  <%= form_tag(places_path, method: 'get') do %>
+
+    <div>
+      <%= hidden_field_tag(:query, @query) %>
+      <%= radio_button_tag(:name, 'Party Animal', checked: true, class: 'form-button') %>
+      <%= label_tag(:name_party, "Party Animal", class: 'form-button-label') %>
+      <%= radio_button_tag(:name, 'Chillseeker', class: 'form-button') %>
+      <%= label_tag(:name_chill, "Chillseeker", class: 'form-button-label') %>
+      <%= radio_button_tag(:name, 'Gourmet explorer', class: 'form-button') %>
+      <%= label_tag(:name_restaurant, "Gourmet explorer", class: 'form-button-label') %>
+      <%= radio_button_tag(:name, 'Bar Hopper', class: 'form-button') %>
+      <%= label_tag(:name_bar, "Bar Hopper", class: 'form-button-label') %> <br><br><br>
+    </div>
+
+    <h2>What do you want to discover?</h2>
+    <p>You can select multiple answers</p>
+    <%= field_set_tag 'Which kind of places ?' do %>
+      <p><%= check_box_tag "Night-club" %>Night-club</p>
+      <p><%= check_box_tag "Restaurant" %>Restaurant</p>
+      <p><%= check_box_tag "Bar" %>Bar</p>
+    <% end %>
+
+    <%= field_set_tag 'How should it be?' do %>
+      <% @tags.each do |tag| %>
+          <p><%= check_box_tag tag %> <%= tag.name %></p>
+      <% end %>
+
+    <% end %>
+
+    <%= submit_tag("Get my recommendations") %>
+  <% end %>
+
+
+
+
+</div>

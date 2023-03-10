@@ -1,11 +1,9 @@
 class Bookmark < ApplicationRecord
   belongs_to :place
   belongs_to :user
-  belongs_to :trip
+  belongs_to :trip, optional: true
   has_many :bookmark_tags
   has_many :tags, through: :bookmark_tags
-
-  validates :rating, inclusion: { in: (0..5) }
 
   enum status: {
     created: 0,

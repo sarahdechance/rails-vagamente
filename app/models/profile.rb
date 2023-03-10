@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   has_many :users
 
-  validates :name, presence: true 
+  validates :name, presence: true
 
   def self.find_my_profile(key)
     case key
@@ -11,4 +11,11 @@ class Profile < ApplicationRecord
     when :P4 then last
     end
   end
+
+  enum category: {
+    party_animal: 0,
+    bar_hopper: 1,
+    chill_seeker: 2,
+    gourmet_explorer: 3
+  }
 end

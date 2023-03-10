@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Deleting data..."
+BookmarkTag.destroy_all
+Bookmark.destroy_all
 Place.destroy_all
 Tag.destroy_all
 User.destroy_all
@@ -15,22 +17,26 @@ Profile.destroy_all
 puts "Setting profiles..."
 profile_party = Profile.create!({
   name: "Party Animal",
-  description: "XX"
+  description: "XX",
+  category: 0
 })
 
 profile_moderate = Profile.create!({
   name:"Bar Hopper",
-  description: "XX"
+  description: "XX",
+  category: 1
 })
 
 profile_chill = Profile.create!({
   name: "Chill Seeker",
-  description: "XX"
+  description: "XX",
+  category: 2
 })
 
 profile_boring = Profile.create!({
   name: "Gourmet Explorer",
-  description: "XX"
+  description: "XX",
+  category: 3
 })
 
 profiles = Profile.all
@@ -136,7 +142,7 @@ teuf_users = []
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
-  profile_id = Profile.first.id
+  profile_id = Profile.party_animal.first.id
   user = User.create!({
     pseudo: pseudo,
     email: email,
@@ -147,19 +153,19 @@ teuf_users = []
 end
 
 # profil good vibes
-gv_users = []
+bar_users = []
 5.times do
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
-  profile_id = Profile.second.id
+  profile_id = Profile.bar_hopper.first.id
   user = User.create!({
     pseudo: pseudo,
     email: email,
     password: password,
     profile_id: profile_id
   })
-  gv_users << user
+  bar_users << user
 end
 
 # profil Insta chill
@@ -168,7 +174,7 @@ insta_users = []
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
-  profile_id = Profile.third.id
+  profile_id = Profile.chill_seeker.first.id
   user = User.create!({
     pseudo: pseudo,
     email: email,
@@ -184,7 +190,7 @@ food_users = []
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
-  profile_id = Profile.last.id
+  profile_id = Profile.gourmet_explorer.first.id
   user = User.create!({
     pseudo: pseudo,
     email: email,
@@ -198,7 +204,7 @@ end
 pseudo = "chiara"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = Profile.first.id
+profile_id = Profile.gourmet_explorer.first.id
 chiara = User.create!({
   pseudo: pseudo,
   email: email,
@@ -210,31 +216,31 @@ teuf_users << chiara
 pseudo = "aubry"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = Profile.second.id
+profile_id = Profile.bar_hopper.first.id
 aubry = User.create!({
   pseudo: pseudo,
   email: email,
   password: password,
   profile_id: profile_id
 })
-gv_users << aubry
+bar_users << aubry
 
 pseudo = "edouard"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = Profile.second.id
+profile_id = Profile.bar_hopper.first.id
 edouard = User.create!({
   pseudo: pseudo,
   email: email,
   password: password,
   profile_id: profile_id
 })
-gv_users << edouard
+bar_users << edouard
 
 pseudo = "samuel"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = Profile.third.id
+profile_id = Profile.chill_seeker.first.id
 sam = User.create!({
   pseudo: pseudo,
   email: email,
@@ -246,7 +252,7 @@ insta_users << sam
 pseudo = "sarah"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = Profile.last.id
+profile_id = Profile.gourmet_explorer.first.id
 sarah = User.create!({
   pseudo: pseudo,
   email: email,
@@ -475,6 +481,68 @@ puts "Places generated"
 p "-" * 40
 
 puts "Setting bookmarks..."
+
+hipst_places = [hipst_cl1, hipst_cl2, hipst_cl3, hipst_cl4, hipst_cl5, hipst_cl6, hipst_cl7, hipst_cl8, hipst_b1, hipst_b2, hipst_b3, hipst_b4]
+inst_places = [inst_b1, inst_b2, inst_b3, inst_b4, inst_b5, inst_b5, inst_res1, inst_res2, inst_res3, inst_res4, inst_res5]
+main_places = [main_cl1, main_cl2, main_cl3, main_cl4, main_cl5, main_cl6, main_b1, main_b2, main_b3, main_b4]
+
+hipst_bm = []
+hipst_places.each do |place|
+  user = teuf_users.sample
+  rating = [3, 4, 5].sample
+  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
+  hipst_bm << bm
+end
+
+inst_bm = []
+inst_places.each do |place|
+  user = insta_users.sample
+  rating = [3, 4, 5].sample
+  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
+  inst_bm << bm
+end
+
+main_bm = []
+main_places.each do |place|
+  user = bar_users.sample
+  rating = [3, 4, 5].sample
+  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
+  main_bm << bm
+end
+
+puts "Bookmarks created"
+
+"-"*40
+
+puts "BookmarkTags setting up..."
+
+hipst_tags = [tag4, tag14, tag6, tag10, tag11]
+inst_tags = [tag5, tag9, tag7, tag11]
+main_tags = [tag3, tag4, tag10, tag11]
+
+# hipst reco
+20.times do
+  bm = hipst_bm.sample
+  tag = hipst_tags.sample
+  BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)
+end
+
+# insta reco
+10.times do
+  bm = inst_bm.sample
+  tag = inst_tags.sample
+  BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)
+end
+
+# barhopper/mainstream reco
+10.times do
+  bm = main_tags.sample
+  tag = main_bm.sample
+  BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)
+end
+
+puts "BookmarkTags created"
+
 
 # teuffeur_profiles = User.where(profile_id: 1)
 # teuffeur_profiles.each do
