@@ -3,19 +3,19 @@ class PlacesController < ApplicationController
   def index
     # list my location & tag query's results
 
-    allplaces = Place.all
-    @places = allplaces.sample(4)
+    @places = Place.all
     # @markers = @places.geocoded.map do |place|
     #   {
-    #     lat: place.latitude,
-    #     lng: place.longitude
-    #   }
-    # end
-    @query = params[:query]
-    if params[:query].present?
-      sql_query = "address ILIKE :query"
-      @places = Place.where(sql_query, query: "%#{params[:query]}%")
-    end
+      #     lat: place.latitude,
+      #     lng: place.longitude
+      #   }
+      # end
+      @query = params[:query]
+      if params[:query].present?
+        sql_query = "address ILIKE :query"
+        @places = @places.where(sql_query, query: "%#{params[:query]}%")
+      end
+      @places = @places.sample(4)
 
   end
 
