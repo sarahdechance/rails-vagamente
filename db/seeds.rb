@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
 puts "Deleting data..."
 Place.destroy_all
 Tag.destroy_all
 User.destroy_all
 Profile.destroy_all
+
 
 puts "Setting profiles..."
 profile_party = Profile.create!({
@@ -18,20 +20,30 @@ profile_party = Profile.create!({
   description: "XX"
 })
 
+
+
 profile_moderate = Profile.create!({
   name:"Bar Hopper",
   description: "XX"
 })
+
+
+
 
 profile_chill = Profile.create!({
   name: "Chill Seeker",
   description: "XX"
 })
 
+
+
+
 profile_boring = Profile.create!({
   name: "Gourmet Explorer",
   description: "XX"
 })
+
+
 
 profiles = Profile.all
 
