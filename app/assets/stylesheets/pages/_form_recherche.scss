@@ -1,0 +1,89 @@
+/* Mettre en forme le formulaire */
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Mettre en forme les sections */
+.form-section {
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+/* Mettre en forme les labels */
+label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Mettre en forme les boutons radio */
+input[type="radio"] {
+  display: flex;
+}
+
+.form-button-label {
+  display: flex;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #fff;
+  background-color: orangered;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-button-label:hover {
+  background-color: orangered;
+}
+
+input[type="radio"]:checked + .form-button-label {
+  background-color: orange;
+}
+
+/* Mettre en forme le bouton de soumission */
+input[type="submit"] {
+  display: flex;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+  background-color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: none;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: orangered;
+}
+
+.form-button-label {
+  display: inline-block; /* ajout de cette propriété pour permettre de mettre les boutons côte à côte */
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #fff;
+  background-color: orangered;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px; /* ajout d'une marge à droite pour séparer les boutons */
+  &:hover {
+    background-color: orangered;
+  }
+}
+
+.button-group { /* ajout d'une nouvelle classe pour les boutons */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

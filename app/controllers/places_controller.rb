@@ -9,11 +9,12 @@ class PlacesController < ApplicationController
     #     lng: place.longitude
     #   }
     # end
+    @query = params[:query]
     if params[:query].present?
-      @query = params[:query]
       sql_query = "address ILIKE :query"
       @places = Place.where(sql_query, query: "%#{params[:query]}%")
     end
+
   end
 
   def show
@@ -30,9 +31,8 @@ class PlacesController < ApplicationController
 
   private
 
-
   def place_params
-    params.permit(:place).require(:name, :address)
+    params.permit(:trip).require(:name, :address, :query)
   end
 
 

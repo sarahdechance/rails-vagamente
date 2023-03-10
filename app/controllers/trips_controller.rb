@@ -13,9 +13,11 @@ class TripsController < ApplicationController
   end
 
   def research
+    @tags = Tag.all
+    @query = params[:query]
   end
 
-  def create
+  def createl
   end
 
   def edit
