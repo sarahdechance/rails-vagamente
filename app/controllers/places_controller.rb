@@ -2,7 +2,9 @@ class PlacesController < ApplicationController
 
   def index
     # list my location & tag query's results
-    @places = current_user.places
+
+    allplaces = Place.all
+    @places = allplaces.sample(4)
     # @markers = @places.geocoded.map do |place|
     #   {
     #     lat: place.latitude,
