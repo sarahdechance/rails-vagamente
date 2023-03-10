@@ -35,11 +35,15 @@
 
 <div class="place-index-top-reco">
   <% @places.each do |place| %>
-    <div class="card-place-top">
-      <% if place.image? %>
-        <%= image_tag place.image %>
-      <% else %>
-        <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+
+    <div class="card-place">
+      <%= link_to place_path(place) do %>
+        <% if place.image? %>
+          <%= image_tag place.image %>
+        <% else %>
+          <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+        <% end %>
+
       <% end %>
     </div>
   <% end %>
@@ -49,10 +53,12 @@
   <h4><strong>Best Club </strong>in Berlin</h4>
   <% @places.each do |place| %>
     <div class="card-place">
-      <% if place.image? %>
-        <%= image_tag place.image %>
-      <% else %>
-        <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+      <%= link_to place_path(place) do %>
+        <% if place.image? %>
+          <%= image_tag place.image %>
+        <% else %>
+          <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
@@ -62,10 +68,12 @@
   <h4><strong>Best Bar </strong>in Berlin</h4>
   <% @places.each do |place| %>
     <div class="card-place">
-      <% if place.image? %>
-        <%= image_tag place.image %>
-      <% else %>
-        <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+      <%= link_to place_path(place) do %>
+        <% if place.image? %>
+          <%= image_tag place.image %>
+        <% else %>
+          <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
@@ -75,10 +83,12 @@
   <h4><strong>Best Resaurant </strong>in Berlin</h4>
   <% @places.each do |place| %>
     <div class="card-place">
-      <% if place.image? %>
-        <%= image_tag place.image %>
-      <% else %>
-        <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+      <%= link_to place_path(place) do %>
+        <% if place.image? %>
+          <%= image_tag place.image %>
+        <% else %>
+          <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
