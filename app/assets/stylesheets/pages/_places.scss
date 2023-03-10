@@ -5,7 +5,7 @@
 }
 
 .menu-container select {
-  border-radius: 10px;
+  border-radius: 20px;
   color: white;
   width: 90%
 }
@@ -13,16 +13,19 @@
 .menu {
   flex: 1;
   max-width: 33%;
-  margin-bottom: 40px;
+  margin-top: 0px;
+  margin-bottom: 30px;
 }
 
 select {
+  margin: 10px;
+  margin-top: 5px;
   width: 100%;
   height: 30px;
   font-size: 14px;
-  padding: 5px;
+  padding: 1px;
   border: none;
-  border-radius: 3px;
+  border-radius: 20px;
   color: #333;
   background-color: black;
   color: white;
@@ -35,8 +38,10 @@ select:focus {
 }
 
 .map-view {
+  border: #fff;
   display: block;
-  margin: 10px auto 40px;
+  margin: 10px auto 30px;
+  margin-top: 20px;
   width: 120px;
   height: 32px;
   background-color: #EEA538;
@@ -53,15 +58,32 @@ select:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.container h3 {
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+h5 {
+  font-size: 15px;
+}
+
+.card-place-top img {
+  max-width: 100%;
+  height: 400px;
+  margin: 10px;
 }
 
 .card-place img {
   max-width: 100%;
-  height: auto;
+  height: 100px;
+  width: 350px;
 }
 
-h5, h3, h2 {
+h5, h4, h3, h2 {
   text-align: left;
   color: white;
 }
@@ -75,4 +97,15 @@ body {
 
 .order {
   align-self: flex-start;
+  margin: 8px;
+  margin-bottom: 0px;
+}
+
+.place-index-reco {
+  margin: 10px;
+}
+
+.best-matches {
+  text-align: left;
+  margin-left: 10px;
 }

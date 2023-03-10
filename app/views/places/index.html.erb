@@ -2,7 +2,7 @@
 <% if @query.present? && @places.empty? %>
   <h2><strong>No places in <%= @query.capitalize %></strong></h2>
 <% elsif @query.nil? %>
-  <h2>Going out like a local in</h2>
+  <h3>Going out like a local in <strong>BERLIN</strong></h3>
 <% else %>
   <h2 class=""><strong>Places in <%= @query.capitalize %> :</strong></h2>
 <% end %>
@@ -31,12 +31,11 @@
     </select>
   </div>
  </div>
-</div>
-<div><h3><strong>Best matches</strong> all categories</h3></div>
+<div class="best-matches"><h3><strong>Best matches</strong> all categories</h3></div>
 
 <div class="place-index-top-reco">
   <% @places.each do |place| %>
-    <div class="card-place">
+    <div class="card-place-top">
       <% if place.image? %>
         <%= image_tag place.image %>
       <% else %>
@@ -47,7 +46,7 @@
 </div>
 
 <div class="place-index-reco">
-  <h3><strong>Best Club </strong>in</h3>
+  <h4><strong>Best Club </strong>in Berlin</h4>
   <% @places.each do |place| %>
     <div class="card-place">
       <% if place.image? %>
@@ -60,7 +59,7 @@
 </div>
 
 <div class="place-index-reco">
-  <h3><strong>Best Bar </strong>in</h3>
+  <h4><strong>Best Bar </strong>in Berlin</h4>
   <% @places.each do |place| %>
     <div class="card-place">
       <% if place.image? %>
@@ -73,7 +72,7 @@
 </div>
 
 <div class="place-index-reco">
-  <h3><strong>Best Resaurant </strong>in</h3>
+  <h4><strong>Best Resaurant </strong>in Berlin</h4>
   <% @places.each do |place| %>
     <div class="card-place">
       <% if place.image? %>
