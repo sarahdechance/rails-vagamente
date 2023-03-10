@@ -7,6 +7,12 @@ class TripsController < ApplicationController
   end
 
   def new
+    @query = params[:query]
+    @profile = current_user.profile_id
+    @tags = Tag.all
+  end
+
+  def research
     @tags = Tag.all
     @query = params[:query]
   end
