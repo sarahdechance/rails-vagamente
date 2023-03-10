@@ -4,6 +4,15 @@ class BookmarksController < ApplicationController
   end
 
   def create
+    @place = Place.find(params[:place_id])
+    @user = current_user
+
+    @bookmark = Bookmark.find_or_initialize_by(place: @place, user: @user)
+    if @bookmark.save
+      redirect_to :user_dashboard
+    else
+      render 'places/show', status: :unprocessable_entity
+    end
   end
 
   def update
@@ -14,5 +23,9 @@ class BookmarksController < ApplicationController
 
   def destroy
   end
+
+  private
+
+
 
 end
