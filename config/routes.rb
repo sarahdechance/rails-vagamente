@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   # patch 'profiles/switch', to: 'profiles#switch'
 
   get 'user/dashboard', to: 'pages#dashboard'
-  post 'trips', to: 'trips#research'
+  # get 'trips/search', to: "trips#search"
+  # post 'trips', to: 'trips#research'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
