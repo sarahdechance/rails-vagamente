@@ -16,6 +16,8 @@
             <h3>How do you like your evenings?</h3>
             <% Profile::QUESTION1.each do |key, value| %>
               <%= label_tag "question1_#{key}" do %>
+                <%=  %>
+                <%#= radio_button_tag "Q1[]", key, {data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
                 <%= check_box_tag "Q1[]", key, false, { id:"question1_#{key}", data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
                 <%= value %>
               <% end %>
