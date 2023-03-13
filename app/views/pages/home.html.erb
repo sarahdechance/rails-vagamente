@@ -15,7 +15,12 @@
 
 <% if user_signed_in? %>
   <%= link_to "My profile", user_dashboard_path %>
+  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
 <% else %>
   <%= link_to "Sign in", new_user_session_path %>
 <% end %>
 <%# PAGE D'ACCUEIL SANS MAP AVEC RECHERCHE + LIEN SECONDAIRE VERS MES ADRESSES (map)  %>
+
+<div style="height: 750px">
+   <%= render "shared/geocoder", markers: @markers %>
+</div>
