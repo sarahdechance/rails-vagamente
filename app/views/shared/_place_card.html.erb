@@ -1,9 +1,9 @@
 <div class="card">
   <div class="content-left">
     <!-- contenu de la partie gauche ici -->
-    <div class="bookmark">
-      <i class="fa-solid fa-bookmark"></i>
-    </div>
+<div class="bookmark <%= @place.bookmarked?(current_user) ? 'bookmark--active' : '' %>">
+  <i class="far fa-bookmark"></i>
+</div>
     <div class="place-card-image" style="background-image: url('<% place.image? ? place.image : "../app/assets/images/no_image.jpg" %>')">
       <% if place.image? %>
         <%= image_tag place.image %>
@@ -38,3 +38,13 @@
       </div>
   </div>
 </div>
+
+<script>
+  const bookmark = document.querySelector('.bookmark');
+  const bookmarkIcon = document.querySelector('.fa-bookmark');
+
+  bookmark.addEventListener('click', function() {
+    bookmarkIcon.classList.toggle('far');
+    bookmarkIcon.classList.toggle('fas');
+  });
+</script>
