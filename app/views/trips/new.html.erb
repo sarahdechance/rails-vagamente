@@ -40,13 +40,9 @@
             <%= tag.name %>
           <% end %>
         <% end %>
-        <%= field_set_tag 'How should it be?' do %>
-              <p><%= check_box_tag tag %> <%= tag.name %></p>
-        <% end %>
     </div>
 
-    <%= submit_tag("Get my recommendations") %>
+    <%= submit_tag "Get my recommandations", class: "button-main" %>
+
   <% end %>
-
-
 </div>
