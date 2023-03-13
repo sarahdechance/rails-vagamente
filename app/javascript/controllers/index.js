@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import AddTripToBookmarksController from "./add_trip_to_bookmarks_controller"
+application.register("add_trip_to_bookmarks", AddTripToBookmarksController)

@@ -9,5 +9,8 @@
   <body>
   <div class="avatar_dashboard"><%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %></div>
   <div class=""><%= current_user.pseudo %></div>
-  <%= current_user.profile.name %>
+  <%= current_user.profile.name %> <br>
+  <% current_user.trips.each do |trip| %>
+    <%= trip.name %>
+  <% end %>
   </div>
