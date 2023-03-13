@@ -4,11 +4,14 @@
 
 import { application } from "./application"
 
+import AddTripToBookmarksController from "./add_trip_to_bookmarks_controller"
+application.register("add-trip-to-bookmarks", AddTripToBookmarksController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-import AddTripToBookmarksController from "./add_trip_to_bookmarks_controller"
-application.register("add_trip_to_bookmarks", AddTripToBookmarksController)
+import ProfileFormController from "./profile_form_controller"
+application.register("profile-form", ProfileFormController)
