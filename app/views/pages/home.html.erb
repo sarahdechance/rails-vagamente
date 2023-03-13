@@ -16,3 +16,7 @@
   <%= link_to "Sign in", new_user_session_path %>
 <% end %>
 <%# PAGE D'ACCUEIL SANS MAP AVEC RECHERCHE + LIEN SECONDAIRE VERS MES ADRESSES (map)  %>
+
+<div style="height: 750px">
+   <%= render "shared/geocoder", markers: @markers %>
+</div>
