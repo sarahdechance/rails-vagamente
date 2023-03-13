@@ -1,0 +1,21 @@
+.hidden-checkbox {
+  position: absolute;
+  transform: scale(0);
+}
+
+label:has(.hidden-checkbox:checked) {
+  background-color: #D9D9D9 ;
+  color: black;
+  border: rgb(186, 186, 186) solid 2px ;
+}
+
+label:has(.hidden-checkbox) {
+  cursor: pointer;
+  padding: 5px 15px;
+  border-radius: 2px;
+  border: #D9D9D9 solid 2px;
+  width: 15rem;
+  text-align: center;
+  margin: 5px auto;
+
+}

@@ -46,14 +46,18 @@ class Place < ApplicationRecord
     tag_hash = {}
     self.tags.each do |tag|
       if tag_hash[tag.name].nil?
-      tag_hash[tag.name] = 1
+        tag_hash[tag.name] = 1
       else
         tag_hash[tag.name] += 1
       end
     end
     return tag_hash
-    raise
+
+    
+
   end
+
+
 
   # calculer la moyenne de chaque profil
   # définir la pondération de chaque profil

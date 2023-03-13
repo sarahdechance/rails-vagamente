@@ -1,63 +1,69 @@
-<h1>Let's staaart</h1>
-
-<form action="/profiles/define" method="post">
-  <div class="form-question">
-
-    <label for="Q1">How do you like your evenings?</label><br>
-    <select name="Q1" id="question1" required>
-      <option value="">Choose an answer</option>
-      <option value="P2">Chatting with friends</option>
-      <option value="P1">Clubbing</option>
-      <option value="P4">Testing good food</option>
-      <option value="P3">Sipping cocktails</option>
-    </select>
+<div class="container" data-controller="profile-form">
+  <div class="form-intro" data-profile-form-target="question">
+    <h1>Welcome <strong><%#= %></strong>!</h1>
+    <p>Tell us more about <strong>you</strong></p>
+    <button class="button-main" data-action="click->profile-form#next" >Let's start</button>
   </div>
 
-  <div class="form-question">
-    <label for="Q2">What drink would you be?</label><br>
-    <select name="Q2" id="question2" required>
-      <option value="">Choose an answer</option>
-      <option value="P3">A fancy cocktail</option>
-      <option value="P2">SHOTS!</option>
-      <option value="P1">A pint of beer</option>
-      <option value="P4">A nice Pinot Noir</option>
-    </select>
-  </div>
+  <%= form_with url:profiles_define_path, method: :post, data: { profile_form_question_index_value: 0 } do %>
 
-  <div class="form-question">
-    <label for="Q3">Your favorite music when you're out?</label><br>
-    <select name="Q3" id="question3" required>
-      <option value="">Choose an answer</option>
-      <option value="P4">Classical / lounge</option>
-      <option value="P2">Mellow jazz accoustic</option>
-      <option value="P3">Mainstream pop</option>
-      <option value="P1">Electro or hip-hop</option>
-    </select>
-  </div>
+    <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
+      <div class="form-question">
+          <h3>How do you like your evenings?</h3>
+          <% Profile::QUESTION1.each do |key, value| %>
+            <%= label_tag "question1_#{key}" do %>
+              <%= check_box_tag "Q1[]", key, false, { id:"question1_#{key}", data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+              <%= value %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
 
-  <div class="form-question">
-    <label for="Q4">What's your motivation to go out?</label><br>
-    <select name="Q4" id="question4" required>
-      <option value="">Choose an answer</option>
-      <option value="P1">Meeting people</option>
-      <option value="P4">Test restaurants</option>
-      <option value="P3">Discover nice places</option>
-      <option value="P2">Chill with friends</option>
-    </select>
-  </div>
+    <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
+      <h3>What drink would you be?</h3>
+      <% Profile::QUESTION2.each do |key, value| %>
+        <%= label_tag do %>
+          <%= check_box_tag "Q2[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+          <%= value %>
+        <% end %>
+      <% end %>
+    </div>
 
-  <div class="form-question">
-    <label for="Q5">When do you go out?</label><br>
-    <select name="Q5" id="question5" required>
-      <option value="">Choose an answer</option>
-      <option value="P3">Rarely</option>
-      <option value="P1">On weekends</option>
-      <option value="P4">For special occasions</option>
-      <option value="P2">All week</option>
-    </select>
-  </div>
+    <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
+      <h3>Your favorite music when you're out?</h3>
+      <% Profile::QUESTION3.each do |key, value| %>
+        <%= label_tag do %>
+          <%= check_box_tag "Q3[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+          <%= value %>
+        <% end %>
+      <% end %>
+    </div>
 
-  <div class="form-submit">
-    <input type="submit" value="Lesssgooo">
-  </div>
-</form>
+    <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
+      <h3>What's your motivation to go out?</h3>
+      <% Profile::QUESTION4.each do |key, value| %>
+        <%= label_tag do %>
+          <%= check_box_tag "Q4[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+          <%= value %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
+      <h3>When do you go out?</h3>
+      <% Profile::QUESTION5.each do |key, value| %>
+        <%= label_tag "question5_#{key}" do %>
+          <%= check_box_tag "Q5[]", key, false, { id: "question5_#{key}", class: "hidden-checkbox" } %>
+          <%= value %>
+        <% end %>
+      <% end %>
+
+      <div class="form-submit">
+        <input type="submit" value="Let's find out">
+      </div>
+    </div>
+
+
+  <% end %>
+
+</div>
