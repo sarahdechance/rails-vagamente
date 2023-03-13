@@ -12,12 +12,16 @@ export default class extends Controller {
     console.log("Je suis là")
     // 1. Selectionner toutes tes targets Question
     // 2. Sur chaque question, j'ajoute le d-none
+    event.currentTarget.setAttribute("checked", true);
+    // setTimeout(() => {
+
+    // }, 0.7);
+
     this.questionTargets.forEach((target) => {
       target.classList.add("d-none");
     })
 
     // 3. J'ajoute la class "checked" à l'élément
-    event.currentTarget.setAttribute("checked", true);
     // 4. Je trouve la question target qui contient l'element qui vient de changer
     this.questionIndexValue += 1 ;
     const elemt = this.questionTargets[this.questionIndexValue];

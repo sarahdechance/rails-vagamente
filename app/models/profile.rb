@@ -26,29 +26,29 @@ class Profile < ApplicationRecord
     P4: "A nice Pinot Noir"
   }
 
-    # Your favorite music when you're out?
-    QUESTION3 = {
-      P1: "Electro or hip-hop",
-      P2: "Mainstream pop",
-      P3: "Mellow jazz accoustic",
-      P4: "Classical / lounge"
-    }
+  # Your favorite music when you're out?
+  QUESTION3 = {
+    P1: "Electro or hip-hop",
+    P2: "Mainstream pop",
+    P3: "Mellow jazz accoustic",
+    P4: "Classical / lounge"
+  }
 
-    # What's your motivation to go out?
-    QUESTION4 = {
-      P1: "Meeting people",
-      P2: "Chill with friends",
-      P3: "Discover nice places",
-      P4: "Test restaurants"
-    }
+  # What's your motivation to go out?
+  QUESTION4 = {
+    P1: "Meeting people",
+    P2: "Chill with friends",
+    P3: "Discover nice places",
+    P4: "Test restaurants"
+  }
 
-    # When do you go out?
-    QUESTION5 = {
-      P1: "On weekends",
-      P2: "All week",
-      P3: "Rarely",
-      P4: "For special occasions"
-    }
+  # When do you go out?
+  QUESTION5 = {
+    P1: "On weekends",
+    P2: "All week",
+    P3: "Rarely",
+    P4: "For special occasions"
+  }
 
 
   def self.find_my_profile(key)
