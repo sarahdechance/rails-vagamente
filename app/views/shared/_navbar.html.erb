@@ -1,2 +1,7 @@
 <%# PENSER A AJOUTER LA profile_picture via 'cl_image_tag current_user.profile_picture.attached? current_user.profile_picture.key : 'autre URL' ' %>
-
+ <nav class="navbar_profile">
+  <%= link_to root_path do %><i class="fa-solid fa-house" ></i><% end %>
+  <%= link_to "#" do %><i class="fa-solid fa-map"></i><% end %>
+  <%= link_to "#" do %><i class="fa-solid fa-plus" ></i><% end %>
+  <%= link_to user_dashboard_path do %><i class="fa-solid fa-user" ></i><% end %>
+  </nav>

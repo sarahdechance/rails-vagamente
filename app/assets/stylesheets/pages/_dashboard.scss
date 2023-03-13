@@ -1,9 +1,71 @@
-.avatar {
-  width: 40px;
+.avatar_dashboard {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.avatar_dashboard img {
+  width: 150px;
   border-radius: 50%;
 }
 
+// Style the user's pseudo and add a font-size and margin
+.user_pseudo {
+  margin: 10px 0;
+  text-align: center;
+}
+
+// Center the user's name and trip names
+.user_name .trip_name {
+  text-align: center;
+}
+
+.button_done_profile {
+  display: block;
+  margin: auto;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
 .avatar_dashboard {
-  width: 40px;
-  border-radius: 50%;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.user_pseudo {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 1px solid black;
+  border-color: azure;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: grey;
+  border-radius: 8px;
+}
+
+.profile-email-username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.zizi {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 1px solid black;
+  border-color: azure;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: grey;
+  border-radius: 8px;
 }
