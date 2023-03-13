@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 <h1>Tell us a little bit more about your trip to BERLIN</h1>
 <h2>What’s your mood</h2>
 <p>One answer only, all-in </p>
 <div container='form-recherche'>
+=======
+<div class="container">
+  <h1>Tell us a little bit more about your trip to <%= @query.capitalize %></h1><br>
+>>>>>>> 49338b6da3c1c6d348558fb5b6bab7fd149a73e1
 
-<%= form_tag(places_path({query: 'coucouy'}), method: 'get') do %>
+  <h2>What's your mood?</h2>
+  <p>One answer only</p>
+  <%= form_tag(places_path, method: 'get') do %>
 
+<<<<<<< HEAD
   <div class="form-section">
     <%#= label_tag(:name, "Choisis ton mood?") %><br>
   <div>
@@ -34,12 +42,43 @@
   <% end %>
 
 <% end %>
+=======
+    <div>
+      <%= hidden_field_tag(:query, @query) %>
+      <%= radio_button_tag(:name, 'Party Animal', checked: true, class: 'form-button') %>
+      <%= label_tag(:name_party, "Party Animal", class: 'form-button-label') %>
+      <%= radio_button_tag(:name, 'Chillseeker', class: 'form-button') %>
+      <%= label_tag(:name_chill, "Chillseeker", class: 'form-button-label') %>
+      <%= radio_button_tag(:name, 'Gourmet explorer', class: 'form-button') %>
+      <%= label_tag(:name_restaurant, "Gourmet explorer", class: 'form-button-label') %>
+      <%= radio_button_tag(:name, 'Bar Hopper', class: 'form-button') %>
+      <%= label_tag(:name_bar, "Bar Hopper", class: 'form-button-label') %> <br><br><br>
+    </div>
 
-  <%= submit_tag("Obtenir les résultats") %>
-<% end %>
+    <h2>What do you want to discover?</h2>
+    <p>You can select multiple answers</p>
+    <%= field_set_tag 'Which kind of places ?' do %>
+      <p><%= check_box_tag "Night-club" %>Night-club</p>
+      <p><%= check_box_tag "Restaurant" %>Restaurant</p>
+      <p><%= check_box_tag "Bar" %>Bar</p>
+    <% end %>
+>>>>>>> 49338b6da3c1c6d348558fb5b6bab7fd149a73e1
+
+    <%= field_set_tag 'How should it be?' do %>
+      <% @tags.each do |tag| %>
+          <p><%= check_box_tag tag %> <%= tag.name %></p>
+      <% end %>
+
+    <% end %>
+
+    <%= submit_tag("Get my recommendations") %>
+  <% end %>
+
+<<<<<<< HEAD
 
 
 
-
+=======
+>>>>>>> 49338b6da3c1c6d348558fb5b6bab7fd149a73e1
 
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_162341) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_12_162520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_162341) do
     t.bigint "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.text "comment"
     t.index ["bookmark_id"], name: "index_bookmark_tags_on_bookmark_id"
     t.index ["tag_id"], name: "index_bookmark_tags_on_tag_id"
   end
@@ -56,8 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_162341) do
     t.bigint "user_id", null: false
     t.bigint "trip_id"
     t.integer "status", default: 0
-    t.integer "rating"
-    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_bookmarks_on_place_id"
@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_162341) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category"
   end
 
   create_table "tags", force: :cascade do |t|

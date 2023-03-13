@@ -1,0 +1,52 @@
+.page-is-changing {
+
+  height: 100vh;
+  display: flex;
+
+  .cd-logo {
+      position: fixed;
+      z-index: 4;
+      top: 40%;
+      animation: animatezoom 0.8s;
+      left: calc(50% - 5.6rem);
+      width: 11.3rem;
+      height: 10%;
+      width: 500px;
+      margin: 0 auto;
+
+  }
+
+  @media screen and (max-width: 780px) {
+      .cd-logo {
+          position: fixed;
+          z-index: 4;
+          margin: 0;
+          top: 40%;
+          left: 50%;
+          width: 11.3rem;
+          height: 10%;
+      }
+
+}
+
+}
+
+
+.page-is-changing img {
+  width: 80%;
+  margin: auto;
+  display: block;
+}
+
+.div-with-bg {
+  background-image: url(homepageback.jpg);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}

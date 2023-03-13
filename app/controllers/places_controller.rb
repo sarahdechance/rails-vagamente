@@ -2,19 +2,20 @@ class PlacesController < ApplicationController
 
   def index
     # list my location & tag query's results
-    raise
-    @places = current_user.places
-    @markers = @places.geocoded.map do |place|
-      {
-        lat: place.latitude,
-        lng: place.longitude
-      }
-    end
-    @query = params[:query]
-    if params[:query].present?
-      sql_query = "address ILIKE :query"
-      @places = Place.where(sql_query, query: "%#{params[:query]}%")
-    end
+
+    @places = Place.all
+    # @markers = @places.geocoded.map do |place|
+    #   {
+      #     lat: place.latitude,
+      #     lng: place.longitude
+      #   }
+      # end
+      @query = params[:query]
+      if params[:query].present?
+        sql_query = "address ILIKE :query"
+        @places = @places.where(sql_query, query: "%#{params[:query]}%")
+      end
+      @places = @places.sample(4)
 
   end
 
@@ -24,8 +25,9 @@ class PlacesController < ApplicationController
         lat: @place.latitude,
         lng: @place.longitude
       }
+    @trips = current_user.trips #DEVRAIT FONCTIONNER MAIS FAIT PLANTER, current_user n'existerait pas..
     @bookmark = Bookmark.new
-    @reco_places = [Place.find(67)]
+    @reco_places = [Place.where(name: "Oplato")]
     # A AJOUTER AVEC LES RECOS ASSOCIES = TAGS SIMILAIRES? OU MAJ DE PROFIL QUI LE PUSH => CHERCHER LES TAGS DU LIEU PARMI CES PROFILS?
   end
 
