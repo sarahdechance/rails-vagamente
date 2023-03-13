@@ -41,12 +41,31 @@
 .div-with-bg {
   background-image: url(homepageback.jpg);
     /* Full height */
-    height: 100%;
+    height: 98vh;
+    margin: 10px;
 
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
+    display: flex;
+    align-items: end;
 
+}
+
+
+.nav-pills .nav-link.active {
+  background-color:#ab30d8!important;
+  opacity: 1;
+}
+
+button.nav-link.button-main {
+  border: solid 2px #ab30d8;
+  background-color: none;
+  opacity:0.8;
+}
+
+#myTab {
+  gap: 0.5rem;
 }
