@@ -13,12 +13,7 @@ class Place < ApplicationRecord
   }
 
   def bookmarked?(current_user)
-    test = self.users.select { |user| user.id == current_user.id }
-    if test.count == 1
-      return true
-    else
-      return false
-    end
+    return  self.users.any? { |user| user.id == current_user.id }
   end
 
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookmarks, only: %i[create]
   end
   resources :bookmarks, except: %i[new create show] do
-    resources :bookmark_tags, only: %i[create]
+    resources :bookmark_tags, only: %i[create new]
   end
 
   resources :trips

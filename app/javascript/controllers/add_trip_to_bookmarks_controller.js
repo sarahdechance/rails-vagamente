@@ -1,16 +1,15 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["tripList"]
+  static targets = ["popUp", "tripList"]
 
   connect() {
     console.log("Hello World!");
   }
 
-  showTrips(event) {
+  popUp(event) {
     event.preventDefault()
-    console.log("hi there!");
-    this.tripListTarget.classList.toggle("d-none");
+    this.popUpTarget.classList.remove("d-none");
   }
 
 }
