@@ -1,3 +1,4 @@
+
 <div class="container padding-bottom-wrapper" data-controller="research-form">
   <div class="research-intro-container" data-research-form-target="intro">
     <h1>Tell us more about <br>
@@ -17,9 +18,6 @@
             <%= name %>
           <% end %>
         <% end %>
-        <div class="next-page text-right">
-          <i class="fa-solid fa-arrow-right" data-action="click->research-form#next"></i>
-        </div>
     </div>
 
     <div class="form-question m-10" data-research-form-target="element">
@@ -48,6 +46,5 @@
     </div>
 
     <%= submit_tag "Get my recommandations", class: "button-main" %>
-
   <% end %>
 </div>

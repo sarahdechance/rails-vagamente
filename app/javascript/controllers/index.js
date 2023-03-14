@@ -7,11 +7,20 @@ import { application } from "./application"
 import AddTripToBookmarksController from "./add_trip_to_bookmarks_controller"
 application.register("add-trip-to-bookmarks", AddTripToBookmarksController)
 
+import DisableButtonController from "./disable_button_controller"
+application.register("disable-button", DisableButtonController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import HomepageController from "./homepage_controller"
+application.register("homepage", HomepageController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import TabsController from "./tabs_controller"
+application.register("tabs", TabsController)
 
 import ProfileFormController from "./profile_form_controller"
 application.register("profile-form", ProfileFormController)

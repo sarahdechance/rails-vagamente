@@ -283,30 +283,43 @@ puts "Setting places..."
 hipst_cl1 = Place.create({
   name: "La Gare / Le Gore",
   address: "1, avenue Corentin Cariou, 75019 Paris",
+  image: "https://agendaculturel.emstorage.fr/la-gare-le-gore-20221228150742.jpg",
+  description: "There are free concerts from 9pm daily, set in what used to be the station’s entrance hall, which works perfectly to accommodate the warm sounds of saxophones and trumpets. There’s not a jot of elitism though and you can wander about during the session to grab a drink from the affordable bar: pints start at €5, most cocktails are €7 and you a plate of charcuterie weighs in at €11.",
   genre: 2
 })
 
 hipst_cl2 = Place.create({
   name: "Badaboum",
   address: "2 bis Rue des Taillandiers, 75011 Paris",
+  image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/b4/97/39/badaboum-club.jpg?w=900&h=600&s=1",
+  description: "Located in the heart of Bastille and proud of its fully polymorphic way of life: Badaboum is a dedicated long sets club for house and techno lovers.",
+  phone_number: "01 48 06 50 70",
   genre: 2
 })
 
 hipst_cl3 = Place.create({
   name: "Cabaret Sauvage",
   address: "59 Bd Macdonald, 75019 Paris",
+  image: "https://utopia-paris.com/upload/media/place_slider/0001/02/thumb_1229_place_slider_medium/cabaret-sauvage.jpeg",
+  description: "Created in 1997, Le Cabaret Sauvage is a theatre located in the Parc de la Villette in Paris. Decorated with red velvet and mirrors, the place makes us dive back into the world of the circus and cabaret of the Belle Époque. In summer, it opens its terrace, offering its public a second outdoor stage.",
+  phone_number: "01 42 09 03 09",
   genre: 2
 })
 
 hipst_cl4 = Place.create({
   name: "La Station - Gare des mines",
   address: "29 Av. de la Prte d'Aubervilliers, 75018 Paris",
+  image: "https://offloadmedia.feverup.com/parissecret.com/wp-content/uploads/2017/11/23150847/37032493_1839351469461648_2194463945903833088_n2.jpg",
+  description: "Near the Porte d’Auberviliers, La Station bring the best of the emerging musical scene, heavily inspired by garage rock and alternative electro. And with no fewer than 400m² of space available, it’s the perfect place to party without disturbing the neighbours. When the sun is out, why not chill out and relax on the terrace.",
+  phone_number: "09 73 26 11 47",
   genre: 2
 })
 
 hipst_cl5 = Place.create({
   name: "La Machine du Moulin Rouge",
   address: "90 Bd de Clichy, 75018 Paris",
+  image: "https://cdn.sortiraparis.com/images/1001/41889/214513-feerie-au-moulin-rouge-gagnez-un-diner-spectacle-pour-2-personnes.jpg",
+  description: "Club & Concert venue, La Machine du Moulin Rouge is a A shape-shifting place, historical venue located at the heart of the most effervescent district in Paris. La Machine du Moulin Rouge comprises 4 main rooms spread over 4 levels.",
   genre: 2
 })
 
@@ -459,6 +472,8 @@ inst_res1 = Place.create({
   name: "Django",
   address: "24 Rue Victor Massé, 75009 Paris",
   image: "https://media.timeout.com/images/105588062/1024/576/image.jpg",
+  phone_number:
+  description:
   genre: 0
 })
 
