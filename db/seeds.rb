@@ -14,6 +14,7 @@ Place.destroy_all
 Tag.destroy_all
 User.destroy_all
 Profile.destroy_all
+Trip.destroy_all
 
 
 puts "Setting profiles..."
@@ -472,8 +473,6 @@ inst_res1 = Place.create({
   name: "Django",
   address: "24 Rue Victor Massé, 75009 Paris",
   image: "https://media.timeout.com/images/105588062/1024/576/image.jpg",
-  phone_number:
-  description:
   genre: 0
 })
 
@@ -570,7 +569,23 @@ end
 
 puts "BookmarkTags created"
 
+"-"*40
 
+puts "Setting Trips..."
+
+trip_paris = Trip.create({
+  name: "Paris"
+})
+
+trip_marseille = Trip.create({
+  name: "Marseille"
+})
+
+trip_lyon = Trip.create({
+  name: "Lyon"
+})
+
+puts "Trips created"
 # teuffeur_profiles = User.where(profile_id: 1)
 # teuffeur_profiles.each do
 #   2.time do
