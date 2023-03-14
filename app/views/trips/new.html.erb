@@ -1,50 +1,63 @@
-
 <div class="container padding-bottom-wrapper" data-controller="research-form">
-  <div class="research-intro-container" data-research-form-target="intro">
-    <h1>Tell us more about <br>
-    your trip to <span class= "text-yellow"> <%= @query.capitalize %></span> :</h1><br>
+  <div class="form-container d-flex align-items-center vh-100">
+
+    <div class="form-header">
+      <div class="research-intro-container" data-research-form-target="intro">
+        <h1>Tell us more about <br>
+        your trip to <span class= "text-yellow"> <%= @query.capitalize %></span> :</h1><br>
+      </div>
+    </div>
+
+      <%= form_with(url: places_path, method: :get, data: {research_form_target: "body", research_form_question_index_value: 0 }, class: "d-none") do %>
+        <%= hidden_field_tag :query, @query %>
+
+        <div class="form-question m-10" data-research-form-target="question">
+          <h3>What's your <br>
+          <span class="text-yellow">mood</span> ?</h3>
+            <% profile_names = ["Party Animal", "Bar Hopper", "Chill Seeker", "Gourmet Explorer"] %>
+            <% profile_names.each do |name| %>
+              <%= label_tag "profile_#{name}" do %>
+                <%= radio_button_tag :profile, name, (current_user.profile.name == name ? true : false), data: { action: "click->research-form#next" }, class: "hidden-checkbox" %>
+                <%= name %>
+              <% end %>
+            <% end %>
+          <div class="arrow-go align-right">
+            <i class="fa-solid fa-arrow-right" data-action="click->research-form#next"></i>
+          </div>
+        </div>
+
+        <div class="form-question m-10 d-none" data-research-form-target="question">
+          <h3>What do you want to <br>
+          <span class="text-yellow">discover</span> ?</h3>
+          <p><em>You can select multiple places</em></p>
+            <% places = Place.genres.keys.each do |key| %>
+              <%= label_tag "genre_#{key}" do %>
+                <%= check_box_tag "genre[]", key, false, { id: "genre_#{key}", class: "hidden-checkbox" } %>
+                <%= key.capitalize %>
+              <% end %>
+            <% end %>
+          <div class="arrow-go align-right">
+            <i class="fa-solid fa-arrow-right" data-action="click->research-form#next"></i>
+          </div>
+        </div>
+
+        <div class="form-question d-none" data-research-form-target="question">
+          <h3>Fine tune your <br>
+          <span class= "text-purple">taste</span></h3>
+          <p><em>You can select multiple tags</em></p>
+            <% @tags.each do |tag| %>
+              <%= label_tag "tag_#{tag.name}" do %>
+                <%= check_box_tag "tags[]", tag.name, false, { id: "tag_#{tag.name}", data: { action: "click->research-form#next" }, class: "hidden-checkbox-tag tag-pill" } %>
+                <i class="fa-solid fa-tag"></i>
+                <%= tag.name %>
+              <% end %>
+            <% end %>
+          <div class="form-submit align-right m-2 ">
+            <%= submit_tag "Get my recommandations", class: "button-main" %>
+          </div>
+        </div>
+
+
+      <% end %>
   </div>
-
-  <%= form_with url: places_path, method: :get do %>
-    <%= hidden_field_tag :query, @query %>
-
-    <div class="form-question m-10" data-research-form-target="element">
-      <h3>What's your <br>
-      <span class="text-yellow">mood</span> ?</h3>
-        <% profile_names = ["Party Animal", "Bar Hopper", "Chill Seeker", "Gourmet Explorer"] %>
-        <% profile_names.each do |name| %>
-          <%= label_tag "profile_#{name}" do %>
-            <%= radio_button_tag :profile, name, (current_user.profile.name == name ? true : false), data: {action: "click->research-form#next"}, class: "hidden-checkbox" %>
-            <%= name %>
-          <% end %>
-        <% end %>
-    </div>
-
-    <div class="form-question m-10" data-research-form-target="element">
-      <h3>What do you want to <br>
-      <span class="text-yellow">discover</span> ?</h3>
-      <p><em>You can select multiple places</em></p>
-        <% places = Place.genres.keys.each do |key| %>
-          <%= label_tag "genre_#{key}" do %>
-            <%= check_box_tag "genre[]", key, false, { id: "genre_#{key}", data: {action: "click->research-form#next"}, class: "hidden-checkbox" } %>
-            <%= key.capitalize %>
-          <% end %>
-        <% end %>
-    </div>
-
-    <div class="form-question" data-research-form-target="element">
-      <h3>Fine tune your <br>
-      <span class= "text-purple">taste</span></h3>
-      <p><em>You can select multiple tags</em></p>
-        <% @tags.each do |tag| %>
-          <%= label_tag "tag_#{tag.name}" do %>
-            <%= check_box_tag "tags[]", tag.name, false, { id: "tag_#{tag.name}", class: "hidden-checkbox-tag tag-pill" } %>
-            <i class="fa-solid fa-tag"></i>
-            <%= tag.name %>
-          <% end %>
-        <% end %>
-    </div>
-
-    <%= submit_tag "Get my recommandations", class: "button-main" %>
-  <% end %>
 </div>
