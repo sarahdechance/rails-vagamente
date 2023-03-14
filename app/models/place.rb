@@ -6,6 +6,12 @@ class Place < ApplicationRecord
 
   validates :name, :address, presence: true
 
+  enum genre: {
+    restaurant: 0,
+    bar: 1,
+    club: 2
+  }
+
   def bookmarked?(current_user)
     test = self.users.select { |user| user.id == current_user.id }
     if test.count == 1
@@ -54,7 +60,6 @@ class Place < ApplicationRecord
 
     ordered_tags = tag_hash.to_a.sort_by! { |k, v| v }
     return ordered_tags.reverse.first(number)
-
   end
 
 
@@ -62,11 +67,6 @@ class Place < ApplicationRecord
   # calculer la moyenne de chaque profil
   # définir la pondération de chaque profil
 
-  enum genre: {
-    resto: 0,
-    bar: 1,
-    club: 2
-  }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

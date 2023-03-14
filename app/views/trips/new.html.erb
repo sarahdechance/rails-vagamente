@@ -1,6 +1,9 @@
-<div class="container">
-  <h1>Tell us more about <br>
-  your trip to <span class= "text-yellow"> <%= @query.capitalize %></span> :</h1><br>
+
+<div class="container padding-bottom-wrapper" data-controller="research-form">
+  <div class="research-intro-container">
+    <h1>Tell us more about <br>
+    your trip to <span class= "text-yellow"> <%= @query.capitalize %></span> :</h1><br>
+  </div>
 
   <%= form_with url: places_path, method: :get do %>
     <%= hidden_field_tag :query, @query %>
@@ -43,5 +46,9 @@
     </div>
 
     <%= submit_tag "Get my recommandations", class: "button-main" %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
   <% end %>
 </div>

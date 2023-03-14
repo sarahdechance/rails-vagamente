@@ -1,29 +1,51 @@
-<div data-controller='homepage'>
-  <div class="container">
-    <div class='page-is-changing'>
-      <%= image_tag "logo.png" %>
+<% if user_signed_in? %>
+
+  <div class="position-relative">
+    <div class="container-fluid position-absolute search-input">
+      <% if params[:controller] == "pages" && params[:action] == "home" %>
+        <%= form_with url: new_trip_path, method: :get, class: "d-flex me-2 " do %>
+          <%= text_field_tag :query, params[:query], class: "search-navbar", placeholder: "Where will your new trip be?" %>
+          <button class="btn btn-secondary ml-auto btn-search" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="wrapper-index-map" style="height: 100vh;">
+      <%= render "shared/geocoder", markers: @markers %>
     </div>
   </div>
 
-  <div class="container div-with-bg" data-homepage-target='bottom'>
-    <!-- Aggiungere controller stimulus su tutta la pagina e dopo faccio set interval e poi la metodologia per fare scroller  -->
-    <div class="col align-self-end" data-controller='tabs'>
-      <ul class="nav nav-pills nav-justified mb-3" id="myTab">
-        <button class="nav-link button-main" data-tabs-target='signInBtn' data-action='click->tabs#signIn'>Sign in</button>
-        <button class="nav-link button-main" data-tabs-target='registerBtn' data-action='click->tabs#register'>Register</button>
-      </ul>
+  <%= render "shared/navbar" %>
 
-      <div>
-        <div class='d-none' data-tabs-target='signIn'>
-          <%= render 'shared/sign_in_form' %>
-        </div>
+<% else %>
+  <div data-controller='homepage'>
+    <div class="container">
+      <div class='page-is-changing'>
+        <%= image_tag "logo.png" %>
+      </div>
+    </div>
 
-        <div class="d-none" data-tabs-target='register'>
-          <%= render 'shared/register_form' %>
+    <div class="container div-with-bg" data-homepage-target='bottom'>
+      <!-- Aggiungere controller stimulus su tutta la pagina e dopo faccio set interval e poi la metodologia per fare scroller  -->
+      <div class="col align-self-end" data-controller='tabs'>
+        <ul class="nav nav-pills nav-justified mb-3" id="myTab">
+          <button class="nav-link button-main" data-tabs-target='signInBtn' data-action='click->tabs#signIn'>Sign in</button>
+          <button class="nav-link button-main" data-tabs-target='registerBtn' data-action='click->tabs#register'>Register</button>
+        </ul>
+
+        <div>
+          <div class='d-none' data-tabs-target='signIn'>
+            <%= render 'shared/sign_in_form' %>
+          </div>
+
+          <div class="d-none" data-tabs-target='register'>
+            <%= render 'shared/register_form' %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <%# AJOUTER UN IF AVEC LE CODE DE LA MAP SI CONNECTE  %>
-</div>
+<% end %>

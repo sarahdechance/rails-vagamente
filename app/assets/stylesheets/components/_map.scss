@@ -2,10 +2,15 @@
   max-width: 50px;
 }
 
+.wrapper-index-map {
+  z-index: 1;
+  position: relative;
+}
+
 .mapboxgl-popup-content {
   border-radius: 16px !important;
   background: black !important;
-  border: solid #EEA538;
+  border: solid $yellow-vagamente;
 }
 
 .mapboxgl-popup-content a {

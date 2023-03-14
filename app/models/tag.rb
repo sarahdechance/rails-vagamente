@@ -7,7 +7,7 @@ class Tag < ApplicationRecord
 
   enum category: {
     tous: 0,
-    resto: 1,
+    restaurant: 1,
     bar: 2,
     club: 3
   }

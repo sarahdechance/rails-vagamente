@@ -5,7 +5,7 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { class: "formhome", autocomplete: "email" }%>
     <%= f.input :pseudo,
                 required: true,
                 autofocus: true,
@@ -24,3 +24,5 @@
     <%= f.button :submit, "submit", class:'button-main' %>
   </div>
 <% end %>
+
+<%#il manque la compilation de la class "formhome" da creare in CSS %>
