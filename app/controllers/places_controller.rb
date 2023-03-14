@@ -16,8 +16,15 @@ class PlacesController < ApplicationController
         @places = @places.where(sql_query, query: "%#{params[:query]}%")
       end
       @places = @places.sample(4)
-    @trips = current_user.trips # Pour la modale d'ajout des bookmarks => avoir la liste des trips déjà créés de mon user
-    @trip = Trip.new # Pour la modale d'ajout des bookmarks => créer une nouvelle instance de Trips
+
+      @best_matches = Place.all.sample(3)
+      @reco_bars = Place.where(genre: 1)
+      @reco_restaurants = Place.where(genre: 0)
+      @reco_club = Place.where(genre: 2)
+      
+      @trips = current_user.trips # Pour la modale d'ajout des bookmarks => avoir la liste des trips déjà créés de mon user
+      @trip = Trip.new # Pour la modale d'ajout des bookmarks => créer une nouvelle instance de Trips
+
   end
 
   def show
