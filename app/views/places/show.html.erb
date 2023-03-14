@@ -1,7 +1,7 @@
 <div class="container">
   <%= link_to "Back to results", :back, class: "link-secondary-perso" %>
 
-  <%# IMAGE NE FONCTIONNE PAS - CF PRECEDANT CODE SI BESOIN %>
+  <%# IMAGE NE FONCTIONNE PAS - CF PRECEDENT CODE SI BESOIN %>
   <div class="place-show-image" style="background-image: url('<% @place.image? ? @place.image : "../app/assets/images/no_image.jpg" %>')">
   <% if @place.image? %>
       <%= image_tag @place.image %>
@@ -27,9 +27,9 @@
       </div>
 
       <div class="place-tag-list"> <%# REND UNIQUE CHAQUE TAG ET DONNE LE NB DE FOIS QU'IL A ETE ATTRIBUE: %>
-        <% @place.tag_list.each do |tag, value| %>
+        <% @place.tag_list(4).each do |tag| %>
           <div class="place-tag">
-            <p><%= tag.downcase %></p>
+            <p><%= tag.first.downcase %></p>
           </div>
         <% end %>
       </div>
@@ -39,13 +39,28 @@
       <% if @place.bookmarked?(current_user) %>
         <button class="button-main">Already in your bookmarks</button>
       <% else %>
-        <%= link_to "Add to my bookmarks", place_bookmarks_path(@place), data: { turbo_method: :post }, class: "button-main" %>
+        <div class="" data-controller="add-trip-to-bookmarks">
+          <%= link_to "Add to my bookmarks", "#", data: {action: "click->add-trip-to-bookmarks#showTrips" }%>
+          <%= form_with url: place_bookmarks_path(@place), method: :post, data: {add_trip_to_bookmarks_target: "tripList"} ,class: "d-none" do |form| %>
+            <% if @trips.present? %>
+              <%= form.select :trip, @trips.map { |trip| [trip.name, trip.id] } %>
+            <% end %>
+            <%# ADD A NEW TRIP A AJOUTER %>
+            <%#= form.label :trip, "Add a new trip"%>
+            <%#= form.input :trip %>
+          <% end %>
+        </div>
+        <%#= link_to "Add to my bookmarks", place_bookmarks_path(@place), data: { turbo_method: :post }, class: "button-main" %>
       <% end %>
     </div>
 
     <div class="border-bottom-container center">
       <p> </p>
     </div>
+
+  <%= link_to root_path do %>
+    #icone
+  <% end %>
 
     <div class="place-show-descr">
       <h3>About</h3>
