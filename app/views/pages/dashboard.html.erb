@@ -9,15 +9,33 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body>
-    <div class="avatar_dashboard"><%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %></div>
-      <div class="profile-category-username">
-        <div class="user_pseudo"><%= current_user.pseudo %></div>
-          <div class="profile_category"><%= current_user.profile.name %> <br></div>
-            <div><%= @my_trips.count %></div>
-              <div><%= @my_places.count %></div>
-                <div class=><%= @my_reviews.count %></div>
-              <% current_user.trips.each do |trip| %>
-               <%= trip.name %>
-             <% end %>
-            <input class= "button-Plan-profile" type="button" value="Plan another trip">
+  <div class="container">
+    <div class="avatar_dashboard">
+      <%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %>
+    </div>
+    <div class="user_pseudo">
+      <%= current_user.pseudo %>
+    </div>
+    <div class="profile_category">
+      <%= current_user.profile.name %> <br>
+    </div>
+    <div class="profile-boxes-trips">
+      <div class="my-counts">
+        <%= @my_trips.count %> <br>
+        <p class="trips-string">Cities</p>
       </div>
+      <div class="my-counts">
+        <%= @my_reviews.count %> <br>
+        <p class="reviews-string">Reviews</p>
+      </div>
+      <div class="my-counts">
+        <%= @my_places.count %> <br>
+        <p class="places-string">Places</p>
+      </div>
+    </div>
+    <p class="your-best-places">Your <strong>best places</strong> in :</p>
+    <% current_user.trips.each do |trip| %>
+      <%= trip.name %>
+    <% end %>
+    <input class= "button-Plan-profile" type="button" value="Plan another trip">
+  </div>

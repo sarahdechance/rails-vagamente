@@ -3,11 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .avatar_dashboard img {
   width: 150px;
+  height: 150px;
   border-radius: 50%;
 }
 
@@ -21,11 +22,13 @@
 }
 
 .button-Plan-profile {
+  color: white;
+  font-size: 15px;
   display: block;
   margin: auto;
   align-items: center;
-  margin-top: 100px;
-  margin-bottom: 60px;
+  margin-top: 200px;
+  margin-bottom: 30px;
   padding: 10px;
   border-radius: 8px;
   background-color: #EEA538;
@@ -33,15 +36,15 @@
 
 .avatar_dashboard {
   flex-direction: column;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 .user_pseudo {
-  margin-top: 25px;
+  margin-top: 10px;
   margin-bottom: 25px;
 }
 
-.profile-category-username {
+.profile-boxes-trips {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,19 +52,45 @@
 }
 
 .profile_category {
+  color: black;
   display: block;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+}
+
+.profile-boxes-trips {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5vw;
+}
+
+.my-counts {
+  width: 100%;
+  display: flex;
   margin: auto;
   align-items: center;
   margin-top: 10px;
-  margin-bottom: 60px;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin-bottom: 30px;
+  padding: 10px;
   border-radius: 8px;
   background: rgb(134, 125, 125);
+  font-style: bold;
+  font-size: x-large;
+  flex-direction: column;
+
+  p {
+    font-size: small;
+
+  }
 }
 
-h1 {
-  display: flex;
-  flex-direction: row;
-  margin-right: 10px;
+.your-best-places {
+  font-size: 2em;
 }

@@ -1,0 +1,31 @@
+.container {
+
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+    font-size: 1em; //réajuster la taille du texte h2
+    font-weight: thin;
+  }
+  h3 {
+    text-align: center;
+  }
+  hr {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.places-name-pop {
+  text-align: center;
+}
+
+.button-save-review {
+  justify-content: center;
+  background: black;
+  color: white;
+}
