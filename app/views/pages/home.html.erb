@@ -1,26 +1,18 @@
-<h1>Vagamente</h1>
-<div class="container-fluid">
-      <% if params[:controller] == "pages" && params[:action] == "home" %>
-        <%= form_with url: new_trip_path, method: :get, class: "d-flex me-2 " do %>
-          <%= text_field_tag :query, params[:query], class: "search-navbar", placeholder: "Where will your new trip be?" %>
-          <button class="btn btn-secondary ml-auto" type="submit" style="border-radius: 30px">Let's go!</button>
-        <% end %>
+<div class="position-relative">
+  <div class="container-fluid position-absolute search-input">
+    <% if params[:controller] == "pages" && params[:action] == "home" %>
+      <%= form_with url: new_trip_path, method: :get, class: "d-flex me-2 " do %>
+        <%= text_field_tag :query, params[:query], class: "search-navbar", placeholder: "Where will your new trip be?" %>
+        <button class="btn btn-secondary ml-auto btn-search" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       <% end %>
-    </form>
-</div>
+    <% end %>
+  </div>
 
-<div class="home_map" style="height: 600px">
-  <%= render "shared/geocoder" %>
-</div>
+  <div class="wrapper-index-map" style="height: 100vh;">
+    <%= render "shared/geocoder", markers: @markers %>
+  </div>
 
-<% if user_signed_in? %>
-  <%= link_to "My profile", user_dashboard_path %>
-  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
-<% else %>
-  <%= link_to "Sign in", new_user_session_path %>
-<% end %>
-<%# PAGE D'ACCUEIL SANS MAP AVEC RECHERCHE + LIEN SECONDAIRE VERS MES ADRESSES (map)  %>
 
-<div style="height: 750px">
-   <%= render "shared/geocoder", markers: @markers %>
 </div>
