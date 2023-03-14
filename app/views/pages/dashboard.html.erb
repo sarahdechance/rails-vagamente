@@ -13,9 +13,9 @@
       <div class="profile-category-username">
         <div class="user_pseudo"><%= current_user.pseudo %></div>
           <div class="profile_category"><%= current_user.profile.name %> <br></div>
-            <div></div><h1>yo</h1>
-              <div></div><h1>yo</h1>
-                <div></div><h1>yo</h1>
+            <div><%= @my_trips.count %></div>
+              <div><%= @my_places.count %></div>
+                <div class=><%= @my_reviews.count %></div>
               <% current_user.trips.each do |trip| %>
                <%= trip.name %>
              <% end %>

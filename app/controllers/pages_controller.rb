@@ -21,5 +21,8 @@ class PagesController < ApplicationController
 
   def dashboard
     # page de profil : penser à ajouter la photo de profil
+    @my_trips = current_user.trips
+    @my_places = current_user.places
+    @my_reviews = current_user.bookmark_tags
   end
 end

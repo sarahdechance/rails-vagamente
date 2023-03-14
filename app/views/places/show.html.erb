@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container padding-bottom-wrapper">
   <%= link_to "Back to results", :back, class: "link-secondary-perso" %>
 
   <%# IMAGE NE FONCTIONNE PAS - CF PRECEDENT CODE SI BESOIN %>
@@ -35,7 +35,7 @@
       </div>
 
 
-      <%#= LAISSER LE CHOIX DU TRIP AUQUEL INTEGRER LE BOOKMARK => NE FONCTIONNE PAS ENCORE! CF conversation car fait planter le code %>
+      <%#= LAISSER LE CHOIX DU TRIP AUQUEL INTEGRER LE BOOKMARK %>
       <% if @place.bookmarked?(current_user) %>
         <button class="button-main">Already in your bookmarks</button>
       <% else %>
