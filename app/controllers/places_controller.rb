@@ -21,13 +21,13 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    @markers = {
+    @markers = [{
         lat: @place.latitude,
         lng: @place.longitude
-      }
-    @trips = current_user.trips 
+      }]
+    @trips = current_user.trips
     @bookmark = Bookmark.new
-    @reco_places = [Place.where(name: "Oplato")]
+    @reco_places = [Place.all.sample]
     # A AJOUTER AVEC LES RECOS ASSOCIES = TAGS SIMILAIRES? OU MAJ DE PROFIL QUI LE PUSH => CHERCHER LES TAGS DU LIEU PARMI CES PROFILS?
   end
 

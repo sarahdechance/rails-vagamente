@@ -1,1 +1,18 @@
 // Specific CSS for your home-page
+
+.search-navbar {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 10px;
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  font-size: 18px;
+
+}
+
+.search-input {
+  z-index: 10;
+  top: 15px;
+  left: 5px;
+}

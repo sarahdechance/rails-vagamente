@@ -1,7 +1,7 @@
 <div class="container padding-bottom-wrapper">
   <%= link_to "Back to results", :back, class: "link-secondary-perso" %>
 
-  <%# IMAGE NE FONCTIONNE PAS - CF PRECEDANT CODE SI BESOIN %>
+  <%# IMAGE NE FONCTIONNE PAS - CF PRECEDENT CODE SI BESOIN %>
   <div class="place-show-image" style="background-image: url('<% @place.image? ? @place.image : "../app/assets/images/no_image.jpg" %>')">
   <% if @place.image? %>
       <%= image_tag @place.image %>
@@ -27,9 +27,9 @@
       </div>
 
       <div class="place-tag-list"> <%# REND UNIQUE CHAQUE TAG ET DONNE LE NB DE FOIS QU'IL A ETE ATTRIBUE: %>
-        <% @place.tag_list.each do |tag, value| %>
+        <% @place.tag_list(4).each do |tag| %>
           <div class="place-tag">
-            <p><%= tag.downcase %></p>
+            <p><%= tag.first.downcase %></p>
           </div>
         <% end %>
       </div>

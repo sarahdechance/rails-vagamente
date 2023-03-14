@@ -8,3 +8,18 @@
   text-decoration: none;
   border: none;
 }
+
+.btn-search {
+  font-size: 24px;
+  border: none;
+  margin-left: 5px;
+  border-radius: 10px;
+  width: 65px;
+  background-color: $yellow-vagamente;
+}
+
+
+.button-main:hover {
+  text-decoration: none;
+  color: black;
+}

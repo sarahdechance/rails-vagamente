@@ -48,7 +48,7 @@ class Place < ApplicationRecord
 
   end
 
-  def tag_list
+  def tag_list(number)
     tag_hash = {}
     self.tags.each do |tag|
       if tag_hash[tag.name].nil?
@@ -57,10 +57,9 @@ class Place < ApplicationRecord
         tag_hash[tag.name] += 1
       end
     end
-    return tag_hash
 
-
-
+    ordered_tags = tag_hash.to_a.sort_by! { |k, v| v }
+    return ordered_tags.reverse.first(number)
   end
 
 
@@ -71,8 +70,5 @@ class Place < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
-
-
 
 end

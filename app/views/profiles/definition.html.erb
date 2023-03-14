@@ -17,7 +17,9 @@
             your <span class="text-yellow">evenings</span> ?</h3>
             <% Profile::QUESTION1.each do |key, value| %>
               <%= label_tag "question1_#{key}" do %>
-                <%= check_box_tag "Q1[]", key, false, { id:"question1_#{key}", data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+                <%=  %>
+                <%= radio_button_tag "Q1[]", key, false, { id: "question1_#{key}", data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+                <%#= check_box_tag "Q1[]", key, false, { id:"question1_#{key}", data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
                 <%= value %>
               <% end %>
             <% end %>
@@ -29,7 +31,7 @@
         would you be?</h3>
         <% Profile::QUESTION2.each do |key, value| %>
           <%= label_tag do %>
-            <%= check_box_tag "Q2[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+            <%= radio_button_tag "Q2[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
             <%= value %>
           <% end %>
         <% end %>
@@ -40,7 +42,7 @@
         when you're out?</h3>
         <% Profile::QUESTION3.each do |key, value| %>
           <%= label_tag do %>
-            <%= check_box_tag "Q3[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+            <%= radio_button_tag "Q3[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
             <%= value %>
           <% end %>
         <% end %>
@@ -51,7 +53,7 @@
         to go out?</h3>
         <% Profile::QUESTION4.each do |key, value| %>
           <%= label_tag do %>
-            <%= check_box_tag "Q4[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+            <%= radio_button_tag "Q4[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
             <%= value %>
           <% end %>
         <% end %>
@@ -62,7 +64,7 @@
         <span class="text-yellow">go out?</span></h3>
         <% Profile::QUESTION5.each do |key, value| %>
           <%= label_tag "question5_#{key}" do %>
-            <%= check_box_tag "Q5[]", key, false, { id: "question5_#{key}", class: "hidden-checkbox" } %>
+            <%= radio_button_tag "Q5[]", key, false, { id: "question5_#{key}", class: "hidden-checkbox" } %>
             <%= value %>
           <% end %>
         <% end %>
