@@ -42,16 +42,10 @@
 <div class="container-reco">
   <div class="place-index-reco-top">
     <h3><strong>Best Club </strong>in</h3>
-    <% @places.each do |place| %>
-      <div class="card-place">
-        <%= link_to place_path(place) do %>
-          <% if place.image? %>
-            <%= image_tag place.image %>
-            <% else %>
-              <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
-          <% end %>
-        <% end %>
-      </div>
+      <div class="place-cards">
+  <h3><strong>Best Club </strong>in</h3>
+  <% @reco_club.each do |place| %>
+    <%= render "shared/place_card", place: place %>
     <% end %>
   </div>
 

@@ -17,9 +17,9 @@ class PlacesController < ApplicationController
       end
       @places = @places.sample(4)
       @best_matches = Place.all.sample(1)
-      # @reco_bars
-      # @reco_restaurants
-      # @reco_clubs
+      @reco_bars =
+      @reco_restaurants
+      @reco_clubs
 
   end
 
