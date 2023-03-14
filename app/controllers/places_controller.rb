@@ -16,10 +16,10 @@ class PlacesController < ApplicationController
         @places = @places.where(sql_query, query: "%#{params[:query]}%")
       end
       @places = @places.sample(4)
-      @best_matches = Place.all.sample(1)
-      @reco_bars =
-      @reco_restaurants
-      @reco_clubs
+      @best_matches = Place.all.sample(3)
+      @reco_bars = Place.where(genre: 1)
+      @reco_restaurants = Place.where(genre: 0)
+      @reco_club = Place.where(genre: 2)
 
   end
 

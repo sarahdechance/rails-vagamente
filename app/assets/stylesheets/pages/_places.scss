@@ -60,7 +60,8 @@ select:focus {
 }
 
 .cards-place-big {
-  margin-top: -180px;
+    display: flex;
+    overflow-x: auto;
 
     img {
       height: 380px;
@@ -109,11 +110,23 @@ body {
   margin-top: 50px;
 }
 
-.place-index-reco {
+.place-index-reco-mid {
+  margin-top: 20px;
+}
+
+.place-index-reco-bot {
   margin-top: 20px;
 }
 
 .container-reco {
   margin: 15px;
+}
 
+.place-cards-scrollable {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.place-cards {
+  display: inline-block;
 }
