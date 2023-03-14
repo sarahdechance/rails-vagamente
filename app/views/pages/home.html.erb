@@ -1,35 +1,29 @@
 <div data-controller='homepage'>
   <div class="container">
-
     <div class='page-is-changing'>
       <%= image_tag "logo.png" %>
     </div>
   </div>
 
   <div class="container div-with-bg" data-homepage-target='bottom'>
-
-        <!-- Aggiungere controller stimulus su tutta la pagina e dopo faccio set interval e poi la metodologia per fare scroller  -->
-
-
+    <!-- Aggiungere controller stimulus su tutta la pagina e dopo faccio set interval e poi la metodologia per fare scroller  -->
     <div class="col align-self-end" data-controller='tabs'>
       <ul class="nav nav-pills nav-justified mb-3" id="myTab">
-          <button class="nav-link button-main" data-tabs-target='signInBtn' data-action='click->tabs#signIn'>Sign in</button>
-
-          <button class="nav-link button-main" data-tabs-target='registerBtn' data-action='click->tabs#register'>Register</button>
-
+        <button class="nav-link button-main" data-tabs-target='signInBtn' data-action='click->tabs#signIn'>Sign in</button>
+        <button class="nav-link button-main" data-tabs-target='registerBtn' data-action='click->tabs#register'>Register</button>
       </ul>
 
       <div>
-          <div class='d-none' data-tabs-target='signIn'>
-            <%= render 'shared/sign_in_form' %>
-          </div>
+        <div class='d-none' data-tabs-target='signIn'>
+          <%= render 'shared/sign_in_form' %>
+        </div>
 
-          <div class="d-none" data-tabs-target='register'>
-            <%= render 'shared/register_form' %>
-          </div>
-
+        <div class="d-none" data-tabs-target='register'>
+          <%= render 'shared/register_form' %>
+        </div>
       </div>
     </div>
   </div>
 
+  <%# AJOUTER UN IF AVEC LE CODE DE LA MAP SI CONNECTE  %>
 </div>

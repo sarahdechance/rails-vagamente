@@ -1,84 +1,47 @@
-<<<<<<< HEAD
-<h1>Tell us a little bit more about your trip to BERLIN</h1>
-<h2>What’s your mood</h2>
-<p>One answer only, all-in </p>
-<div container='form-recherche'>
-=======
 <div class="container">
-  <h1>Tell us a little bit more about your trip to <%= @query.capitalize %></h1><br>
->>>>>>> 49338b6da3c1c6d348558fb5b6bab7fd149a73e1
+  <h1>Tell us more about <br>
+  your trip to <span class= "text-yellow"> <%= @query.capitalize %></span> :</h1><br>
 
-  <h2>What's your mood?</h2>
-  <p>One answer only</p>
-  <%= form_tag(places_path, method: 'get') do %>
+  <%= form_with url: places_path, method: :get do %>
+    <%= hidden_field_tag :query, @query %>
 
-<<<<<<< HEAD
-  <div class="form-section">
-    <%#= label_tag(:name, "Choisis ton mood?") %><br>
-  <div>
-    <%#= label_tag(:query, 'c moi ', checked: true, class: 'd-none') %>
-    <%= radio_button_tag(:name, 'Party Animal', checked: true, class: 'form-button') %>
-    <%= label_tag(:name_party, "Party Animal", class: 'form-button-label') %>
-    <%= radio_button_tag(:name, 'Chillseeker', class: 'form-button') %>
-    <%= label_tag(:name_chill, "Chillseeker", class: 'form-button-label') %>
-    <%= radio_button_tag(:name, 'Gourmet explorer', class: 'form-button') %>
-    <%= label_tag(:name_restaurant, "Gourmet explorer", class: 'form-button-label') %>
-    <%= radio_button_tag(:name, 'Bar Hopper', class: 'form-button') %>
-    <%= label_tag(:name_bar, "Bar Hopper", class: 'form-button-label') %> <br><br><br>
-  </div>
-</div>
-
-<h2>Do you want to discover</h2>
-<p>You can select multiple answers </p>
-<%= field_set_tag 'Quel type de lieu?' do %>
-  <p><%= check_box_tag "Night-club" %>Night-club</p>
-  <p><%= check_box_tag "Restaurant" %>Restaurant</p>
-  <p><%= check_box_tag "Bar" %>Bar</p>
-<% end %>
-
-<%= field_set_tag 'Quel type de lieu?' do %>
-  <% @tags.each do |tag| %>
-      <p><%= check_box_tag tag %> <%= tag.name %></p>
-  <% end %>
-
-<% end %>
-=======
-    <div>
-      <%= hidden_field_tag(:query, @query) %>
-      <%= radio_button_tag(:name, 'Party Animal', checked: true, class: 'form-button') %>
-      <%= label_tag(:name_party, "Party Animal", class: 'form-button-label') %>
-      <%= radio_button_tag(:name, 'Chillseeker', class: 'form-button') %>
-      <%= label_tag(:name_chill, "Chillseeker", class: 'form-button-label') %>
-      <%= radio_button_tag(:name, 'Gourmet explorer', class: 'form-button') %>
-      <%= label_tag(:name_restaurant, "Gourmet explorer", class: 'form-button-label') %>
-      <%= radio_button_tag(:name, 'Bar Hopper', class: 'form-button') %>
-      <%= label_tag(:name_bar, "Bar Hopper", class: 'form-button-label') %> <br><br><br>
+    <div class="form-question m-10">
+      <h3>What's your <br>
+      <span class="text-yellow">mood</span> ?</h3>
+        <% profile_names = ["Party Animal", "Bar Hopper", "Chill Seeker", "Gourmet Explorer"] %>
+        <% profile_names.each do |name| %>
+          <%= label_tag "profile_#{name}" do %>
+            <%= radio_button_tag :profile, name, (current_user.profile.name == name ? true : false), class: "hidden-checkbox" %>
+            <%= name %>
+          <% end %>
+        <% end %>
     </div>
 
-    <h2>What do you want to discover?</h2>
-    <p>You can select multiple answers</p>
-    <%= field_set_tag 'Which kind of places ?' do %>
-      <p><%= check_box_tag "Night-club" %>Night-club</p>
-      <p><%= check_box_tag "Restaurant" %>Restaurant</p>
-      <p><%= check_box_tag "Bar" %>Bar</p>
-    <% end %>
->>>>>>> 49338b6da3c1c6d348558fb5b6bab7fd149a73e1
+    <div class="form-question m-10">
+      <h3>What do you want to <br>
+      <span class="text-yellow">discover</span> ?</h3>
+      <p><em>You can select multiple places</em></p>
+        <% places = Place.genres.keys.each do |key| %>
+          <%= label_tag "genre_#{key}" do %>
+            <%= check_box_tag "genre[]", key, false, { id: "genre_#{key}", class: "hidden-checkbox" } %>
+            <%= key.capitalize %>
+          <% end %>
+        <% end %>
+    </div>
 
-    <%= field_set_tag 'How should it be?' do %>
-      <% @tags.each do |tag| %>
-          <p><%= check_box_tag tag %> <%= tag.name %></p>
-      <% end %>
+    <div class="form-question">
+      <h3>Fine tune your <br>
+      <span class= "text-purple">taste</span></h3>
+      <p><em>You can select multiple tags</em></p>
+        <% @tags.each do |tag| %>
+          <%= label_tag "tag_#{tag.name}" do %>
+            <%= check_box_tag "tags[]", tag.name, false, { id: "tag_#{tag.name}", class: "hidden-checkbox-tag tag-pill" } %>
+            <i class="fa-solid fa-tag"></i>
+            <%= tag.name %>
+          <% end %>
+        <% end %>
+    </div>
 
-    <% end %>
-
-    <%= submit_tag("Get my recommendations") %>
+    <%= submit_tag "Get my recommandations", class: "button-main" %>
   <% end %>
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 49338b6da3c1c6d348558fb5b6bab7fd149a73e1
-
 </div>

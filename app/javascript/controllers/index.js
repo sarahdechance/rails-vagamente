@@ -21,3 +21,6 @@ application.register("map", MapController)
 
 import TabsController from "./tabs_controller"
 application.register("tabs", TabsController)
+
+import ProfileFormController from "./profile_form_controller"
+application.register("profile-form", ProfileFormController)
