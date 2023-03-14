@@ -25,7 +25,7 @@ class PlacesController < ApplicationController
         lat: @place.latitude,
         lng: @place.longitude
       }
-    @trips = current_user.trips #DEVRAIT FONCTIONNER MAIS FAIT PLANTER, current_user n'existerait pas..
+    @trips = current_user.trips 
     @bookmark = Bookmark.new
     @reco_places = [Place.all.sample]
     # A AJOUTER AVEC LES RECOS ASSOCIES = TAGS SIMILAIRES? OU MAJ DE PROFIL QUI LE PUSH => CHERCHER LES TAGS DU LIEU PARMI CES PROFILS?

@@ -1,8 +1,10 @@
 <div class="container">
   <h1>Tell us a little bit more about your trip to <%= @query.capitalize %></h1><br>
 
-  <h2>What's your mood?</h2>
-  <p>One answer only</p>
+  <h2>Wanna change your mood?</h2>
+  <%= form_with url:places_path, method: :get %>
+  <% end %>
+
   <%= form_tag(places_path, method: 'get') do %>
 
     <div>

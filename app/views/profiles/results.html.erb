@@ -1,0 +1,12 @@
+<div class="container d-flex justify-content-center align-items-center vh-100 text-center">
+  <div class="profile-result">
+    <div class="profile-result-text">
+      <h1>You are a <br>
+      <span class="text-purple"><strong><%= @profile_result.name.downcase %></strong></span></h1>
+    </div>
+
+    <div class="profile-result-redirect my-5">
+      <%= link_to "Let's plan my next trip ", root_path, class: "button-main" %>
+    </div>
+  </div>
+</div>

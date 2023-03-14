@@ -6,23 +6,42 @@ export default class extends Controller {
     apiKey: String,
     markers: Array
   }
-  
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/obryndahood/clf6p73dv00br01lnhqbkq0f2"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
 
   #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
+    navigator.geolocation.getCurrentPosition((position) => {
+      const geolocation = {
+        lng: position.coords.longitude,
+        lat: position.coords.latitude
+      }
+
+      const geolocationMarkerColor = "#0074D9"
+      const geolocationMarker = new mapboxgl.Marker({
+        color: geolocationMarkerColor
+      })
+        .setLngLat([ geolocation.lng, geolocation.lat ])
         .addTo(this.map)
+    })
+
+    const markerColor = "#B10DC9"
+    this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+      new mapboxgl.Marker({
+        color: markerColor
+      })
+      .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
+      .addTo(this.map)
     })
   }
 

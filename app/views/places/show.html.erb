@@ -39,13 +39,28 @@
       <% if @place.bookmarked?(current_user) %>
         <button class="button-main">Already in your bookmarks</button>
       <% else %>
-        <%= link_to "Add to my bookmarks", place_bookmarks_path(@place), data: { turbo_method: :post }, class: "button-main" %>
+        <div class="" data-controller="add-trip-to-bookmarks">
+          <%= link_to "Add to my bookmarks", "#", data: {action: "click->add-trip-to-bookmarks#showTrips" }%>
+          <%= form_with url: place_bookmarks_path(@place), method: :post, data: {add_trip_to_bookmarks_target: "tripList"} ,class: "d-none" do |form| %>
+            <% if @trips.present? %>
+              <%= form.select :trip, @trips.map { |trip| [trip.name, trip.id] } %>
+            <% end %>
+            <%# ADD A NEW TRIP A AJOUTER %>
+            <%#= form.label :trip, "Add a new trip"%>
+            <%#= form.input :trip %>
+          <% end %>
+        </div>
+        <%#= link_to "Add to my bookmarks", place_bookmarks_path(@place), data: { turbo_method: :post }, class: "button-main" %>
       <% end %>
     </div>
 
     <div class="border-bottom-container center">
       <p> </p>
     </div>
+
+  <%= link_to root_path do %>
+    #icone
+  <% end %>
 
     <div class="place-show-descr">
       <h3>About</h3>

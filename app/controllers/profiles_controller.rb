@@ -5,26 +5,35 @@ class ProfilesController < ApplicationController
   end
 
   def define
-    @answers = form_params.to_hash
+    form_keys = ["Q1", "Q2", "Q3", "Q4", "Q5"]
+    @answers = {}
+    form_keys.each { |key| @answers[key] = params[key] }
+
     result = scoring.max_by{|k,v| v}.first
     profile = Profile.find_my_profile(result)
 
     current_user.update(profile_id: profile.id)
-    redirect_to :root
+    redirect_to :profiles_results
   end
 
+  def results
+    @profile_result = current_user.profile
+  end
+
+
   private
+
+  def scoring
+    scoring =  {
+      P1: @answers.values.flatten.count('P1'),
+      P2: @answers.values.flatten.count('P2'),
+      P3: @answers.values.flatten.count('P3'),
+      P4: @answers.values.flatten.count('P4')
+    }
+  end
 
   def form_params
     params.permit("Q1", "Q2", "Q3", "Q4", "Q5")
   end
 
-  def scoring
-    scoring =  {
-      P1: @answers.values.count('P1'),
-      P2: @answers.values.count('P2'),
-      P3: @answers.values.count('P3'),
-      P4: @answers.values.count('P4')
-    }
-  end
 end

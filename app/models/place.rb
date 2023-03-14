@@ -51,9 +51,13 @@ class Place < ApplicationRecord
         tag_hash[tag.name] += 1
       end
     end
+
     ordered_tags = tag_hash.to_a.sort_by! { |k, v| v }
     return ordered_tags.reverse.first(number)
+
   end
+
+
 
   # calculer la moyenne de chaque profil
   # définir la pondération de chaque profil
