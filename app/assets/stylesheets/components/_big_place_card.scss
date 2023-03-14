@@ -1,0 +1,111 @@
+.big-card {
+  width: 100%;
+  max-width: 260px;
+  margin-bottom: 5vh;
+  margin-left: 1vh;
+  height: 140px;
+  position: relative;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  bottom: -52vh;
+
+  .place-big-card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .place-name {
+    color:black;
+    font-weight : bold;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+  }
+
+  .address {
+    color: black;
+    display: flex;
+    margin-top: -5px;
+    margin-left: 20px;
+    font-size: small;
+  }
+
+  .place-tag {
+    height: 18px;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 3px;
+    background-color: #d9d9d9;
+    font-size: 0.8rem;
+    color: black;
+    font-weight: thin;
+    flex-basis: content;
+  }
+
+  .place-tag-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 7px 0px;
+    margin-left: 20px;
+  }
+
+  .bookmark {
+    display: flex;
+    top: 0;
+    right: 0;
+    transform: translate(-60%, -70%);
+    background-color: #ab30d8;
+    border-radius: 100%;
+    position: absolute;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  .far.fa-bookmark {
+    display: flex;
+    height: 47px;
+    width: 47px;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    position: relative;
+  }
+
+  .far.fa-bookmark::before {
+    display: block;
+    position: absolute;
+    font-size: 30px;
+    color: #ffffff;
+  }
+
+  .fas.fa-bookmark {
+    display: flex;
+    height: 47px;
+    width: 47px;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    position: relative;
+  }
+
+  .fas.fa-bookmark::before {
+    display: block;
+    position: absolute;
+    font-size: 30px;
+    color: #ffffff;
+  }
+
+  .recommended-by {
+    margin-left: 20px;
+    color: black;
+    font-size: small;
+  }
+
+}

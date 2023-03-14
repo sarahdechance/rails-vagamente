@@ -1,94 +1,88 @@
 <div class="container-places">
-<% if @query.present? && @places.empty? %>
-  <h2><strong>No places in <%= @query.capitalize %></strong></h2>
-<% elsif @query.nil? %>
-  <h2>Going out like a local in</h2>
-<% else %>
-  <h2 class=""><strong>Places in <%= @query.capitalize %> :</strong></h2>
-<% end %>
-<button class="map-view" type="button">Map view</button>
-<h5 class="order">Order your matches :</h5>
-<div class="menu-container">
-  <div class="menu">
-    <select>
-      <option value="">Relevance</option>
-      <option value="1">Croissant</option>
-      <option value="2">Décroissant</option>
-    </select>
+  <% if @query.present? && @places.empty? %>
+    <h2><strong>No places in <%= @query.capitalize %></strong></h2>
+    <% elsif @query.nil? %>
+      <h2>Going out like a local in</h2>
+    <% else %>
+    <h2 class="places_in"><strong>Places in <%= @query.capitalize %> :</strong></h2>
+  <% end %>
+  <button class="map-view" type="button">Map view</button>
+    <h5 class="order">Order your matches :</h5>
+      <div class="menu-container">
+        <div class="menu">
+          <select>
+            <option value="">Relevance</option>
+            <option value="1">Croissant</option>
+            <option value="2">Décroissant</option>
+          </select>
+        </div>
+        <div class="menu">
+          <select>
+            <option value="">Budget</option>
+            <option value="1">Croissant</option>
+            <option value="2">Décroissant</option>
+          </select>
+        </div>
+        <div class="menu">
+          <select>
+            <option value="">Rating</option>
+            <option value="1">Croissant</option>
+            <option value="2">Décroissant</option>
+          </select>
+        </div>
+      </div>
+    <div class="bestmatches"><h3><strong>Best matches</strong> all categories</h3></div>
+
+  <div class="cards-place-big">
+    <% @best_matches.each do |match| %>
+      <%= render "shared/big_place_card", place: match %>
+    <% end %>
   </div>
-  <div class="menu">
-    <select>
-      <option value="">Budget</option>
-      <option value="1">Croissant</option>
-      <option value="2">Décroissant</option>
-    </select>
+
+<div class="container-reco">
+  <div class="place-index-reco-top">
+    <h3><strong>Best Club </strong>in</h3>
+    <% @places.each do |place| %>
+      <div class="card-place">
+        <%= link_to place_path(place) do %>
+          <% if place.image? %>
+            <%= image_tag place.image %>
+            <% else %>
+              <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <div class="menu">
-    <select>
-      <option value="">Rating</option>
-      <option value="1">Croissant</option>
-      <option value="2">Décroissant</option>
-    </select>
+
+  <div class="place-index-reco">
+    <h3><strong>Best Bar </strong>in</h3>
+    <% @places.each do |place| %>
+      <div class="card-place">
+        <%= link_to place_path(place) do %>
+          <% if place.image? %>
+            <%= image_tag place.image %>
+            <% else %>
+              <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
- </div>
-</div>
-<div><h3><strong>Best matches</strong> all categories</h3></div>
 
-<div class="place-index-top-reco">
-  <% @places.each do |place| %>
-    <div class="card-place">
-      <%= link_to place_path(place) do %>
-        <% if place.image? %>
-          <%= image_tag place.image %>
-        <% else %>
-          <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+  <div class="place-index-reco">
+    <h3><strong>Best Resaurant </strong>in</h3>
+    <% @places.each do |place| %>
+      <div class="card-place">
+        <%= link_to place_path(place) do %>
+          <% if place.image? %>
+            <%= image_tag place.image %>
+          <% else %>
+            <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+    <% end %>
     </div>
-  <% end %>
-</div>
-
-<div class="place-index-reco">
-  <h3><strong>Best Club </strong>in</h3>
-  <% @places.each do |place| %>
-    <div class="card-place">
-      <%= link_to place_path(place) do %>
-        <% if place.image? %>
-          <%= image_tag place.image %>
-        <% else %>
-          <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
-<div class="place-index-reco">
-  <h3><strong>Best Bar </strong>in</h3>
-  <% @places.each do |place| %>
-    <div class="card-place">
-      <%= link_to place_path(place) do %>
-        <% if place.image? %>
-          <%= image_tag place.image %>
-        <% else %>
-          <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
-<div class="place-index-reco">
-  <h3><strong>Best Resaurant </strong>in</h3>
-  <% @places.each do |place| %>
-    <div class="card-place">
-      <%= link_to place_path(place) do %>
-        <% if place.image? %>
-          <%= image_tag place.image %>
-        <% else %>
-          <%= image_tag "https://images.xceed.me/clubs/covers/berghain-panorama-bar-club-berlin-xceed-d6dd.jpg" %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
+  </div>
 </div>
