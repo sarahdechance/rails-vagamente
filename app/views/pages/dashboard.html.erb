@@ -1,24 +1,24 @@
 <%# penser à ajouter le 'modify' dans le profil sous la photo pour permettre de modifier l'entiereté ou non du profil%>
-<html>
-  <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
-  <body>
-  <div class="avatar_dashboard"><%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %></div>
-  <div class="profile-email-username">
-  <div class="user_pseudo"><%= current_user.pseudo %></div>
-  <%= current_user.profile.name %> <br>
-  <div class="zizi">
-  <%= current_user.email %> <br>
-  </div>
-  <% current_user.trips.each do |trip| %>
-    <%= trip.name %>
-  <% end %>
-  <input class= "button-done-profile" type="button" value="Done">
-  </div>
-  </div>
+
+<div class="avatar_dashboard"><%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %></div>
+<div class="profile-email-username">
+<div class="user_pseudo"><%= current_user.pseudo %></div>
+<%= current_user.profile.name %> <br>
+<div class="zizi">
+<%= current_user.email %> <br>
+</div>
+<% current_user.trips.each do |trip| %>
+  <%= trip.name %>
+<% end %>
+<input class= "button-done-profile" type="button" value="Done">
+</div>
+</div>
+
+
+<%= @my_trips.count %> <%# => Cities  %>
+<%= @my_places.count %> <%# => Places %>
+<%= @my_reviews.count %> <%# => Places %>
+
+<% @my_trips.each do |trip| %>
+  <%= render 'card_trip', trip: trip %> <%# => card à créer %>
+<% end %>

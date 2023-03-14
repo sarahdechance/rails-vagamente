@@ -1,5 +1,5 @@
-<div class="container" data-controller="profile-form">
-  <div class="form-container">
+<div class="container padding-bottom-wrapper" data-controller="profile-form">
+  <div class="form-container d-flex align-items-center vh-100">
 
     <div class="form-intro-container">
       <div class="form-intro " data-profile-form-target="question">
@@ -13,7 +13,8 @@
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
         <div class="form-question">
-            <h3>How do you like your evenings?</h3>
+            <h3>How do you like <br>
+            your <span class="text-yellow">evenings</span> ?</h3>
             <% Profile::QUESTION1.each do |key, value| %>
               <%= label_tag "question1_#{key}" do %>
                 <%= check_box_tag "Q1[]", key, false, { id:"question1_#{key}", data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
@@ -24,7 +25,8 @@
       </div>
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
-        <h3>What drink would you be?</h3>
+        <h3>What <span class="text-yellow">drink</span> <br>
+        would you be?</h3>
         <% Profile::QUESTION2.each do |key, value| %>
           <%= label_tag do %>
             <%= check_box_tag "Q2[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
@@ -34,7 +36,8 @@
       </div>
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
-        <h3>Your favorite music when you're out?</h3>
+        <h3>Your favorite <span class="text-yellow">music</span> <br>
+        when you're out?</h3>
         <% Profile::QUESTION3.each do |key, value| %>
           <%= label_tag do %>
             <%= check_box_tag "Q3[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
@@ -44,7 +47,8 @@
       </div>
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
-        <h3>What's your motivation to go out?</h3>
+        <h3>What's your <span class="text-yellow">motivation</span> <br>
+        to go out?</h3>
         <% Profile::QUESTION4.each do |key, value| %>
           <%= label_tag do %>
             <%= check_box_tag "Q4[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
@@ -54,7 +58,8 @@
       </div>
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
-        <h3>When do you go out?</h3>
+        <h3>When do you <br>
+        <span class="text-yellow">go out?</span></h3>
         <% Profile::QUESTION5.each do |key, value| %>
           <%= label_tag "question5_#{key}" do %>
             <%= check_box_tag "Q5[]", key, false, { id: "question5_#{key}", class: "hidden-checkbox" } %>
@@ -63,7 +68,7 @@
         <% end %>
 
         <div class="form-submit mt-5">
-          <input type="submit" value="Let's find out" class= "button-main">
+          <input type="submit" value="Let's find out" class= "button-main d-none">
         </div>
       </div>
 

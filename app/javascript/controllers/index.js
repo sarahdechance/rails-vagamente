@@ -15,3 +15,6 @@ application.register("map", MapController)
 
 import ProfileFormController from "./profile_form_controller"
 application.register("profile-form", ProfileFormController)
+
+import ResearchFormController from "./research_form_controller"
+application.register("research-form", ResearchFormController)
