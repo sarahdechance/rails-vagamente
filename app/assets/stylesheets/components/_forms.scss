@@ -19,7 +19,6 @@ label:has(.hidden-checkbox) {
   width: 15rem;
   text-align: center;
   margin: 5px auto;
-
 }
 
 
@@ -38,6 +37,9 @@ label:has(.tag-pill:checked) {
   border: none;
 }
 
+.align-right {
+  text-align: right;
+}
 
 .text-purple {
   color: #A92ED3;
