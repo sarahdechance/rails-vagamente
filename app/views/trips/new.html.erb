@@ -1,5 +1,5 @@
 <div class="container padding-bottom-wrapper" data-controller="research-form">
-  <div class="research-intro-container">
+  <div class="research-intro-container" data-research-form-target="intro">
     <h1>Tell us more about <br>
     your trip to <span class= "text-yellow"> <%= @query.capitalize %></span> :</h1><br>
   </div>
@@ -7,32 +7,34 @@
   <%= form_with url: places_path, method: :get do %>
     <%= hidden_field_tag :query, @query %>
 
-    <div class="form-question m-10">
+    <div class="form-question m-10" data-research-form-target="element">
       <h3>What's your <br>
       <span class="text-yellow">mood</span> ?</h3>
         <% profile_names = ["Party Animal", "Bar Hopper", "Chill Seeker", "Gourmet Explorer"] %>
         <% profile_names.each do |name| %>
           <%= label_tag "profile_#{name}" do %>
-            <%= radio_button_tag :profile, name, (current_user.profile.name == name ? true : false), class: "hidden-checkbox" %>
+            <%= radio_button_tag :profile, name, (current_user.profile.name == name ? true : false), data: {action: "click->research-form#next"}, class: "hidden-checkbox" %>
             <%= name %>
           <% end %>
         <% end %>
-
+        <div class="next-page text-right">
+          <i class="fa-solid fa-arrow-right" data-action="click->research-form#next"></i>
+        </div>
     </div>
 
-    <div class="form-question m-10">
+    <div class="form-question m-10" data-research-form-target="element">
       <h3>What do you want to <br>
       <span class="text-yellow">discover</span> ?</h3>
       <p><em>You can select multiple places</em></p>
         <% places = Place.genres.keys.each do |key| %>
           <%= label_tag "genre_#{key}" do %>
-            <%= check_box_tag "genre[]", key, false, { id: "genre_#{key}", class: "hidden-checkbox" } %>
+            <%= check_box_tag "genre[]", key, false, { id: "genre_#{key}", data: {action: "click->research-form#next"}, class: "hidden-checkbox" } %>
             <%= key.capitalize %>
           <% end %>
         <% end %>
     </div>
 
-    <div class="form-question">
+    <div class="form-question" data-research-form-target="element">
       <h3>Fine tune your <br>
       <span class= "text-purple">taste</span></h3>
       <p><em>You can select multiple tags</em></p>
