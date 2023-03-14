@@ -16,18 +16,21 @@ class PlacesController < ApplicationController
         @places = @places.where(sql_query, query: "%#{params[:query]}%")
       end
       @places = @places.sample(4)
-
+    @trips = current_user.trips # Pour la modale d'ajout des bookmarks => avoir la liste des trips déjà créés de mon user
+    @trip = Trip.new # Pour la modale d'ajout des bookmarks => créer une nouvelle instance de Trips
   end
 
   def show
     @place = Place.find(params[:id])
+    @recommendations = @place.bookmark_tags.count
     @markers = [{
         lat: @place.latitude,
         lng: @place.longitude
       }]
-    @trips = current_user.trips
     @bookmark = Bookmark.new
     @reco_places = [Place.all.sample]
+    @trips = current_user.trips
+    @trip = Trip.new
     # A AJOUTER AVEC LES RECOS ASSOCIES = TAGS SIMILAIRES? OU MAJ DE PROFIL QUI LE PUSH => CHERCHER LES TAGS DU LIEU PARMI CES PROFILS?
   end
 

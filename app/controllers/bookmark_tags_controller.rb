@@ -4,6 +4,6 @@ class BookmarkTagsController < ApplicationController
   end
 
   def destroy
-  end 
+  end
 
 end

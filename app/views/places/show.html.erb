@@ -17,12 +17,12 @@
         <i class="fa-solid fa-location-dot"></i>
         <%= @place.address %>
 
-        <% if @place.users.count == 0 %>
+        <% if @recommendations == 0 %>
           <p><em>Not recommended yet</em></p>
-        <% elsif @place.users.count == 1 %>
-          <p><em>Recommended by <%= @place.users.count %> person</em></p>
+        <% elsif @recommendations == 1 %>
+          <p><em>Recommended by <%= @recommendations %> person</em></p>
         <% else %>
-          <p><em>Recommended by <%= @place.users.count %> people</em></p>
+          <p><em>Recommended by <%= @recommendations %> people</em></p>
         <% end %>
       </div>
 
@@ -37,30 +37,21 @@
 
       <%#= LAISSER LE CHOIX DU TRIP AUQUEL INTEGRER LE BOOKMARK %>
       <% if @place.bookmarked?(current_user) %>
-        <button class="button-main">Already in your bookmarks</button>
+        <button class="button-main">Added in your bookmarks</button>
       <% else %>
-        <div class="" data-controller="add-trip-to-bookmarks">
-          <%= link_to "Add to my bookmarks", "#", data: {action: "click->add-trip-to-bookmarks#showTrips" }%>
-          <%= form_with url: place_bookmarks_path(@place), method: :post, data: {add_trip_to_bookmarks_target: "tripList"} ,class: "d-none" do |form| %>
-            <% if @trips.present? %>
-              <%= form.select :trip, @trips.map { |trip| [trip.name, trip.id] } %>
-            <% end %>
-            <%# ADD A NEW TRIP A AJOUTER %>
-            <%#= form.label :trip, "Add a new trip"%>
-            <%#= form.input :trip %>
-          <% end %>
-        </div>
-        <%#= link_to "Add to my bookmarks", place_bookmarks_path(@place), data: { turbo_method: :post }, class: "button-main" %>
+          <!-- Button trigger modal -->
+          <button type="button" class="button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add to my bookmarks
+          </button>
+
       <% end %>
     </div>
+
 
     <div class="border-bottom-container center">
       <p> </p>
     </div>
-
-  <%= link_to root_path do %>
-    #icone
-  <% end %>
+    
 
     <div class="place-show-descr">
       <h3>About</h3>
@@ -90,5 +81,39 @@
           <%= render "shared/place_card", place: place %>
         </div>
       <% end %>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <h4>Create a new trip:</h4>
+          <div class="form-new-trip">
+            <%= form_with model: @trip do %>
+              <%= hidden_field_tag :place_id, @place.id %>
+              <%= text_field_tag :name, params[:name], id: "trip_", placeholder: "Create a new trip" %>
+              <%= submit_tag "Add" %>
+            <% end %>
+          </div>
+        <% if @trips.present? %>
+
+          <div class="form-existing-trips">
+            <h4>Or add to an existing one:</h4>
+              <%= form_with url: place_bookmarks_path(@place), method: :post do |f| %>
+                <div class="form-place d-flex">
+                  <%= f.collection_select :trip_id, @trips, :id, :name, prompt: true %>
+                  <%= f.submit "Create" %>
+                </div>
+              <% end %>
+          </div>
+        <% end %>
+      </div>
+
+
+    </div>
   </div>
 </div>

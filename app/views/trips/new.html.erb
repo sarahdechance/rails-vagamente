@@ -47,7 +47,7 @@
           <p><em>You can select multiple tags</em></p>
             <% @tags.each do |tag| %>
               <%= label_tag "tag_#{tag.name}" do %>
-                <%= check_box_tag "tags[]", tag.name, false, { id: "tag_#{tag.name}", data: { action: "click->research-form#next" }, class: "hidden-checkbox-tag tag-pill" } %>
+                <%= check_box_tag "tags[]", tag.name, false, { id: "tag_#{tag.name}", class: "hidden-checkbox-tag tag-pill" } %>
                 <i class="fa-solid fa-tag"></i>
                 <%= tag.name %>
               <% end %>
