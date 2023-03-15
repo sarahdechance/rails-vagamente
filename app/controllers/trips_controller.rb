@@ -4,7 +4,14 @@ class TripsController < ApplicationController
   end
 
   def show
-
+    @trip = Trip.find(params[:id])
+    @trip_places = @trip.places
+    @markers = @trip_places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
   end
 
   def new
