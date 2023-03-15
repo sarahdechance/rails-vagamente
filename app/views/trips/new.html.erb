@@ -8,6 +8,7 @@
       </div>
     </div>
 
+      <%# Comment faire pour que l'url reste le meme et n'affiche pas les paramètres de la recherche? %>
       <%= form_with(url: places_path, method: :get, data: {research_form_target: "body", research_form_question_index_value: 0 }, class: "d-none") do %>
         <%= hidden_field_tag :query, @query %>
 
