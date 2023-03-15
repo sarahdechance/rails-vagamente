@@ -1,6 +1,5 @@
 <% if user_signed_in? %>
-
-  <div class="home-top" style="background-image: linear-gradient(rgba(0,0,0, 1), rgba(0,0,0, 0.01))">
+  <div class="home-top" style="background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0, 0.01))">
     <div class="position-relative">
       <div class="container-fluid position-absolute search-input">
         <% if params[:controller] == "pages" && params[:action] == "home" %>
@@ -27,21 +26,21 @@
 
 <% else %>
   <div data-controller='homepage'>
-    <div class="container">
+    <div class="container" data-homepage-target="splashScreen">
       <div class='page-is-changing'>
         <%= image_tag "logo.png" %>
       </div>
     </div>
 
-    <div class="container div-with-bg" data-homepage-target='bottom'>
+    <div class="registration-home-section div-with-bg" data-homepage-target='bottom'>
       <!-- Aggiungere controller stimulus su tutta la pagina e dopo faccio set interval e poi la metodologia per fare scroller  -->
-      <div class="col align-self-end" data-controller='tabs'>
+      <div class="container" data-controller='tabs'>
         <ul class="nav nav-pills nav-justified mb-3" id="myTab">
           <button class="nav-link button-main" data-tabs-target='signInBtn' data-action='click->tabs#signIn'>Sign in</button>
           <button class="nav-link button-main" data-tabs-target='registerBtn' data-action='click->tabs#register'>Register</button>
         </ul>
 
-        <div>
+        <div class="home-sign-in-form">
           <div class='d-none' data-tabs-target='signIn'>
             <%= render 'shared/sign_in_form' %>
           </div>

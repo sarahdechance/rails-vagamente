@@ -592,7 +592,7 @@ hipst_bm = []
 hipst_places.each do |place|
   user = teuf_users.sample
   rating = [3, 4, 5].sample
-  bm = Bookmark.create(place_id: place.id, user_id: user.id)
+  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
   hipst_bm << bm
 end
 
@@ -600,7 +600,7 @@ inst_bm = []
 inst_places.each do |place|
   user = insta_users.sample
   rating = [3, 4, 5].sample
-  bm = Bookmark.create(place_id: place.id, user_id: user.id)
+  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
   inst_bm << bm
 end
 
@@ -608,7 +608,7 @@ main_bm = []
 main_places.each do |place|
   user = bar_users.sample
   rating = [3, 4, 5].sample
-  bm = Bookmark.create(place_id: place.id, user_id: user.id)
+  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
   main_bm << bm
 end
 

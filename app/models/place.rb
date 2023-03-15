@@ -12,6 +12,34 @@ class Place < ApplicationRecord
     club: 2
   }
 
+  def match(current_user)
+    actual_bookmarks = bookmarks.select { |bkm| bkm.rating != nil && bkm.user != current_user }
+
+    total = actual_bookmarks.sum do |bookmark|
+
+      if current_user.ponderation(bookmark.user).negative?
+        case bookmark.rating
+        when 5
+          rating = 1
+        when 4
+          rating = 2
+        when 1
+          rating = 5
+        when 2
+          rating = 4
+        end
+        (rating * current_user.ponderation(bookmark.user)).abs
+      else
+        bookmark.rating * current_user.ponderation(bookmark.user)
+      end
+
+    end
+
+    result = total.to_f / actual_bookmarks.count
+    result > 100 ? final_result = 100 : (result * 100).to_i
+    return final_result
+  end
+
   def bookmarked?(current_user)
     return  self.users.any? { |user| user.id == current_user.id }
   end
@@ -40,7 +68,6 @@ class Place < ApplicationRecord
 
 
     # AVOIR UN HASH avec clé = la valeur du rating, valeur = le nombre de bookmark_tags avec de rating
-
   end
 
   def tag_list(number)

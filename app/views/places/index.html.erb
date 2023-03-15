@@ -42,33 +42,27 @@
   <div class="place-index-reco-top">
     <h3><strong>Best Club </strong>in</h3>
     <div class="place-cards-scrollable">
-      <div class="place-cards">
         <% @reco_club.each do |place| %>
           <%= render "shared/place_card", place: place %>
         <% end %>
-      </div>
     </div>
   </div>
 
-  <div class="place-index-reco-mid">
+  <div class="place-index-reco-top">
     <h3><strong>Best Bar </strong>in</h3>
     <div class="place-cards-scrollable">
-      <div class="place-cards">
         <% @reco_bars.each do |place| %>
           <%= render "shared/place_card", place: place %>
         <% end %>
       </div>
     </div>
-  </div>
 
-  <div class="place-index-reco-bot">
+  <div class="place-index-reco-top">
     <h3><strong>Best Restaurant </strong>in</h3>
     <div class="place-cards-scrollable">
-      <div class="place-cards">
         <% @reco_restaurants.each do |place| %>
           <%= render "shared/place_card", place: place %>
         <% end %>
       </div>
     </div>
-  </div>
 </div>
