@@ -1,8 +1,10 @@
 <%# penser à ajouter le 'modify' dans le profil sous la photo pour permettre de modifier l'entiereté ou non du profil%>
   <div class="container">
-    <div class="edit-button">
-      <%= link_to %>
-      <i class="fa-regular fa-pen-to-square"></i>
+    <div class="top-actions d-flex justify-centent-end white">
+      <%= link_to edit_user_registration_path, class: "edit-link" do %>
+        <i class="fa-solid fa-gear"></i>
+      <% end %>
+      <%= link_to "Log out", destroy_user_session_path, class: "log-out-button"%>
     </div>
     <div class="avatar_dashboard">
       <%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %>
@@ -10,21 +12,22 @@
     <div class="user_pseudo">
       <h3><%= current_user.pseudo.capitalize %></h3>
     </div>
-    <div class="profile_category">
-      <%= current_user.profile.name %> <br>
+    <div class="profile-category">
+      <%= link_to "#{current_user.profile.name}", profiles_definition_path %>
+      <br>
     </div>
     <div class="profile-boxes-trips">
       <div class="my-counts">
-        <%= @my_trips.count %> <br>
-        <p class="trips-string">Cities</p>
+        <h2><%= @my_trips.count %></h2>
+        <p>Cities</p>
       </div>
       <div class="my-counts">
-        <%= @my_reviews.count %> <br>
-        <p class="reviews-string">Reviews</p>
+        <h2><%= @my_reviews.count %></h2>
+        <p>Reviews</p>
       </div>
       <div class="my-counts">
-        <%= @my_places.count %> <br>
-        <p class="places-string">Places</p>
+        <h2><%= @my_places.count %></h2>
+        <p>Places</p>
       </div>
     </div>
 
@@ -34,8 +37,9 @@
 
 
     <p class="your-best-places">Your <strong>best places</strong> in :</p>
-    <% current_user.trips.each do |trip| %>
-      <%= trip.name %>
+    <% @my_trips.each do |trip| %>
+      <%#= render 'shared/_card-trip', trip: trip %>
     <% end %>
-    <input class= "button-Plan-profile" type="button" value="Plan another trip">
+
+    <%= link_to "Plan another trip", root_path, class: "button-Plan-profile" %>
   </div>
