@@ -27,21 +27,6 @@
         </div>
       <% end %>
     </div>
-
-  <div class="content-right">
-    <!-- contenu de la partie droite ici -->
-    <h5 class="place-name"><%= place.name %></h5>
-    <div class="address">
-      <%= place.address %>
-    </div>
-
-    <div class="place-tag-list">
-      <% place.tag_list(2).each do |tag| %>
-        <div class="place-tag">
-          <p><%= tag.first.downcase %></p>
-        </div>
-      <% end %>
-    </div>
     <div class="recommended-by">
       <% if place.users.count == 0 %>
           <p><em>Not recommended yet</em></p>
