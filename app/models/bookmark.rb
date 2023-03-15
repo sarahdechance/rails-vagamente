@@ -9,10 +9,9 @@ class Bookmark < ApplicationRecord
   validates :place_id, :uniqueness => {:scope => :trip_id}
 
   enum status: {
-    created: 0,
-    bookmarked: 1,
-    reviewed: 2,
-    archive: 3
+    bookmarked: 0,
+    reviewed: 1,
+    archive: 2
   }
 
 end
