@@ -1,0 +1,5 @@
+meta_product_name : "Vagamente"
+meta_title : "Vagamente Godetevi La Vita"
+meta_description : "Sortir, Rencontrer, S'Amuser"
+meta_image : "vagamente_banner.png" # doit exister dans `app/assets/images/`
+twitter_account : "@vagamente" # requis pour les cartes Twitter
