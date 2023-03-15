@@ -3,7 +3,7 @@
 
     <div class="form-intro-container">
       <div class="form-intro " data-profile-form-target="question">
-        <h1>Welcome <strong><%#= %></strong>!</h1>
+        <h1 id="title-h1-form">Welcome <strong><%#= %></strong>!</h1>
         <p>Tell us more about <strong>you</strong></p>
         <button class="button-main" data-action="click->profile-form#next" >Let's start</button>
       </div>
@@ -13,7 +13,7 @@
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
         <div class="form-question">
-            <h3>How do you like <br>
+            <h3 id="title-h1-form">How do you like <br>
             your <span class="text-yellow">evenings</span> ?</h3>
             <% Profile::QUESTION1.each do |key, value| %>
               <%= label_tag "question1_#{key}" do %>
@@ -27,7 +27,7 @@
       </div>
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
-        <h3>What <span class="text-yellow">drink</span> <br>
+        <h3 id="title-h1-form">What <span class="text-yellow">drink</span> <br>
         would you be?</h3>
         <% Profile::QUESTION2.each do |key, value| %>
           <%= label_tag do %>
@@ -38,7 +38,7 @@
       </div>
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
-        <h3>Your favorite <span class="text-yellow">music</span> <br>
+        <h3 id="title-h1-form">Your favorite <span class="text-yellow">music</span> <br>
         when you're out?</h3>
         <% Profile::QUESTION3.each do |key, value| %>
           <%= label_tag do %>
@@ -49,7 +49,7 @@
       </div>
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
-        <h3>What's your <span class="text-yellow">motivation</span> <br>
+        <h3 id="title-h1-form">What's your <span class="text-yellow">motivation</span> <br>
         to go out?</h3>
         <% Profile::QUESTION4.each do |key, value| %>
           <%= label_tag do %>
@@ -60,7 +60,7 @@
       </div>
 
       <div class="form-question text-center my-2 d-none" data-profile-form-target="question">
-        <h3>When do you <br>
+        <h3 id="title-h1-form" >When do you <br>
         <span class="text-yellow">go out?</span></h3>
         <% Profile::QUESTION5.each do |key, value| %>
           <%= label_tag "question5_#{key}" do %>
