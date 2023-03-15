@@ -12,8 +12,7 @@ class Bookmark < ApplicationRecord
     created: 0,
     bookmarked: 1,
     reviewed: 2,
-    favorite: 3,
-    archive: 4
+    archive: 3
   }
 
 end

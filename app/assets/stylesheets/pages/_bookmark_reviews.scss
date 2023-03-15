@@ -15,6 +15,24 @@
   }
 }
 
+.review-form {
+  h5 {
+    text-align: left;
+  }
+
+  select,
+  textarea {
+    color: black;
+  }
+
+  // .form-check-input {
+  //   border-color: #A92ED3;
+
+  //   :checked {
+  //     background-color: #A92ED3;
+  //   }
+  // }
+}
 
 .places-name-pop {
   text-align: center;

@@ -19,11 +19,14 @@ application.register("homepage", HomepageController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-import TabsController from "./tabs_controller"
-application.register("tabs", TabsController)
-
 import ProfileFormController from "./profile_form_controller"
 application.register("profile-form", ProfileFormController)
 
 import ResearchFormController from "./research_form_controller"
 application.register("research-form", ResearchFormController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
+import TabsController from "./tabs_controller"
+application.register("tabs", TabsController)
