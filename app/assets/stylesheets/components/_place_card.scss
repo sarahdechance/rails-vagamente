@@ -128,9 +128,17 @@
     font-size: small;
   }
 
+  a {
+    text-decoration: none;
+  }
+
 }
 
 .place-cards-scrollable {
   overflow-x: auto;
+
+  a {
+    text-decoration: none;
+  }
 
 }

@@ -8,6 +8,7 @@
       </div>
     </div>
 
+      <%# Comment faire pour que l'url reste le meme et n'affiche pas les paramètres de la recherche? %>
       <%= form_with(url: places_path, method: :get, data: {research_form_target: "body", research_form_question_index_value: 0 }, class: "d-none") do %>
         <%= hidden_field_tag :query, @query %>
 
@@ -46,7 +47,9 @@
         </div>
 
         <div class="form-question d-none" data-research-form-target="question">
-          <h3 class="title-h1-form">Fine tune your<br><span class= "text-purple">taste</span></h3>
+
+          <h3 class="title-h1-form">Fine tune your<br><span class= "text-yellow">taste</span></h3>
+
           <p><em>You can select multiple tags</em></p>
           <div class="form-buttons">
             <% @tags.each do |tag| %>
@@ -57,8 +60,9 @@
               <% end %>
             <% end %>
           </div>
+          
           <div class="form-submit align-center m-2 ">
-            <%= submit_tag "Get my recommandations", class: "button-main" %>
+            <%= submit_tag "Get my recommandations", class: "button-yellow" %>
           </div>
         </div>
 

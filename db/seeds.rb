@@ -14,6 +14,7 @@ Place.destroy_all
 Tag.destroy_all
 User.destroy_all
 Profile.destroy_all
+Trip.destroy_all
 
 
 puts "Setting profiles..."
@@ -663,6 +664,21 @@ trip_lyon = Trip.create({
 
 puts "Trips created"
 
+puts "Setting Trips..."
+
+trip_paris = Trip.create({
+  name: "Paris"
+})
+
+trip_marseille = Trip.create({
+  name: "Marseille"
+})
+
+trip_lyon = Trip.create({
+  name: "Lyon"
+})
+
+puts "Trips created"
 # teuffeur_profiles = User.where(profile_id: 1)
 # teuffeur_profiles.each do
 #   2.time do
