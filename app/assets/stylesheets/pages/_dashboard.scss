@@ -1,3 +1,19 @@
+.top-actions {
+  display: flex;
+
+  justify-content: space-between;
+  margin: 7px;
+
+  .edit-link {
+    color: white;
+  }
+
+  .log-out-button {
+    text-decoration: none;
+    color: white;
+  }
+}
+
 .avatar_dashboard {
   margin-top: 30px;
   display: flex;
@@ -10,6 +26,7 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .user_pseudo {
@@ -22,16 +39,16 @@
 }
 
 .button-Plan-profile {
-  color: white;
-  font-size: 15px;
-  display: block;
   margin: auto;
-  align-items: center;
-  margin-top: 200px;
-  margin-bottom: 30px;
-  padding: 10px;
-  border-radius: 8px;
+  width: 55%;
+  display: block;
+  padding: 4px 15px;
+  border-radius: 5px;
   background-color: #EEA538;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 .avatar_dashboard {
@@ -51,16 +68,17 @@
   flex-direction: column;
 }
 
-.profile_category {
-  color: black;
-  display: block;
+.profile-category {
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin: 10px auto 30px;
+  padding: 4px 15px ;
+  width: 55%;
   border-radius: 5px;
   background: rgb(255, 255, 255);
+
+  a {
+    color: black;
+  }
 }
 
 .profile-boxes-trips {
@@ -78,19 +96,30 @@
   align-items: center;
   margin-top: 10px;
   margin-bottom: 30px;
-  padding: 10px;
+  padding: 14px 5px;
   border-radius: 8px;
-  background: rgb(134, 125, 125);
+  background: #3F3F3F;
   font-style: bold;
   font-size: x-large;
   flex-direction: column;
 
   p {
     font-size: small;
+    margin: 0;
+    margin-bottom: 1px;
+  }
 
+  h2 {
+    margin: 0;
   }
 }
 
 .your-best-places {
   font-size: 2em;
+}
+
+.border-bottom-container {
+  width: 40%;
+  border-bottom: rgb(145, 145, 145) 2px solid;
+  margin: 25px auto;
 }
