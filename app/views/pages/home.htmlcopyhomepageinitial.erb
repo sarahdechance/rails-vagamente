@@ -18,3 +18,61 @@
   <%= link_to "Sign in", new_user_session_path %>
 <% end %>
 <%# PAGE D'ACCUEIL SANS MAP AVEC RECHERCHE + LIEN SECONDAIRE VERS MES ADRESSES (map)  %>
+
+<%# ANCIENNE PAGE D'ACCUEIL %>
+<% if user_signed_in? %>
+  <div class="home-top" style="background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0, 0.01))">
+    <div class="position-relative">
+      <div class="container-fluid position-absolute search-input">
+        <% if params[:controller] == "pages" && params[:action] == "home" %>
+          <div class="text">
+            <h4>Going yout like <br>
+            a <strong>LOCAL</strong> in...</h4>
+          </div>
+          <%= form_with url: new_trip_path, method: :get, class: "d-flex me-2 " do %>
+            <%= text_field_tag :query, params[:query], class: "search-navbar", placeholder: "Where will your new trip be?" %>
+            <button class="btn btn-secondary ml-auto btn-search" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="wrapper-index-map" style="height: 100vh;">
+      <%= render "shared/geocoder", markers: @markers %>
+    </div>
+  </div>
+
+  <%= render "shared/navbar" %>
+
+<% else %>
+
+  <div data-controller='homepage'>
+    <div class="container" data-homepage-target="splashScreen">
+      <div class='page-is-changing'>
+        <%= image_tag "logo.png" %>
+      </div>
+    </div>
+
+        <div class="registration-home-section div-with-bg" data-homepage-target='bottom'>
+          <!-- Aggiungere controller stimulus su tutta la pagina e dopo faccio set interval e poi la metodologia per fare scroller  -->
+          <div class="container" data-controller='tabs'>
+            <ul class="nav nav-pills nav-justified mb-3" id="myTab">
+              <button class="nav-link button-main" data-tabs-target='signInBtn' data-action='click->tabs#signIn'>Sign in</button>
+              <button class="nav-link button-main" data-tabs-target='registerBtn' data-action='click->tabs#register'>Register</button>
+            </ul>
+
+            <div class="home-sign-in-form">
+              <div class='d-none' data-tabs-target='signIn'>
+                <%= render 'shared/sign_in_form' %>
+              </div>
+
+              <div class="d-none" data-tabs-target='register'>
+                <%= render 'shared/register_form' %>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+<% end %>
