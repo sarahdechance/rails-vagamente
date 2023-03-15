@@ -1,0 +1,135 @@
+.card {
+  width: 100%;
+  max-width: 800px;
+  height: 140px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: row;
+  margin-top: 35px;
+  overflow: visible;
+
+  .content-left {
+    width: 35%;
+    border-radius: 20px;
+    height: 100%;
+    background-color: #ffffff;
+    position: relative;
+  }
+
+  .content-right {
+    width: 65%;
+    border-radius: 20px;
+    height: 100%;
+    background-color: #ffffff;
+  }
+
+  .place-card-image {
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .place-card-image img {
+    height: 100%;
+    border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .place-name {
+    color:black;
+    font-weight : bold;
+    margin: 10px;
+    margin-bottom: 0px;
+  }
+
+  .address {
+    color:black;
+    margin-top: -5px;
+    margin-left: 10px;
+    font-size: small;
+  }
+
+  .place-tag {
+    height: 18px;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 3px;
+    background-color: #D9D9D9;
+    font-size: 0.8rem;
+    color: black;
+    font-weight: thin;
+    flex-basis: content;
+  }
+
+  .place-tag-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 7px 0px ;
+    margin-left: 10px;
+  }
+
+  .bookmark {
+    display: flex;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ab30d8;
+    border-radius: 100%;
+    position: absolute;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  .far.fa-bookmark {
+    display: flex;
+    height: 47px;
+    width: 47px;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    position: relative;
+  }
+
+  .far.fa-bookmark::before {
+    display: block;
+    position: absolute;
+    font-size: 30px;
+    color: #ffffff;
+  }
+
+  .fas.fa-bookmark {
+    display: flex;
+    height: 47px;
+    width: 47px;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    position: relative;
+  }
+
+  .fas.fa-bookmark::before {
+    display: block;
+    position: absolute;
+    font-size: 30px;
+    color: #ffffff;
+  }
+
+  .recommended-by {
+    margin-left: 10px;
+    color: black;
+    font-size: small;
+  }
+
+}
+
+.place-cards-scrollable {
+  overflow-x: auto;
+
+}
