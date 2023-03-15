@@ -1,3 +1,4 @@
+
 .card {
   width: 100%;
   max-width: 800px;
@@ -125,6 +126,19 @@
     margin-left: 10px;
     color: black;
     font-size: small;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+.place-cards-scrollable {
+  overflow-x: auto;
+
+  a {
+    text-decoration: none;
   }
 
 }

@@ -7,7 +7,7 @@ export default class extends Controller {
 
 
   connect() {
-    const delay = 1000;
+    const delay = 2500;
 
     const scroll = (event) => {
       const scrollIntoViewOptions = { behavior: 'smooth'}
@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
   next(event) {
-    console.log(this.currentTarget)
+    console.log(event.currentTarget)
     // setTimeout(() => {
 
     // }, 0.7);
@@ -32,6 +32,7 @@ export default class extends Controller {
     // 3. J'ajoute la class "checked" à l'élément
     // 4. Je trouve la question target qui contient l'element qui vient de changer
     this.questionIndexValue += 1 ;
+
     const elemt = this.questionTargets[this.questionIndexValue];
     console.log(elemt)
     // console.log(elemt)

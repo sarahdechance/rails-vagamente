@@ -34,10 +34,10 @@
 
   <body>
     <%= yield %>
-  <div id="navbar-margin">
     <% unless action_name == "home" %>
-      <%= render "shared/navbar" %>
+      <div id="navbar-margin">
+        <%= render "shared/navbar" %>
+      </div>
     <% end %>
-  </div>
   </body>
 </html>

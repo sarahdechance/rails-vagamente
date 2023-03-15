@@ -1,0 +1,16 @@
+.title-h1-form {
+  text-align: left !important;
+  font-size: 28px;
+  margin-top: 3rem;
+}
+
+.form-question {
+  margin: 6px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  .form-buttons {
+    flex-grow: 1;
+    margin-top: 130px
+  }
+}

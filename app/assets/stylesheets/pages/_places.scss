@@ -62,6 +62,7 @@ select:focus {
 .cards-place-big {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
 
     img {
       height: 380px;
@@ -110,23 +111,6 @@ body {
   margin-top: 50px;
 }
 
-.place-index-reco-mid {
-  margin-top: 20px;
-}
-
-.place-index-reco-bot {
-  margin-top: 20px;
-}
-
 .container-reco {
   margin: 15px;
-}
-
-.place-cards-scrollable {
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.place-cards {
-  display: inline-block;
 }
