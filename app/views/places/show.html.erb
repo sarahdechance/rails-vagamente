@@ -40,7 +40,8 @@
 
       <%#= LAISSER LE CHOIX DU TRIP AUQUEL INTEGRER LE BOOKMARK %>
       <% if @place.bookmarked?(current_user) %>
-        <button class="button-main">Added in your bookmarks</button>
+        <%#= link_to "Remove from my bookmarks", place_path(@place), data: {turbo_method: :destroy, turbo_confirm: "Are you sure?"} %>
+        <button class="button-main">Added to your bookmarks</button>
       <% else %>
           <!-- Button trigger modal -->
           <button type="button" class="button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -109,7 +110,7 @@
               <%= form_with url: place_bookmarks_path(@place), method: :post do |f| %>
                 <div class="form-place d-flex">
                   <%= f.collection_select :trip_id, @trips, :id, :name, prompt: true %>
-                  <%= f.submit "Create" %>
+                  <%= f.submit "Add" %>
                 </div>
               <% end %>
           </div>

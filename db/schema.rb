@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_095357) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_145727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_095357) do
     t.datetime "updated_at", null: false
     t.integer "rating"
     t.text "comment"
+    t.boolean "favorite", default: false
     t.index ["place_id"], name: "index_bookmarks_on_place_id"
     t.index ["trip_id"], name: "index_bookmarks_on_trip_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"

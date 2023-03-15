@@ -41,7 +41,8 @@ class Place < ApplicationRecord
   end
 
   def bookmarked?(current_user)
-    return  self.users.any? { |user| user.id == current_user.id }
+    return self.users.any? { |user| user.id == current_user.id }
+    # retravailler le test pour que ca ne sorte que les bookmarks "actifs" = pas ceux archivés
   end
 
 

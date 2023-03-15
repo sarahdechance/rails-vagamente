@@ -44,7 +44,7 @@
 
         <div class="form-question d-none" data-research-form-target="question">
           <h3>Fine tune your <br>
-          <span class= "text-purple">taste</span></h3>
+          <span class= "text-yellow">taste</span></h3>
           <p><em>You can select multiple tags</em></p>
             <% @tags.each do |tag| %>
               <%= label_tag "tag_#{tag.name}" do %>
@@ -54,7 +54,7 @@
               <% end %>
             <% end %>
           <div class="form-submit align-right m-2 ">
-            <%= submit_tag "Get my recommandations", class: "button-main" %>
+            <%= submit_tag "Get my recommandations", class: "button-yellow" %>
           </div>
         </div>
 

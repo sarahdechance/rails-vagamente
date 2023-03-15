@@ -11,7 +11,7 @@ class Bookmark < ApplicationRecord
   enum status: {
     created: 0,
     bookmarked: 1,
-    favorite: 2,
+    reviewed: 2,
     archive: 3
   }
 

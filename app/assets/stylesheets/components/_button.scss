@@ -22,4 +22,22 @@
 .button-main:hover {
   text-decoration: none;
   color: black;
+  background-color: #ab30d8;
+}
+
+.button-yellow {
+  background-color: #EEA538;
+  display: inline-block;
+  width: fit-content;
+  padding: 5px 20px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  border: none;
+}
+
+.button-yellow:hover {
+  text-decoration: none;
+  color: black;
+  background-color: #ab30d8;
 }

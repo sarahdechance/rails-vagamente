@@ -4,6 +4,6 @@ class Trip < ApplicationRecord
   has_one_attached :profile_picture
 
   # pourquoi un status?
-  validates :name, :status, uniqueness: true, presence: true
+  validates :name, uniqueness: true, presence: true
 
 end
