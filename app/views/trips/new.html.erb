@@ -3,8 +3,8 @@
 
     <div class="form-header">
       <div class="research-intro-container" data-research-form-target="intro">
-        <h1>Tell us more about <br>
-        your trip to <span class= "text-yellow"> <%= @query.capitalize %></span> :</h1><br>
+        <h1 class="title-h1-form">Tell us more about <br>
+        your trip to <span class= "text-yellow"> <%= @query.capitalize %></span></h1>
       </div>
     </div>
 
@@ -13,8 +13,8 @@
         <%= hidden_field_tag :query, @query %>
 
         <div class="form-question m-10" data-research-form-target="question">
-          <h3>What's your <br>
-          <span class="text-yellow">mood</span> ?</h3>
+          <h3 class="title-h1-form">What's your<br><span class="text-yellow">mood</span> ?</h3>
+          <div class="form-buttons">
             <% profile_names = ["Party Animal", "Bar Hopper", "Chill Seeker", "Gourmet Explorer"] %>
             <% profile_names.each do |name| %>
               <%= label_tag "profile_#{name}" do %>
@@ -22,30 +22,36 @@
                 <%= name %>
               <% end %>
             <% end %>
+          </div>
+
           <div class="arrow-go align-right">
-            <i class="fa-solid fa-arrow-right" data-action="click->research-form#next"></i>
+            <i class="fa-solid fa-chevron-right" data-action="click->research-form#next"></i>
           </div>
         </div>
 
         <div class="form-question m-10 d-none" data-research-form-target="question">
-          <h3>What do you want to <br>
-          <span class="text-yellow">discover</span> ?</h3>
+          <h3 class="title-h1-form">What do you want to<br><span class="text-yellow">discover</span> ?</h3>
           <p><em>You can select multiple places</em></p>
-            <% places = Place.genres.keys.each do |key| %>
+          <div class="form-buttons">
+            <% Place.genres.keys.each do |key| %>
               <%= label_tag "genre_#{key}" do %>
                 <%= check_box_tag "genre[]", key, false, { id: "genre_#{key}", class: "hidden-checkbox" } %>
                 <%= key.capitalize %>
               <% end %>
             <% end %>
+          </div>
+
           <div class="arrow-go align-right">
-            <i class="fa-solid fa-arrow-right" data-action="click->research-form#next"></i>
+            <i class="fa-solid fa-chevron-right" data-action="click->research-form#next"></i>
           </div>
         </div>
 
         <div class="form-question d-none" data-research-form-target="question">
-          <h3>Fine tune your <br>
-          <span class= "text-yellow">taste</span></h3>
+
+          <h3 class="title-h1-form">Fine tune your<br><span class= "text-yellow">taste</span></h3>
+
           <p><em>You can select multiple tags</em></p>
+          <div class="form-buttons">
             <% @tags.each do |tag| %>
               <%= label_tag "tag_#{tag.name}" do %>
                 <%= check_box_tag "tags[]", tag.name, false, { id: "tag_#{tag.name}", class: "hidden-checkbox-tag tag-pill" } %>
@@ -53,7 +59,9 @@
                 <%= tag.name %>
               <% end %>
             <% end %>
-          <div class="form-submit align-right m-2 ">
+          </div>
+          
+          <div class="form-submit align-center m-2 ">
             <%= submit_tag "Get my recommandations", class: "button-yellow" %>
           </div>
         </div>
