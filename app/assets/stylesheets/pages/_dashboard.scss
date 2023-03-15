@@ -53,12 +53,10 @@
 
 .profile_category {
   color: black;
-  display: block;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin: 10px auto 30px;
+  padding: 0 15px ;
+  width: 55%;
   border-radius: 5px;
   background: rgb(255, 255, 255);
 }
@@ -80,7 +78,7 @@
   margin-bottom: 30px;
   padding: 10px;
   border-radius: 8px;
-  background: rgb(134, 125, 125);
+  background: #3F3F3F;
   font-style: bold;
   font-size: x-large;
   flex-direction: column;
@@ -93,4 +91,10 @@
 
 .your-best-places {
   font-size: 2em;
+}
+
+.border-bottom-container {
+  width: 40%;
+  border-bottom: rgb(145, 145, 145) 2px solid;
+  margin: 25px auto;
 }

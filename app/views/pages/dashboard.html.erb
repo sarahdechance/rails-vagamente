@@ -1,20 +1,14 @@
 <%# penser à ajouter le 'modify' dans le profil sous la photo pour permettre de modifier l'entiereté ou non du profil%>
-<html>
-  <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
-  <body>
   <div class="container">
+    <div class="edit-button">
+      <%= link_to %>
+      <i class="fa-regular fa-pen-to-square"></i>
+    </div>
     <div class="avatar_dashboard">
       <%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %>
     </div>
     <div class="user_pseudo">
-      <%= current_user.pseudo %>
+      <h3><%= current_user.pseudo.capitalize %></h3>
     </div>
     <div class="profile_category">
       <%= current_user.profile.name %> <br>
@@ -33,6 +27,12 @@
         <p class="places-string">Places</p>
       </div>
     </div>
+
+    <div class="border-bottom-container">
+      <p> </p>
+    </div>
+
+
     <p class="your-best-places">Your <strong>best places</strong> in :</p>
     <% current_user.trips.each do |trip| %>
       <%= trip.name %>
