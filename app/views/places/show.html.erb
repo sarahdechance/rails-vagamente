@@ -1,11 +1,11 @@
   <%= link_to :back, class: "link-secondary-perso" do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
-  
+
 <div class="container padding-bottom-wrapper">
 
   <%# IMAGE NE FONCTIONNE PAS - CF PRECEDENT CODE SI BESOIN %>
-  <div class="place-show-image" style="background-image: url('<% @place.image? ? @place.image : "../app/assets/images/no_image.jpg" %>')">
+  <div class="place-show-image">
     <% if @place.image? %>
       <%= image_tag @place.image %>
     <% else %>
