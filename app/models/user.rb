@@ -13,4 +13,16 @@ class User < ApplicationRecord
 
 
   validates :pseudo, uniqueness: true, presence: true
+
+  def ponderation(user)
+    if profile.category == user.profile.category
+      2
+    elsif profile.category == "party_animal" && user.profile.category == "chill_seeker" || profile.category == "chill_seeker" && user.profile.category == "party_animal" || profile.category == "bar_hopper" && user.profile.category == "gourmet_explorer" || profile.category == "gourmet_explorer" && user.profile.category == "bar_hopper"
+      -1
+    elsif profile.category == "party_animal" && user.profile.category == "gourmet_explorer" || profile.category == "gourmet_explorer" && user.profile.category == "party_animal"
+      -2
+    else
+      1
+    end
+  end
 end
