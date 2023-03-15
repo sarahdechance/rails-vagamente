@@ -5,6 +5,9 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+
+    # @trip_places = @trip.places
+
     @active_bookmarks = @trip.bookmarks.select { |bmk| bmk.bookmarked? || bmk.reviewed? }
     @trip_places = @active_bookmarks.map { |bmk| Place.find(bmk.place_id) }
 
@@ -16,6 +19,7 @@ class TripsController < ApplicationController
     #     lng: place.longitude
     #   }
     # end
+
   end
 
   def new
