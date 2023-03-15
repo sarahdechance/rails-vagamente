@@ -22,34 +22,20 @@
     <div class="profile-boxes-trips">
       <div class="my-counts">
         <%= @my_trips.count %> <br>
-        <% if @my_trips.count == 1 || @my_trips.count == 0 %>
-          <p class="trips-string">Trip</p>
-        <% else %>
-          <p class="trips-string">Trips</p>
-        <% end %>
+        <p class="trips-string">Cities</p>
       </div>
-
       <div class="my-counts">
-        <%= @my_reviews %> <br>
-        <% if @my_reviews == 1 || @my_reviews == 0 %>
-          <p class="reviews-string">Review</p>
-        <% else %>
-          <p class="reviews-string">Reviewss</p>
-        <% end %>
+        <%= @my_reviews.count %> <br>
+        <p class="reviews-string">Reviews</p>
       </div>
-
       <div class="my-counts">
         <%= @my_places.count %> <br>
-        <% if @my_places.count == 1 || @my_places.count == 0 %>
-          <p class="places-string">Place</p>
-        <% else %>
-          <p class="places-string">Places</p>
-        <% end %>
+        <p class="places-string">Places</p>
       </div>
     </div>
     <p class="your-best-places">Your <strong>best places</strong> in :</p>
     <% current_user.trips.each do |trip| %>
-      <%#= trip.name %>
+      <%= trip.name %>
     <% end %>
     <input class= "button-Plan-profile" type="button" value="Plan another trip">
   </div>

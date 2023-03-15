@@ -12,6 +12,7 @@ class TripsController < ApplicationController
         lng: place.longitude
       }
     end
+    @my_places
   end
 
   def new
