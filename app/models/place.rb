@@ -28,7 +28,7 @@ class Place < ApplicationRecord
         when 2
           rating = 4
         end
-        abs(rating * current_user.ponderation(bookmark.user))
+        (rating * current_user.ponderation(bookmark.user)).abs
       else
         bookmark.rating * current_user.ponderation(bookmark.user)
       end

@@ -1,24 +1,20 @@
-.container {
+.page-review {
 
-  h1 {
+  h1,
+  h3,
+  h5 {
     text-align: center;
   }
-  h2 {
-    text-align: center;
-    font-size: 1em; //réajuster la taille du texte h2
+
+  h5 {
     font-weight: thin;
   }
-  h3 {
-    text-align: center;
-  }
-  hr {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .border-bottom-container {
+    margin: 15px auto;
   }
 }
+
 
 .places-name-pop {
   text-align: center;
