@@ -19,11 +19,11 @@
       <div class="match-score-show">
         <p><span class="text-yellow"><strong>Matching at <%= @place.match(current_user) %> %</span></strong></p>
       </div>
-
       <div class="address">
         <i class="fa-solid fa-location-dot"></i>
         <%= @place.address %>
       </div>
+
 
       <div class="place-tag-list d-flex"> <%# REND UNIQUE CHAQUE TAG ET DONNE LE NB DE FOIS QU'IL A ETE ATTRIBUE: %>
         <% @place.tag_list(4).each do |tag| %>
@@ -34,7 +34,6 @@
         <% end %>
       </div>
 
-
       <%#= LAISSER LE CHOIX DU TRIP AUQUEL INTEGRER LE BOOKMARK %>
       <% if @place.bookmarked?(current_user) %>
         <%#= link_to "Remove from my bookmarks", place_path(@place), data: {turbo_method: :destroy, turbo_confirm: "Are you sure?"} %>
@@ -44,7 +43,6 @@
           <button type="button" class="button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add to my bookmarks
           </button>
-
       <% end %>
     </div>
 
