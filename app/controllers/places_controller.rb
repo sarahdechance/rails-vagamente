@@ -14,17 +14,16 @@ class PlacesController < ApplicationController
 
     #  ---- Sélectionner les places selon le genre (resto, bar, club) recherché ----
     @genre_enums = params[:genre]
-    @search_places = @places.select do |place|
-      @genre_enums.each do |enum|
-        place.genre == enum
-      end
+    @places.select do |place|
+      place.genre == @genre_enums[0] || 
     end
 
+    raise
 
-    # Je re-filtre par tags
 
-    # J'ordonne par le ranking du matching
+    # ---- Je filtre par tags ----
 
+    #  ---- J'ordonne par le ranking du matching ----
 
     # si résultat par catégory < 5 places => j'ajoute les best ranking hors tags
 
