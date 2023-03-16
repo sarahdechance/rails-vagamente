@@ -698,11 +698,27 @@ main_tags = [tag3, tag4, tag10, tag11]
   BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)
 end
 
+4.times do
+  hipst_places.each do |place|
+    bmk_id = place.bookmarks.reviewed.sample.id
+    tag_id = hipst_tags.sample.id
+    Bookmark.create(bookmark_id: bmk_id, tag_id: tag_id)
+  end
+end
+
 # insta reco
 30.times do
   bm = inst_bm.sample
   tag = inst_tags.sample
   BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)
+end
+
+4.times do
+inst_places.each do |place|
+    bmk_id = place.bookmarks.reviewed.sample.id
+    tag_id = inst_tags.sample.id
+    Bookmark.create(bookmark_id: bmk_id, tag_id: tag_id)
+  end
 end
 
 # barhopper/mainstream reco
@@ -711,6 +727,14 @@ end
   tag = main_bm.sample
   BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)
 end
+
+4.times do
+  main_places.each do |place|
+      bmk_id = place.bookmarks.reviewed.sample.id
+      tag_id = main_tags.sample.id
+      Bookmark.create(bookmark_id: bmk_id, tag_id: tag_id)
+    end
+  end
 
 puts "BookmarkTags created"
 

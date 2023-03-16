@@ -57,21 +57,23 @@
 
   .place-tag {
     height: 18px;
-    padding: 0 10px;
-    margin: 5px 2px;
+    padding: 0 7px;
+    margin: 2px 2px;
     border-radius: 3px;
     background-color: #D9D9D9;
     font-size: 0.8rem;
     color: black;
     font-weight: thin;
     flex-basis: content;
+
+
   }
 
   .place-tag-list {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin: 7px 0px ;
+    margin: 2px 0px ;
     margin-left: 10px;
   }
 
@@ -121,10 +123,15 @@
     color: #ffffff;
   }
 
-  .recommended-by {
+  .match-score-cards {
     margin-left: 10px;
     color: black;
     font-size: small;
+    margin-top: 2px;
+
+    p {
+      margin-bottom: 1px;
+    }
   }
 
   a {
@@ -150,6 +157,8 @@
   .content-right {
     height: 100% !important;
     overflow: hidden;
+    display: inline-grid;
+
   }
 
 }

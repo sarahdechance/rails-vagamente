@@ -24,6 +24,14 @@
     border-radius: 20px;
     height: 90%;
     background-color: #ffffff;
+    display: inline-grid;
+    align-content: space-between;
+
+    .button-main {
+      height: 30px;
+      margin-left: 10px;
+      font-size: small;
+    }
   }
 
   .place-card-image {
@@ -139,11 +147,14 @@ a {
 }
 
 .visite {
-  display: flex;
-  width: fit-content;
-  padding: 5px 20px;
-  background-color: #ab30d8;
-  border-radius: 8px;
-  text-decoration: none;
-  border: none;
+  // display: flex;
+  // width: fit-content;
+  // margin: 5px 0px 0px 10px;
+  // padding: 5px 20px;
+  // background-color: #ab30d8;
+  // border-radius: 8px;
+  // text-decoration: none;
+  // border: none;
+  // align-items: center;
+  // font-size: small;
 }

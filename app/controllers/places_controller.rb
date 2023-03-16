@@ -53,7 +53,7 @@ class PlacesController < ApplicationController
       }]
     @bookmark = Bookmark.new
     @reco_places = Place.all.sample(3)
-    @trips = current_user.trips
+    @trips = current_user.trips.uniq
     @trip = Trip.new
     # @matching = @place.match(current_user)
     # A AJOUTER AVEC LES RECOS ASSOCIES = TAGS SIMILAIRES? OU MAJ DE PROFIL QUI LE PUSH => CHERCHER LES TAGS DU LIEU PARMI CES PROFILS?

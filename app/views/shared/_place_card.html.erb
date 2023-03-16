@@ -22,21 +22,16 @@
       <%= place.address %>
     </div>
 
+    <div class="match-score-cards">
+        <p><span class="text-purple"><strong>Matching at <%= place.match(current_user) %> %</span></strong></p>
+    </div>
+
     <div class="place-tag-list">
       <% place.tag_list(2).each do |tag| %>
         <div class="place-tag">
           <p><%= tag.first.downcase %></p>
         </div>
       <% end %>
-    </div>
-    <div class="recommended-by">
-      <% if place.users.count == 0 %>
-          <p><em>Not recommended yet</em></p>
-        <% elsif place.users.count == 1 %>
-          <p><em>Recommended by <%= place.users.count %> person</em></p>
-        <% else %>
-          <p><em>Recommended by <%= place.users.count %> people</em></p>
-        <% end %>
     </div>
   </div>
 </div>
