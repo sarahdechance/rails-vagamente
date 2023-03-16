@@ -53,12 +53,19 @@ label:has(.tag-pill:checked) {
 .form-new-trip {
   border-radius: 10px;
 
+  input {
+    border-radius: 4px;
+    height: 31px;
+    padding-left: 9px;
+  }
 }
 
 .button-form-popup {
   background-color: #A92ED3;
   color: #D9D9D9;
   border: none;
+  height: 29.8px;
+  border-radius: 3px;
 }
 
 .modal-body {
@@ -104,6 +111,7 @@ label:has(.tag-pill:checked) {
 
 .form-check {
   margin-left: 20px;
+}
 
 .margin-bottom-added {
   margin-bottom: 17px;

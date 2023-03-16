@@ -39,11 +39,8 @@ class BookmarksController < ApplicationController
       if @bookmark.trip_id.nil?
         redirect_to user_dashboard_path
       else
-        # @trip = Trip.find(@bookmark.trip_id)
-        # redirect_to trip_path(@trip)
-        # A DECOMMENTER QUAND LE TRIP SHOW EXISTERA
-
-        redirect_to user_dashboard_path
+        @trip = Trip.find(@bookmark.trip_id)
+        redirect_to trip_path(@trip)
       end
     else
       render 'update', status: :unprocessable_entity

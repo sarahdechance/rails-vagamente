@@ -94,7 +94,7 @@
           <div class="form-new-trip">
             <%= form_with model: @trip do %>
               <%= hidden_field_tag :place_id, @place.id %>
-              <%= text_field_tag :name, params[:name], id: "trip_", placeholder: "Create a new trip" %>
+              <%= text_field_tag :name, params[:name], id: "trip_", placeholder: "New trip name" %>
               <%= submit_tag "Add", class: "button-form-popup"  %>
             <% end %>
           </div>

@@ -7,17 +7,17 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     # @trip_places = @trip.places
 
-    @active_bookmarks = @trip.bookmarks.select { |bmk| bmk.bookmarked? || bmk.reviewed? }
-    @trip_places = @active_bookmarks.map { |bmk| Place.find(bmk.place_id) }
-
+    # @active_bookmarks = @trip.bookmarks.select { |bmk| bmk.bookmarked? || bmk.reviewed? }
+    # @trip_places = @active_bookmarks.map { |bmk| Place.find(bmk.place_id) }
+    @trip_places = @trip.places
     # CREER UN TICKET : L'ACTION GEOCODED N'ACCEPTE PAS LES INSTANCES DE TRIP_PLACES
     # AAAAH
-    # @markers = @trip_places.geocoded.map do |place|
-    #   {
-    #     lat: place.latitude,
-    #     lng: place.longitude
-    #   }
-    # end
+    @markers = @trip_places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
 
   end
 
