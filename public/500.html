@@ -35,6 +35,27 @@
     color: white;
   }
 
+  .hit-the-floor {
+  color: #4d4d4d;
+  font-size: 12em;
+  font-weight: bold;
+  font-family: Helvetica;
+  text-shadow:
+    0 1px 0 #cdcdcd,
+    0 2px 0 #bbbbbb,
+    0 3px 0 #939393,
+    0 4px 0 #5c5c5c,
+    0 5px 0 #383838,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+  text-align: center;
+}
+
   h1 {
     font-size: 100%;
     color: #730E15;
@@ -69,14 +90,15 @@
 </head>
 
 <body class="fred">
-  <!-- This file lives in public/404.html -->
+  <div class="hit-the-floor">500</div>
   <div class="dialog">
     <div>
       <h1>The page you were looking for encounter problems.</h1>
       <p class="no">We are sorry to interrupt you, you may have mistyped the address or the page may have moved.</p>
     </div>
     <p class="yes">We are looking to resolve the problem.</p>
-        <p class="yes">Get back <a href="home_path">HOME</a></p>
+        <p class="yes">Get back <a href="/?fbclid=IwAR3XD3WXxB6UHnm2c5Wp9bqJsD7rDb4FPzAdIKt7L4P-G1qpSvUi15Oi1M8">HOME</a></p>
+  </div>
   </div>
 </body>
 </html>
