@@ -39,10 +39,10 @@ class Place < ApplicationRecord
 
     if total.zero?
       result = 50
-
     else
       result = ((total.to_f / actual_bookmarks.count )/ 5 * 100).to_i
-      result = 100 if result > 100
+      # result = 100 if result > 100
+      result = (91..98).to_a.sample if result > 100
     end
 
     return result
