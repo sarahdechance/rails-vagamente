@@ -20,6 +20,8 @@
         <i class="fa-solid fa-location-dot"></i>
         <%= @place.address %>
 
+      <%= @place.match(current_user) %>
+
         <% if @recommendations == 0 %>
           <p><em>Not recommended yet</em></p>
         <% elsif @recommendations == 1 %>

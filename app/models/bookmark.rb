@@ -6,7 +6,7 @@ class Bookmark < ApplicationRecord
   has_many :tags, through: :bookmark_tags
 
 
-  validates :place_id, :uniqueness => {:scope => :trip_id}
+  validates :place_id, uniqueness: {scope: :user_id}
 
   enum status: {
     bookmarked: 0,

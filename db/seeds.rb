@@ -151,7 +151,7 @@ puts "Generating new users"
 
 # profil teufeur
 teuf_users = []
-8.times do
+20.times do
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
@@ -165,9 +165,9 @@ teuf_users = []
   teuf_users << user
 end
 
-# profil good vibes
+# profil bar hopper
 bar_users = []
-5.times do
+15.times do
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
@@ -183,7 +183,7 @@ end
 
 # profil Insta chill
 insta_users = []
-4.times do
+15.times do
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
@@ -199,7 +199,7 @@ end
 
 # profil Restau
 food_users = []
-3.times do
+10.times do
   pseudo = Faker::Name.name.gsub(/\s+/, "")
   email = "#{pseudo}@gmail.com"
   password = "azerty"
@@ -217,14 +217,11 @@ end
 pseudo = "chiara"
 email = "#{pseudo}@gmail.com"
 password = "azerty"
-profile_id = Profile.gourmet_explorer.first.id
 chiara = User.create!({
   pseudo: pseudo,
   email: email,
-  password: password,
-  profile_id: profile_id
+  password: password
 })
-teuf_users << chiara
 
 pseudo = "aubry"
 email = "#{pseudo}@gmail.com"
@@ -405,43 +402,7 @@ main_cl2 = Place.create({
   genre: 2
 })
 
-main_cl3 = Place.create({
-  name: "L'Arc Paris",
-  address: "12 Rue de Presbourg, 75116 Paris",
-  image: "https://www.bra-tendances-restauration.com/wp-content/uploads/sites/3/2021/11/Arc-Paris_Dossier-Presse-18-949x633.jpg",
-  description: "L'Arc Paris is the epitome of luxury and sophistication, offering a nightlife experience like no other. Located in the heart of the city, next to the iconic Arc de Triomphe, this renowned nightclub is the place to be for those who want to experience the best that Paris has to offer.",
-  phone_number: "06 09 86 00 15",
-  genre: 2
-})
-
-main_cl4 = Place.create({
-  name: "Le Rive Gauche",
-  address: "1 Rue du Sabot, 75006 Paris",
-  image: "http://www.lesbarres.com/media/image/slideshow/a3e47d7684d0a5e6774d8ac4ef13e159741bcbbb.jpg",
-  description: "Elegant club in Paris. A good place to party.",
-  phone_number: "01 42 71 40 79",
-  genre: 2
-})
-
-main_cl5 = Place.create({
-  name: "Le Flow",
-  address: "4 Port Des Invalides, 75007 Paris",
-  image: "https://lesitedespeniches.fr/wp-content/uploads/2017/11/le_site_des_peniches_privatisation_le_flow.png",
-  description: "Le Flow is the trendiest and most banging of the three. Announcing itself with pounding house music and a forest of deckchairs, it’s a place to socialise and drink (pricy) beer.",
-  genre: 2
-})
-
-main_cl6 = Place.create({
-  name: "Cova Club Paris",
-  address: "4 Port Des Invalides, 75007 Paris",
-  image: "https://covaparis.fr/wp-content/uploads/2020/01/unnamed.jpg",
-  description: "Cova is the new emblematic place of the Champs-Elysées, located in the heart of the Golden Triangle, the club is perfectly designed for the discerning nightlife lover. In an industrial atmosphere, solid parquet floor, New York-style brick wall, custom leather benches, state-of-the-art sound & light equipment with a multitude of possibilities!",
-  phone_number: "06 84 83 23 84",
-  genre: 2
-})
-
-
-# beauf bars
+# mainstream bars
 main_b1 = Place.create({
   name: "Café Oz",
   address: "8 Rue Saint-Denis, 75001 Paris",
@@ -477,6 +438,43 @@ main_b4 = Place.create({
   phone_number: "01 42 72 44 42",
   genre: 1
 })
+
+# insta clubs
+inst_cl1 = Place.create({
+  name: "L'Arc Paris",
+  address: "12 Rue de Presbourg, 75116 Paris",
+  image: "https://www.bra-tendances-restauration.com/wp-content/uploads/sites/3/2021/11/Arc-Paris_Dossier-Presse-18-949x633.jpg",
+  description: "L'Arc Paris is the epitome of luxury and sophistication, offering a nightlife experience like no other. Located in the heart of the city, next to the iconic Arc de Triomphe, this renowned nightclub is the place to be for those who want to experience the best that Paris has to offer.",
+  phone_number: "06 09 86 00 15",
+  genre: 2
+})
+
+inst_cl2 = Place.create({
+  name: "Le Rive Gauche",
+  address: "1 Rue du Sabot, 75006 Paris",
+  image: "http://www.lesbarres.com/media/image/slideshow/a3e47d7684d0a5e6774d8ac4ef13e159741bcbbb.jpg",
+  description: "Elegant club in Paris. A good place to party.",
+  phone_number: "01 42 71 40 79",
+  genre: 2
+})
+
+inst_cl3 = Place.create({
+  name: "Le Flow",
+  address: "4 Port Des Invalides, 75007 Paris",
+  image: "https://lesitedespeniches.fr/wp-content/uploads/2017/11/le_site_des_peniches_privatisation_le_flow.png",
+  description: "Le Flow is the trendiest and most banging of the three. Announcing itself with pounding house music and a forest of deckchairs, it’s a place to socialise and drink (pricy) beer.",
+  genre: 2
+})
+
+inst_cl4 = Place.create({
+  name: "Cova Club Paris",
+  address: "4 Port Des Invalides, 75007 Paris",
+  image: "https://covaparis.fr/wp-content/uploads/2020/01/unnamed.jpg",
+  description: "Cova is the new emblematic place of the Champs-Elysées, located in the heart of the Golden Triangle, the club is perfectly designed for the discerning nightlife lover. In an industrial atmosphere, solid parquet floor, New York-style brick wall, custom leather benches, state-of-the-art sound & light equipment with a multitude of possibilities!",
+  phone_number: "06 84 83 23 84",
+  genre: 2
+})
+
 
 # insta bars
 inst_b1 = Place.create({
@@ -586,34 +584,104 @@ p "-" * 40
 puts "Setting bookmarks..."
 
 hipst_places = [hipst_cl1, hipst_cl2, hipst_cl3, hipst_cl4, hipst_cl5, hipst_cl6, hipst_cl7, hipst_cl8, hipst_b1, hipst_b2, hipst_b3, hipst_b4]
-inst_places = [inst_b1, inst_b2, inst_b3, inst_b4, inst_b5, inst_b5, inst_res1, inst_res2, inst_res3, inst_res4, inst_res5]
-main_places = [main_cl1, main_cl2, main_cl3, main_cl4, main_cl5, main_cl6, main_b1, main_b2, main_b3, main_b4]
+inst_places = [inst_cl1, inst_cl2, inst_cl3, inst_cl4, inst_b1, inst_b2, inst_b3, inst_b4, inst_b5, inst_b5, inst_res1, inst_res2, inst_res3, inst_res4, inst_res5]
+main_places = [main_cl1, main_cl2, main_b1, main_b2, main_b3, main_b4]
+gourmet_places = Place.all.select { |place| place.restaurant? }
 
+# GOOD MATCH BMK
 hipst_bm = []
-hipst_places.each do |place|
-  user = teuf_users.sample
-  rating = [3, 4, 5].sample
-  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
-  hipst_bm << bm
+4.times do
+  teuf_users.each do |user|
+    place = hipst_places.sample
+    bm = Bookmark.create(place_id: place.id, user_id: user.id)
+    hipst_bm << bm
+  end
 end
 
 inst_bm = []
-inst_places.each do |place|
-  user = insta_users.sample
-  rating = [3, 4, 5].sample
-  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
-  inst_bm << bm
+4.times do
+  insta_users.each do |user|
+    place = inst_places.sample
+    bm = Bookmark.create(place_id: place.id, user_id: user.id)
+    inst_bm << bm
+  end
 end
 
 main_bm = []
-main_places.each do |place|
-  user = bar_users.sample
-  rating = [3, 4, 5].sample
-  bm = Bookmark.create(place_id: place.id, user_id: user.id, rating: rating)
-  main_bm << bm
+4.times do
+  bar_users.each do |user|
+    place = main_places.sample
+    bm = Bookmark.create(place_id: place.id, user_id: user.id)
+    main_bm << bm
+  end
 end
 
-puts "Bookmarks created"
+gourmet_bm = []
+4.times do
+  food_users.each do |user|
+    place = gourmet_places.sample
+    bm = Bookmark.create(place_id: place.id, user_id: user.id)
+    gourmet_bm << bm
+  end
+end
+
+# BAD MATCH BMK
+bad_hipst_bm = []
+20.times do
+  user = teuf_users.sample
+  place = inst_places.sample
+  bm = Bookmark.create(place_id: place.id, user_id: user.id)
+  bad_hipst_bm << bm
+end
+
+bad_inst_bm = []
+15.times do
+  user = insta_users.sample
+  place = main_places.sample
+  bm = Bookmark.create(place_id: place.id, user_id: user.id)
+  bad_inst_bm << bm
+end
+
+bad_main_bm = []
+15.times do
+  user = bar_users.sample
+  place = inst_places.sample
+  bm = Bookmark.create(place_id: place.id, user_id: user.id)
+  bad_main_bm << bm
+end
+
+puts "#{Bookmark.all.count} bookmarks created"
+
+# Creating reviews :
+
+# GOOD REVIEWS
+hipst_bm.sample(50).each do |bmk|
+  bmk.rating = [4, 5].sample
+  bmk.status = "reviewed"
+  bmk.favorite = [true, false].sample
+  bmk.save
+end
+
+[inst_bm, main_bm, gourmet_bm].each do |array|
+  array.sample(25).each do |bmk|
+    bmk.rating = [4, 5].sample
+    bmk.status = "reviewed"
+    bmk.favorite = [true, false].sample
+    bmk.save
+  end
+end
+
+# BAD REVIEWS
+[bad_inst_bm, bad_main_bm].each do |array|
+  array.each do |bmk|
+    bmk.rating = [4, 5].sample
+    bmk.status = "reviewed"
+    bmk.save
+  end
+end
+
+reviews = Bookmark.all.reviewed.count
+puts "#{reviews} reviews created"
 
 "-"*40
 
@@ -651,37 +719,18 @@ puts "BookmarkTags created"
 puts "Setting Trips..."
 
 trip_paris = Trip.create({
-  name: "Paris"
+  name: "Paris",
+  user_id: User.where(pseudo: "sarah").first.id
 })
 
 trip_marseille = Trip.create({
-  name: "Marseille"
+  name: "Marseille",
+  user_id: User.where(pseudo: "sarah").first.id
 })
 
 trip_lyon = Trip.create({
-  name: "Lyon"
+  name: "Lyon",
+  user_id: User.where(pseudo: "sarah").first.id
 })
 
 puts "Trips created"
-
-puts "Setting Trips..."
-
-trip_paris = Trip.create({
-  name: "Paris"
-})
-
-trip_marseille = Trip.create({
-  name: "Marseille"
-})
-
-trip_lyon = Trip.create({
-  name: "Lyon"
-})
-
-puts "Trips created"
-# teuffeur_profiles = User.where(profile_id: 1)
-# teuffeur_profiles.each do
-#   2.time do
-
-#   end
-# end

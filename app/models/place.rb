@@ -27,6 +27,8 @@ class Place < ApplicationRecord
           rating = 5
         when 2
           rating = 4
+        when 3
+          rating = 3 # A VOIR AVEC TIM CAR "LES 3 NE SONT PAS A PRENDRE EN COMPTE" :)
         end
         (rating * current_user.ponderation(bookmark.user)).abs
       else
