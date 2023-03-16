@@ -39,7 +39,6 @@ class Place < ApplicationRecord
 
     result = total.to_f / actual_bookmarks.count
     result > 100 ? final_result = 100 : (result * 100).to_i
-    raise
     return final_result
   end
 

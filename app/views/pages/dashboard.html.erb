@@ -12,10 +12,12 @@
   <div class="user-pseudo">
     <h3><%= current_user.pseudo.capitalize %></h3>
   </div>
+  <% if current_user.profile_id != nil %>
   <div class="profile-category">
     <%= link_to "#{current_user.profile.name}", profiles_definition_path %>
     <br>
   </div>
+  <% end %>
 
   <div class="profile-boxes-trips">
     <div class="my-counts">
