@@ -11,22 +11,15 @@
      <% end %>
     </div>
   </div>
-  <%= link_to place_path(place) do %>
+  <%= link_to edit_bookmark_path(bookmark) do %>
   <div class="content-right">
     <!-- contenu de la partie droite ici -->
     <h5 class="place-name"><%= place.name %></h5>
     <div class="address">
       <%= place.address %>
     </div>
+    <div class="visite">
+  Visité
   </div>
 </div>
 <% end %>
-<script>
-  const bookmark = document.querySelector('.bookmark');
-  const bookmarkIcon = document.querySelector('.fa-bookmark');
-
-  bookmark.addEventListener('click', function() {
-    bookmarkIcon.classList.toggle('far');
-    bookmarkIcon.classList.toggle('fas');
-  });
-</script>

@@ -43,6 +43,23 @@
 </div>
 
 <div class="container-reco">
+
+  <div class="place-index-reco-top">
+    <h3><strong>Best Club </strong>in <%= @query.capitalize %></h3>
+    <div class="place-cards-scrollable">
+        <% @reco_club.each do |place| %>
+          <%= render "shared/place_card", place: place %>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="place-index-reco-top">
+    <h3><strong>Best Bar </strong>in <%= @query.capitalize %></h3>
+    <div class="place-cards-scrollable">
+        <% @reco_bars.each do |place| %>
+          <%= render "shared/place_card", place: place %>
+        <% end %>
+
   <% if @reco_club.count != 0 %>
     <div class="place-index-reco-top">
       <h3><strong>Best Club </strong>in <%= @query.capitalize %></h3>
@@ -50,9 +67,18 @@
           <% @reco_club.each do |place| %>
             <%= render "shared/place_card", place: place %>
           <% end %>
+
       </div>
     </div>
   <% end %>
+
+  <div class="place-index-reco-top">
+    <h3><strong>Best Restaurant </strong>in <%= @query.capitalize %></h3>
+    <div class="place-cards-scrollable">
+        <% @reco_restaurants.each do |place| %>
+          <%= render "shared/place_card", place: place %>
+        <% end %>
+      </div>
 
   <% if @reco_bars.count != 0 %>
     <div class="place-index-reco-top">
@@ -62,6 +88,7 @@
             <%= render "shared/place_card", place: place %>
           <% end %>
         </div>
+
     </div>
   <% end %>
 
