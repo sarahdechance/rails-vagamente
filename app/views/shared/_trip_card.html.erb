@@ -20,7 +20,11 @@
         <%= place.address %>
       </div>
       <div class="visite button-main">
+      <% if bookmark.reviewed? %>
+        Reviewed
+      <% else %>
         Leave a review
+      <% end %>
       </div>
     </div>
 <% end %>
