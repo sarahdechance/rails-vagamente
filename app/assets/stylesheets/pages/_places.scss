@@ -36,16 +36,25 @@ select:focus {
 }
 
 .map-view {
-  display: block;
-  margin: 10px auto 40px;
-  width: 120px;
-  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 20px;
   background-color: #EEA538;
-  border-radius: 16px;
-  color: #fff;
-  text-align: center;
-  line-height: 32px;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  border: none;
+  height: 32px;
   cursor: pointer;
+}
+
+.map-view:hover {
+  text-decoration: none;
+  color: black;
+  background-color: #ab30d8;
 }
 
 .container-places {

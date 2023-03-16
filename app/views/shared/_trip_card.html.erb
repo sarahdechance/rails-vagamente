@@ -18,15 +18,8 @@
     <div class="address">
       <%= place.address %>
     </div>
+    <div class="visite">
+  Visité
   </div>
 </div>
 <% end %>
-<script>
-  const bookmark = document.querySelector('.bookmark');
-  const bookmarkIcon = document.querySelector('.fa-bookmark');
-
-  bookmark.addEventListener('click', function() {
-    bookmarkIcon.classList.toggle('far');
-    bookmarkIcon.classList.toggle('fas');
-  });
-</script>

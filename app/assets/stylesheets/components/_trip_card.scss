@@ -133,3 +133,18 @@
   overflow-x: auto;
 
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.visite {
+  display: flex;
+  width: fit-content;
+  padding: 5px 20px;
+  background-color: #ab30d8;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+}

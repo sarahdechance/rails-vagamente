@@ -1,3 +1,4 @@
+<%= link_to trip_path(my_trip) do %>
 <div class="card">
   <div class="content-left">
     <!-- contenu de la partie gauche ici -->
@@ -7,14 +8,15 @@
       <% else %>
         <%= image_tag my_trip.places.first.image %>
       <% end %>
+    <% end %>
     </div>
   </div>
+  <%= link_to trip_path(my_trip) do %>
   <div class="content-right">
     <!-- contenu de la partie droite ici -->
     <h5 class="place-name">
       <%= my_trip.name %>
     </h5>
-    <input type="checkbox" id="my-checkbox" name="my-checkbox">
-      <label for="my-checkbox">Visité</label>
-  </div>
+    </div>
 </div>
+<% end %>
