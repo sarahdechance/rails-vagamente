@@ -7,7 +7,7 @@ export default class extends Controller {
 
 
   connect() {
-    const delay = 2500;
+    const delay = 1500;
 
     const scroll = (event) => {
       const scrollIntoViewOptions = { behavior: 'smooth'}
