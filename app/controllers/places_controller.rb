@@ -15,6 +15,7 @@ class PlacesController < ApplicationController
         sql_query = "address ILIKE :query"
         @places = @places.where(sql_query, query: "%#{params[:query]}%")
       end
+      @search_places = @places.where()
       @places = @places.sample(3)
 
       @best_matches = Place.all.sample(10)
@@ -30,7 +31,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @recommendations = @place.bookmarks.select { |bmk| bmk.reviewed? }
-    @rating = (@recommendations.map { |reco| reco.rating }).sum / @recommendations.count
+    # @rating = (@recommendations.map { |reco| reco.rating }).sum / @recommendations.count
     @markers = [{
       lat: @place.latitude,
       lng: @place.longitude
