@@ -29,15 +29,11 @@
         </div>
       <% end %>
     </div>
-    <div class="recommended-by">
-      <% if place.users.count == 0 %>
-          <p><em>Not recommended yet</em></p>
-        <% elsif place.users.count == 1 %>
-          <p><em>Recommended by <%= place.users.count %> person</em></p>
-        <% else %>
-          <p><em>Recommended by <%= place.users.count %> people</em></p>
-        <% end %>
+
+    <div class="matching-score">
+      <p><em>Matching at <span class="text-purple"><%= place.match(current_user) %> %</span></em></p>
     </div>
+
   </div>
 </div>
  <% end %>

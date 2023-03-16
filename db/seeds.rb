@@ -655,7 +655,7 @@ puts "#{Bookmark.all.count} bookmarks created"
 # Creating reviews :
 
 # GOOD REVIEWS
-hipst_bm.sample(50).each do |bmk|
+hipst_bm.each do |bmk|
   bmk.rating = [4, 5].sample
   bmk.status = "reviewed"
   bmk.favorite = [true, false].sample
@@ -663,7 +663,7 @@ hipst_bm.sample(50).each do |bmk|
 end
 
 [inst_bm, main_bm, gourmet_bm].each do |array|
-  array.sample(25).each do |bmk|
+  array.each do |bmk|
     bmk.rating = [4, 5].sample
     bmk.status = "reviewed"
     bmk.favorite = [true, false].sample
@@ -674,7 +674,7 @@ end
 # BAD REVIEWS
 [bad_inst_bm, bad_main_bm].each do |array|
   array.each do |bmk|
-    bmk.rating = [4, 5].sample
+    bmk.rating = [1, 2].sample
     bmk.status = "reviewed"
     bmk.save
   end
@@ -692,21 +692,21 @@ inst_tags = [tag5, tag9, tag7, tag11]
 main_tags = [tag3, tag4, tag10, tag11]
 
 # hipst reco
-20.times do
+40.times do
   bm = hipst_bm.sample
   tag = hipst_tags.sample
   BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)
 end
 
 # insta reco
-10.times do
+30.times do
   bm = inst_bm.sample
   tag = inst_tags.sample
   BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)
 end
 
 # barhopper/mainstream reco
-10.times do
+30.times do
   bm = main_tags.sample
   tag = main_bm.sample
   BookmarkTag.create(bookmark_id: bm.id, tag_id: tag.id)

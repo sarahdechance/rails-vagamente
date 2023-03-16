@@ -66,3 +66,8 @@ label:has(.tag-pill:checked) {
   background-color: #1E1E1E;
   background: radial-gradient(ellipse at top, black, transparent), radial-gradient(ellipse at bottom, #A92ED3, transparent);
 }
+
+.margin-bottom-added {
+  margin-bottom: 17px;
+  color: white;
+}
