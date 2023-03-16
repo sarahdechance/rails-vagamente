@@ -16,22 +16,23 @@
   <div class="place-show-details">
     <div class="place-show-top">
       <h1><%= @place.name %></h1>
+      <div class="match-score-show">
+        <p><span class="text-yellow"><strong>Matching at <%= @place.match(current_user) %> %</span></strong></p>
+      </div>
       <div class="address">
         <i class="fa-solid fa-location-dot"></i>
         <%= @place.address %>
-
-        <p><em>Matching at <span class="text-purple"><%= @place.match(current_user) %> %</span></em></p>
-
       </div>
 
-      <div class="place-tag-list"> <%# REND UNIQUE CHAQUE TAG ET DONNE LE NB DE FOIS QU'IL A ETE ATTRIBUE: %>
+
+      <div class="place-tag-list d-flex"> <%# REND UNIQUE CHAQUE TAG ET DONNE LE NB DE FOIS QU'IL A ETE ATTRIBUE: %>
         <% @place.tag_list(4).each do |tag| %>
-          <div class="place-tag">
+          <div class="form-buttons d-flex">
+            <i class="fa-solid fa-tag d-flex"></i>
             <p><%= tag.first.downcase %></p>
           </div>
         <% end %>
       </div>
-
 
       <%#= LAISSER LE CHOIX DU TRIP AUQUEL INTEGRER LE BOOKMARK %>
       <% if @place.bookmarked?(current_user) %>
@@ -42,7 +43,6 @@
           <button type="button" class="button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add to my bookmarks
           </button>
-
       <% end %>
     </div>
 

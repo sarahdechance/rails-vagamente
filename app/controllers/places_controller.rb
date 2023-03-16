@@ -14,7 +14,6 @@ class PlacesController < ApplicationController
 
     #  ---- Sélectionner les places selon le genre (resto, bar, club) recherché ----
     places = Place.where(genre: params[:genre])
-
     # ---- Je filtre par tags ----
 
     #  ---- J'ordonne par le ranking du matching ----

@@ -27,6 +27,6 @@
         <div class="place-cards">
           <% bookmark = Bookmark.where(trip_id: @trip.id, place_id: place.id).first %>
           <%= render "shared/trip_card", place: place, bookmark: bookmark %>
-        <% end %>
         </div>
+      <% end %>
 </div>

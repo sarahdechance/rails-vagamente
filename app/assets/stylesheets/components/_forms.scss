@@ -67,6 +67,7 @@ label:has(.tag-pill:checked) {
   background: radial-gradient(ellipse at top, black, transparent), radial-gradient(ellipse at bottom, #A92ED3, transparent);
 }
 
+
 .rating-position-bookmark {
   padding: 10px;
   align-items: center;
@@ -103,4 +104,9 @@ label:has(.tag-pill:checked) {
 
 .form-check {
   margin-left: 20px;
+
+.margin-bottom-added {
+  margin-bottom: 17px;
+  color: white;
+
 }
