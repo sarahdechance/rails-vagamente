@@ -20,15 +20,8 @@
         <i class="fa-solid fa-location-dot"></i>
         <%= @place.address %>
 
-    <p>Matching de <%= @matching %>%</p>
+        <p><em>Matching at <span class="text-purple"><%= @place.match(current_user) %> %</span></em></p>
 
-        <% if @recommendations.count == 0 %>
-          <p><em>Not recommended yet</em></p>
-        <% elsif @recommendations.count == 1 %>
-          <p><em>Recommended by <%= @recommendations.count %> person</em></p>
-        <% else %>
-          <p><em>Recommended by <%= @recommendations.count %> people</em></p>
-        <% end %>
       </div>
 
       <div class="place-tag-list"> <%# REND UNIQUE CHAQUE TAG ET DONNE LE NB DE FOIS QU'IL A ETE ATTRIBUE: %>
@@ -96,13 +89,13 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 
-      <div class="modal-body">
+      <div class="modal-body align-self-center">
         <h4>Create a new trip:</h4>
           <div class="form-new-trip">
             <%= form_with model: @trip do %>
               <%= hidden_field_tag :place_id, @place.id %>
               <%= text_field_tag :name, params[:name], id: "trip_", placeholder: "Create a new trip" %>
-              <%= submit_tag "Add" %>
+              <%= submit_tag "Add", class: "button-form-popup"  %>
             <% end %>
           </div>
         <% if @trips.present? %>
@@ -112,7 +105,7 @@
               <%= form_with url: place_bookmarks_path(@place), method: :post do |f| %>
                 <div class="form-place d-flex">
                   <%= f.collection_select :trip_id, @trips, :id, :name, prompt: true %>
-                  <%= f.submit "Add" %>
+                  <%= f.submit "Add", class: "button-form-popup" %>
                 </div>
               <% end %>
           </div>

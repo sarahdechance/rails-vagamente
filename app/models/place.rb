@@ -37,9 +37,16 @@ class Place < ApplicationRecord
 
     end
 
-    result = ((total.to_f / actual_bookmarks.count )/ 5 * 100).to_i
-    result = 100 if result > 100
+    if total.zero?
+      result = 50
+
+    else
+      result = ((total.to_f / actual_bookmarks.count )/ 5 * 100).to_i
+      result = 100 if result > 100
+    end
+
     return result
+
   end
 
   def bookmarked?(current_user)

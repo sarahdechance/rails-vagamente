@@ -1,10 +1,13 @@
 <div class="container-places">
-  <% if @query.present? && @places.empty? %>
+  <% if @query.present? && @search_places.empty? %>
     <h2><strong>No places in <%= @query.capitalize %></strong></h2>
     <% elsif @query.nil? %>
     <% else %>
-    <h2 class="places_in"><strong>Going out like a local in <%= @query.capitalize %> :</strong></h2>
-  <% end %>
+    <div class="text">
+            <h4>Going out like <br>
+            a LOCAL in <strong><%= @query.capitalize %>:</strong></h4>
+            <% end %>
+             </div>
   <button class="map-view" type="button">Map view</button>
   <h5 class="order">Order your matches :</h5>
   <div class="menu-container">
@@ -38,7 +41,9 @@
     <% end %>
   </div>
 </div>
+
 <div class="container-reco">
+
   <div class="place-index-reco-top">
     <h3><strong>Best Club </strong>in <%= @query.capitalize %></h3>
     <div class="place-cards-scrollable">
@@ -54,8 +59,18 @@
         <% @reco_bars.each do |place| %>
           <%= render "shared/place_card", place: place %>
         <% end %>
+
+  <% if @reco_club.count != 0 %>
+    <div class="place-index-reco-top">
+      <h3><strong>Best Club </strong>in <%= @query.capitalize %></h3>
+      <div class="place-cards-scrollable">
+          <% @reco_club.each do |place| %>
+            <%= render "shared/place_card", place: place %>
+          <% end %>
+
       </div>
     </div>
+  <% end %>
 
   <div class="place-index-reco-top">
     <h3><strong>Best Restaurant </strong>in <%= @query.capitalize %></h3>
@@ -64,5 +79,27 @@
           <%= render "shared/place_card", place: place %>
         <% end %>
       </div>
+
+  <% if @reco_bars.count != 0 %>
+    <div class="place-index-reco-top">
+      <h3><strong>Best Bar </strong>in <%= @query.capitalize %></h3>
+      <div class="place-cards-scrollable">
+          <% @reco_bars.each do |place| %>
+            <%= render "shared/place_card", place: place %>
+          <% end %>
+        </div>
+
     </div>
+  <% end %>
+
+  <% if @reco_restaurants.count != 0 %>
+    <div class="place-index-reco-top">
+      <h3><strong>Best Restaurant </strong>in <%= @query.capitalize %></h3>
+      <div class="place-cards-scrollable">
+          <% @reco_restaurants.each do |place| %>
+            <%= render "shared/place_card", place: place %>
+          <% end %>
+        </div>
+    </div>
+    <% end %>
 </div>

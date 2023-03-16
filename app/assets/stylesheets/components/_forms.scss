@@ -16,7 +16,7 @@ label:has(.hidden-checkbox) {
   padding: 20px 15px;
   border-radius: 2px;
   border: #D9D9D9 solid 2px;
-  width: 20rem;
+  width: 22rem;
   text-align: center;
   margin: 10px auto;
   font-size: 17px;
@@ -33,7 +33,7 @@ label:has(.tag-pill) {
 }
 
 label:has(.tag-pill:checked) {
-  background-color: #EEA538;
+  background-color: #A92ED3;
   color: #D9D9D9;
   border: none;
 }
@@ -48,4 +48,21 @@ label:has(.tag-pill:checked) {
 
 .text-yellow {
   color: #EEA538 ;
+}
+
+.form-new-trip {
+  border-radius: 10px;
+
+}
+
+.button-form-popup {
+  background-color: #A92ED3;
+  color: #D9D9D9;
+  border: none;
+}
+
+.modal-body {
+  border-radius: 8px;
+  background-color: #1E1E1E;
+  background: radial-gradient(ellipse at top, black, transparent), radial-gradient(ellipse at bottom, #A92ED3, transparent);
 }

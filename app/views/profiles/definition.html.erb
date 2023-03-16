@@ -19,7 +19,7 @@
               <% Profile::QUESTION1.each do |key, value| %>
                 <%= label_tag "question1_#{key}" do %>
                   <%=  %>
-                  <%= radio_button_tag "Q1[]", key, false, { id: "question1_#{key}", data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+                  <%= radio_button_tag "Q1[]", key, false, { id: "question1_#{key}", required: true, data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
                   <%#= check_box_tag "Q1[]", key, false, { id:"question1_#{key}", data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
                   <%= value %>
                 <% end %>
@@ -34,7 +34,7 @@
         <div class="form-buttons">
           <% Profile::QUESTION2.each do |key, value| %>
             <%= label_tag do %>
-              <%= radio_button_tag "Q2[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+              <%= radio_button_tag "Q2[]", key, false, { data: {action: "change->profile-form#next"}, required: true, class: "hidden-checkbox" } %>
               <%= value %>
             <% end %>
           <% end %>
@@ -47,7 +47,7 @@
       <div class="form-buttons">
         <% Profile::QUESTION3.each do |key, value| %>
           <%= label_tag do %>
-            <%= radio_button_tag "Q3[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+            <%= radio_button_tag "Q3[]", key, false, { data: {action: "change->profile-form#next"}, required: true, class: "hidden-checkbox" } %>
             <%= value %>
           <% end %>
         <% end %>
@@ -60,7 +60,7 @@
         <div class="form-buttons">
           <% Profile::QUESTION4.each do |key, value| %>
             <%= label_tag do %>
-              <%= radio_button_tag "Q4[]", key, false, { data: {action: "change->profile-form#next"}, class: "hidden-checkbox" } %>
+              <%= radio_button_tag "Q4[]", key, false, { data: {action: "change->profile-form#next"}, required: true, class: "hidden-checkbox" } %>
               <%= value %>
             <% end %>
           <% end %>
@@ -73,12 +73,12 @@
         <div class="form-buttons">
           <% Profile::QUESTION5.each do |key, value| %>
             <%= label_tag "question5_#{key}" do %>
-              <%= radio_button_tag "Q5[]", key, false, { id: "question5_#{key}", class: "hidden-checkbox" } %>
+              <%= radio_button_tag "Q5[]", key, false, { id: "question5_#{key}", required: true, class: "hidden-checkbox" } %>
               <%= value %>
             <% end %>
           <% end %>
          </div>
-        <div class="form-submit mt-5">
+        <div class="form-submit mt-5 mb-5">
           <input type="submit" value="Let's find out" class= "button-main">
         </div>
       </div>

@@ -1,31 +1,47 @@
 class PlacesController < ApplicationController
 
   def index
-    # list my location & tag query's results
 
-    @places = Place.all
+    places = Place.all
+
+    # ---- Afficher les résultats selon le lieu recherché ----
+    @query = params[:query]
+    if params[:query].present?
+      sql_query = "address ILIKE :query"
+      places = places.where(sql_query, query: "%#{params[:query]}%")
+    end
+
+
+    #  ---- Sélectionner les places selon le genre (resto, bar, club) recherché ----
+    places = Place.where(genre: params[:genre])
+
+    # ---- Je filtre par tags ----
+
+    #  ---- J'ordonne par le ranking du matching ----
+    sorted_places = places.sort_by do |place|
+      place.match(current_user)
+    end
+
+    @search_places = sorted_places.reverse
+
+
+
+    #  ---- variables pour la show ----
+    @best_matches = @search_places.first(4)
+
+    @reco_bars = @search_places.select(&:bar?)
+    @reco_restaurants = @search_places.select(&:restaurant?)
+    @reco_club = @search_places.select(&:club?)
+
+    @trips = current_user.trips # Pour la modale d'ajout des bookmarks => avoir la liste des trips déjà créés de mon user
+    @trip = Trip.new # Pour la modale d'ajout des bookmarks => créer une nouvelle instance de Trips
+
     # @markers = @places.geocoded.map do |place|
     #   {
       #     lat: place.latitude,
       #     lng: place.longitude
       #   }
-      # end
-      @query = params[:query]
-      if params[:query].present?
-        sql_query = "address ILIKE :query"
-        @places = @places.where(sql_query, query: "%#{params[:query]}%")
-      end
-      @search_places = @places.where()
-      @places = @places.sample(3)
-
-      @best_matches = Place.all.sample(10)
-      @reco_bars = Place.where(genre: 1)
-      @reco_restaurants = Place.where(genre: 0)
-      @reco_club = Place.where(genre: 2)
-
-
-      @trips = current_user.trips # Pour la modale d'ajout des bookmarks => avoir la liste des trips déjà créés de mon user
-      @trip = Trip.new # Pour la modale d'ajout des bookmarks => créer une nouvelle instance de Trips
+    # end
   end
 
   def show
@@ -40,7 +56,7 @@ class PlacesController < ApplicationController
     @reco_places = Place.all.sample(3)
     @trips = current_user.trips
     @trip = Trip.new
-    @matching = @place.match(current_user)
+    # @matching = @place.match(current_user)
     # A AJOUTER AVEC LES RECOS ASSOCIES = TAGS SIMILAIRES? OU MAJ DE PROFIL QUI LE PUSH => CHERCHER LES TAGS DU LIEU PARMI CES PROFILS?
   end
 
@@ -51,5 +67,8 @@ class PlacesController < ApplicationController
     params.permit(:trip).require(:name, :address, :query)
   end
 
+  def search_params
+    params.require(:genre, :tags, :query)
+  end
 
 end
