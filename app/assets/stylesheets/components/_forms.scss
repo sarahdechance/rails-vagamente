@@ -67,7 +67,46 @@ label:has(.tag-pill:checked) {
   background: radial-gradient(ellipse at top, black, transparent), radial-gradient(ellipse at bottom, #A92ED3, transparent);
 }
 
+
+.rating-position-bookmark {
+  padding: 10px;
+  align-items: center;
+  margin: 25px;
+  text-align: center;
+
+}
+
+.comment-question {
+  padding: -20px;
+  align-items: center;
+  margin: 25px;
+}
+
+.button-main-form-review {
+  margin-left: 79px;
+  display: inline-block;
+  width: fit-content;
+  padding: 5px 20px;
+  background-color: #ab30d8;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  border: none;
+}
+
+.star-form-review {
+  margin-left: 79px;
+}
+
+.favorite-question {
+  margin-left: 100px;
+}
+
+.form-check {
+  margin-left: 20px;
+
 .margin-bottom-added {
   margin-bottom: 17px;
   color: white;
+
 }
