@@ -20,8 +20,6 @@
         <i class="fa-solid fa-location-dot"></i>
         <%= @place.address %>
 
-    <p>Matching de <%= @matching %>%</p>
-
         <% if @recommendations.count == 0 %>
           <p><em>Not recommended yet</em></p>
         <% elsif @recommendations.count == 1 %>

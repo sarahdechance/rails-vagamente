@@ -39,6 +39,7 @@ class Place < ApplicationRecord
 
     result = ((total.to_f / actual_bookmarks.count )/ 5 * 100).to_i
     result = 100 if result > 100
+    raise
     return result
 
   end

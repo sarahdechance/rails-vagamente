@@ -40,7 +40,7 @@ class PlacesController < ApplicationController
     @reco_places = Place.all.sample(3)
     @trips = current_user.trips
     @trip = Trip.new
-    @matching = @place.match(current_user)
+    # @matching = @place.match(current_user)
     # A AJOUTER AVEC LES RECOS ASSOCIES = TAGS SIMILAIRES? OU MAJ DE PROFIL QUI LE PUSH => CHERCHER LES TAGS DU LIEU PARMI CES PROFILS?
   end
 
