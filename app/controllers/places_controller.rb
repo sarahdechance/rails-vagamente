@@ -2,43 +2,36 @@ class PlacesController < ApplicationController
 
   def index
 
-    @places = Place.all
+    places = Place.all
 
     # ---- Afficher les résultats selon le lieu recherché ----
     @query = params[:query]
     if params[:query].present?
       sql_query = "address ILIKE :query"
-      @places = @places.where(sql_query, query: "%#{params[:query]}%")
+      places = places.where(sql_query, query: "%#{params[:query]}%")
     end
 
 
     #  ---- Sélectionner les places selon le genre (resto, bar, club) recherché ----
-    @genre_enums = params[:genre]
-    @places.select do |place|
-      place.genre == @genre_enums[0] ||
-    end
-
-    raise
-
+    places = Place.where(genre: params[:genre])
 
     # ---- Je filtre par tags ----
 
-
     #  ---- J'ordonne par le ranking du matching ----
+    sorted_places = places.sort_by do |place|
+      place.match(current_user)
+    end
 
-    @
-
-    # si résultat par catégory < 5 places => j'ajoute les best ranking hors tags
+    @search_places = sorted_places.reverse
 
 
 
+    #  ---- variables pour la show ----
+    @best_matches = @search_places.first(4)
 
-    @places = @places.sample(3)
-
-    @best_matches = Place.all.sample(10)
-    @reco_bars = Place.where(genre: 1)
-    @reco_restaurants = Place.where(genre: 0)
-    @reco_club = Place.where(genre: 2)
+    @reco_bars = @search_places.select(&:bar?)
+    @reco_restaurants = @search_places.select(&:restaurant?)
+    @reco_club = @search_places.select(&:club?)
 
     @trips = current_user.trips # Pour la modale d'ajout des bookmarks => avoir la liste des trips déjà créés de mon user
     @trip = Trip.new # Pour la modale d'ajout des bookmarks => créer une nouvelle instance de Trips
@@ -74,5 +67,8 @@ class PlacesController < ApplicationController
     params.permit(:trip).require(:name, :address, :query)
   end
 
+  def search_params
+    params.require(:genre, :tags, :query)
+  end
 
 end
