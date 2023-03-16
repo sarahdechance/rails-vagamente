@@ -1,7 +1,7 @@
 <%= link_to place_path(place) do %>
 <div class="card">
   <div class="content-left">
-  <% end %>
+  <%# end %>
     <!-- contenu de la partie gauche ici -->
     <div class="bookmark <%= place.bookmarked?(current_user) ? 'bookmark--active' : '' %>">
       <i class="far fa-bookmark"></i>
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="content-right">
-    <%= link_to place_path(place) do %>
+    <%#= link_to place_path(place) do %>
     <!-- contenu de la partie droite ici -->
     <h5 class="place-name"><%= place.name %></h5>
     <div class="address">
@@ -41,6 +41,7 @@
   </div>
 </div>
  <% end %>
+
 <script>
   const bookmark = document.querySelector('.bookmark');
   const bookmarkIcon = document.querySelector('.fa-bookmark');
