@@ -1,20 +1,4 @@
-
-<% if user_signed_in? %>
-  <div class="home-top" style="background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0, 0.01))">
-    <div class="position-relative">
-      <div class="container-fluid position-absolute search-input">
-        <% if params[:controller] == "pages" && params[:action] == "home" %>
-          <div class="text">
-            <h4>Going out like <br>
-            a <strong>LOCAL</strong> in...</h4>
-          </div>
-          <%= form_with url: new_trip_path, method: :get, class: "d-flex me-2 " do %>
-            <%= text_field_tag :query, params[:query], class: "search-navbar", placeholder: "Where will your new trip be?" %>
-            <button class="btn btn-secondary ml-auto btn-search" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          <% end %>
-
+<%# PROPRE %>
 
 <% if user_signed_in? == false || (user_signed_in? && current_user.profile == nil) %>
 
@@ -23,7 +7,6 @@
       <div class='page-is-changing'>
         <%= link_to '#bottom' do %>
           <%= image_tag "logo.png" %>
-
         <% end %>
       </div>
     </div>
@@ -36,7 +19,7 @@
       <% else %>
         <!-- Aggiungere controller stimulus su tutta la pagina e dopo faccio set interval e poi la metodologia per fare scroller  -->
         <div class="container" data-controller='tabs'>
-          <ul class="nav nav-pills nav-justified mb-3" id="myTab">
+          <ul class="nav nav-justified mb-3" id="myTab">
             <button class="nav-link button-main" data-tabs-target='signInBtn' data-action='click->tabs#signIn'>Sign in</button>
             <button class="nav-link button-main" data-tabs-target='registerBtn' data-action='click->tabs#register'>Register</button>
           </ul>
@@ -55,29 +38,14 @@
     </div>
   </div>
 
-
 <% else %>
 
-    <div class="registration-home-section div-with-bg" data-homepage-target='bottom'>
-      <!-- Aggiungere controller stimulus su tutta la pagina e dopo faccio set interval e poi la metodologia per fare scroller  -->
-      <div class="container" data-controller='tabs'>
-        <ul class="nav nav-justified mb-3" id="myTab">
-          <button class="nav-link button-main" data-tabs-target='signInBtn' data-action='click->tabs#signIn'>Sign in</button>
-          <button class="nav-link button-main" data-tabs-target='registerBtn' data-action='click->tabs#register'>Register</button>
-        </ul>
-
-        <div class="home-sign-in-form">
-          <div class='d-none' data-tabs-target='signIn'>
-            <%= render 'shared/sign_in_form' %>
-          </div>
-
-
-  <div class="home-top" style="background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0, 0.01))">
+  <div class="home-top">
   <div class="position-relative">
     <div class="container-fluid position-absolute search-input">
       <% if params[:controller] == "pages" && params[:action] == "home" %>
         <div class="text">
-          <h4>Going yout like <br>
+          <h4>Going out like <br>
           a <strong>LOCAL</strong> in...</h4>
         </div>
         <%= form_with url: new_trip_path, method: :get, class: "d-flex me-2 " do %>
@@ -93,7 +61,6 @@
   <div class="wrapper-index-map" style="height: 100vh;">
     <%= render "shared/geocoder", markers: @markers %>
   </div>
-
 
   <%= render "shared/navbar" %>
 <% end %>
