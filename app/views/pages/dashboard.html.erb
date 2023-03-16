@@ -1,41 +1,60 @@
-<%# penser à ajouter le 'modify' dans le profil sous la photo pour permettre de modifier l'entiereté ou non du profil%>
-<html>
-  <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
-  <body>
-  <div class="container">
-    <div class="avatar_dashboard">
-      <%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %>
-    </div>
-    <div class="user_pseudo">
-      <%= current_user.pseudo %>
-    </div>
-    <div class="profile_category">
-      <%= current_user.profile.name %> <br>
-    </div>
-    <div class="profile-boxes-trips">
-      <div class="my-counts">
-        <%= @my_trips.count %> <br>
-        <p class="trips-string">Cities</p>
-      </div>
-      <div class="my-counts">
-        <%= @my_reviews %> <br>
-        <p class="reviews-string">Reviews</p>
-      </div>
-      <div class="my-counts">
-        <%= @my_places.count %> <br>
-        <p class="places-string">Places</p>
-      </div>
-    </div>
-    <p class="your-best-places">Your <strong>best places</strong> in :</p>
-    <% current_user.trips.each do |trip| %>
-      <%= trip.name %>
+<div class="container">
+  <div class="top-actions d-flex justify-centent-end white">
+    <%= link_to edit_user_registration_path, class: "edit-link" do %>
+      <i class="fa-solid fa-gear"></i>
     <% end %>
-    <input class= "button-Plan-profile" type="button" value="Plan another trip">
+    <%= link_to "Log out", destroy_user_session_path, class: "log-out-button"%>
   </div>
+
+  <div class="avatar_dashboard">
+    <%= cl_image_tag current_user.profile_picture.attached? ? current_user.profile_picture.key : "vuwmei7psskhhh6vfua6" %>
+  </div>
+  <div class="user-pseudo">
+    <h3><%= current_user.pseudo.capitalize %></h3>
+  </div>
+  <div class="profile-category">
+    <%= link_to "#{current_user.profile.name}", profiles_definition_path %>
+    <br>
+  </div>
+
+  <div class="profile-boxes-trips">
+    <div class="my-counts">
+      <%= @my_trips.count %> <br>
+      <% if @my_trips.count == 1 || @my_trips.count == 0 %>
+        <p class="trips-string">Trip</p>
+      <% else %>
+        <p class="trips-string">Trips</p>
+      <% end %>
+    </div>
+    
+    <div class="my-counts">
+      <%= @my_places.count %> <br>
+      <% if @my_places.count == 1 || @my_places.count == 0 %>
+        <p class="places-string">Place</p>
+      <% else %>
+        <p class="places-string">Places</p>
+      <% end %>
+    </div>
+    
+    <div class="my-counts">
+      <%= @my_reviews %> <br>
+      <% if @my_reviews == 1 || @my_reviews == 0 %>
+        <p class="reviews-string">Review</p>
+      <% else %>
+        <p class="reviews-string">Reviewss</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="border-bottom-container">
+    <p> </p>
+  </div>
+
+
+  <p class="your-best-places">Your <strong>best places</strong> in :</p>
+  <% current_user.trips.uniq.each do |trip| %>
+        <%#= render 'shared/_card-trip', trip: trip %>
+  <% end %>
+    <%#= link_to "#{trip.name}", trip_path(trip.id), class: "btn btn-primary" %>
+  <%= link_to "Plan another trip", root_path, class: "button-main" %>
+</div>
