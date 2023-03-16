@@ -7,9 +7,6 @@ import { application } from "./application"
 import AddTripToBookmarksController from "./add_trip_to_bookmarks_controller"
 application.register("add-trip-to-bookmarks", AddTripToBookmarksController)
 
-import BookmarkController from "./bookmark_controller"
-application.register("bookmark", BookmarkController)
-
 import DisableButtonController from "./disable_button_controller"
 application.register("disable-button", DisableButtonController)
 
