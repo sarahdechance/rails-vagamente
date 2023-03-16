@@ -20,14 +20,14 @@
         <i class="fa-solid fa-location-dot"></i>
         <%= @place.address %>
 
-      <%= @place.match(current_user) %>
+    <p>Matching de <%= @matching %>%</p>
 
-        <% if @recommendations == 0 %>
+        <% if @recommendations.count == 0 %>
           <p><em>Not recommended yet</em></p>
-        <% elsif @recommendations == 1 %>
-          <p><em>Recommended by <%= @recommendations %> person</em></p>
+        <% elsif @recommendations.count == 1 %>
+          <p><em>Recommended by <%= @recommendations.count %> person</em></p>
         <% else %>
-          <p><em>Recommended by <%= @recommendations %> people</em></p>
+          <p><em>Recommended by <%= @recommendations.count %> people</em></p>
         <% end %>
       </div>
 

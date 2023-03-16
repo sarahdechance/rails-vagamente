@@ -24,7 +24,7 @@ class PagesController < ApplicationController
 
   def dashboard
     # UPDATE POUR COLLER A LA NOUVELLE DB?
-    @my_trips = current_user.trips
+    @my_trips = current_user.trips.uniq
     @my_places = current_user.places
     @my_reviews = current_user.bookmarks.count { |bmk| bmk.reviewed? }
   end
