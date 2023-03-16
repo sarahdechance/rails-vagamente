@@ -12,9 +12,9 @@ BookmarkTag.destroy_all
 Bookmark.destroy_all
 Place.destroy_all
 Tag.destroy_all
+Trip.destroy_all
 User.destroy_all
 Profile.destroy_all
-Trip.destroy_all
 
 
 puts "Setting profiles..."

@@ -53,8 +53,8 @@
 
   <p class="your-best-places">Your <strong>best places</strong> in :</p>
   <% @my_trips.each do |trip| %>
-        <%#= render 'shared/_card-trip', trip: trip %>
+        <%= render 'shared/trip_card_index', my_trip: trip %>
   <% end %>
     <%#= link_to "#{trip.name}", trip_path(trip.id), class: "btn btn-primary" %>
-  <%= link_to "Plan another trip", root_path, class: "button-main" %>
+  <%#= link_to "Plan another trip", root_path, class: "button-main" %>
 </div>
