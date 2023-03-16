@@ -27,7 +27,7 @@
 
       <div class="place-tag-list d-flex"> <%# REND UNIQUE CHAQUE TAG ET DONNE LE NB DE FOIS QU'IL A ETE ATTRIBUE: %>
         <% @place.tag_list(4).each do |tag| %>
-          <div class="form-buttons d-flex">
+          <div class="form-buttons-tag d-flex">
             <i class="fa-solid fa-tag d-flex"></i>
             <p><%= tag.first.downcase %></p>
           </div>

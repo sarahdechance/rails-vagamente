@@ -13,6 +13,14 @@
   overflow: visible;
   bottom: -1.5em;
 
+  .big-card-details {
+    height: 100%;
+    display: flex;
+
+    a {
+      display: inline-grid;
+    }
+  }
   .place-big-card-container {
     display: flex;
     align-items: center;
@@ -102,10 +110,14 @@
     color: #ffffff;
   }
 
-  .matching-score {
+  .matching-score-big {
     margin-left: 20px;
     color: black;
     font-size: small;
+
+    p {
+      margin-bottom: 0px;
+    }
   }
 
   a {

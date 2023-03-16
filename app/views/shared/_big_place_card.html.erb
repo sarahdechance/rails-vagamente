@@ -8,22 +8,26 @@
     <div class="bookmark <%= place.bookmarked?(current_user) ? 'bookmark--active' : '' %>">
       <i class="far fa-bookmark"></i>
     </div>
-    <%= link_to place_path(place) do %>
-    <h5 class="place-name"><%= place.name %></h5>
-    <div class="address">
-      <%= place.address %>
-    </div>
-    <div class="place-tag-list">
-      <% place.tag_list(2).each do |tag| %>
-        <div class="place-tag">
-          <p><%= tag.first.downcase %></p>
-        </div>
-      <% end %>
+    <div class="big-card-details">
+      <%= link_to place_path(place) do %>
+      <h5 class="place-name"><%= place.name %></h5>
+      <div class="address">
+        <%= place.address %>
+      </div>
+
+      <div class="matching-score-big">
+        <p><strong><span class="text-purple">Matching at <%= place.match(current_user) %> %</span></strong></p>
+      </div>
+
+      <div class="place-tag-list">
+        <% place.tag_list(2).each do |tag| %>
+          <div class="place-tag">
+            <p><%= tag.first.downcase %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
 
-    <div class="matching-score">
-      <p><em>Matching at <span class="text-purple"><%= place.match(current_user) %> %</span></em></p>
-    </div>
   </div>
 </div>
 
