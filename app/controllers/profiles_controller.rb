@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
     profile = Profile.find_my_profile(result)
 
     current_user.update(profile_id: profile.id)
-    redirect_to :profiles_results
+    redirect_to profiles_results_path
   end
 
   def results
