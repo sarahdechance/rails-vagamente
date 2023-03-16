@@ -26,7 +26,7 @@
         <p class="trips-string">Trips</p>
       <% end %>
     </div>
-    
+
     <div class="my-counts">
       <%= @my_places.count %> <br>
       <% if @my_places.count == 1 || @my_places.count == 0 %>
@@ -35,7 +35,7 @@
         <p class="places-string">Places</p>
       <% end %>
     </div>
-    
+
     <div class="my-counts">
       <%= @my_reviews %> <br>
       <% if @my_reviews == 1 || @my_reviews == 0 %>
@@ -52,7 +52,7 @@
 
 
   <p class="your-best-places">Your <strong>best places</strong> in :</p>
-  <% current_user.trips.uniq.each do |trip| %>
+  <% @my_trips.each do |trip| %>
         <%#= render 'shared/_card-trip', trip: trip %>
   <% end %>
     <%#= link_to "#{trip.name}", trip_path(trip.id), class: "btn btn-primary" %>
