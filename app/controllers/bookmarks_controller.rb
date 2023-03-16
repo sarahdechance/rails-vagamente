@@ -5,7 +5,6 @@ class BookmarksController < ApplicationController
 
 
   def create
-    raise
     @place = Place.find(params[:place_id])
     @user = current_user
     @trip = Trip.find(params[:trip_id])

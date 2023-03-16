@@ -5,8 +5,6 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    raise
-
     # @trip_places = @trip.places
 
     @active_bookmarks = @trip.bookmarks.select { |bmk| bmk.bookmarked? || bmk.reviewed? }
@@ -39,9 +37,8 @@ class TripsController < ApplicationController
   end
 
   def create
-    raise
     @place = Place.find(params[:place_id])
-    @trip = Trip.new(name: trip_params)
+    @trip = Trip.new(name: trip_params, user_id: current_user.id)
     if @trip.save!
       @bookmark = Bookmark.new(place_id: @place.id, user_id: current_user.id, trip_id: @trip.id)
       @bookmark.save
