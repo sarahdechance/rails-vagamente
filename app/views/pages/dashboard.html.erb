@@ -3,7 +3,7 @@
     <%= link_to edit_user_registration_path, class: "edit-link" do %>
       <i class="fa-solid fa-gear"></i>
     <% end %>
-    <%= link_to "Log out", destroy_user_session_path, class: "log-out-button"%>
+    <%= link_to "Log out", destroy_user_session_path, class: "log-out-button", data: {turbo_method: :delete}%>
   </div>
 
   <div class="avatar_dashboard">
