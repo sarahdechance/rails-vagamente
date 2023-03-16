@@ -24,18 +24,23 @@
     <p> </p>
   </div>
 
-  <div class="review-form">
+  <div class="comment-question">
     <%= simple_form_for @bookmark do |f| %>
       <div class="rating-question">
-        <h5>How did you like it there ?</h5>
+        <div class="star-form-review">
           <%= f.input :rating, label: false, collection: (1..5).to_a, required: true, input_html: {data: {controller: "star-rating"}} %>
+        </div>
+      </div>
       </div>
 
-      <div class="favorite-question d-flex justify-content-between">
-        <h5>Add it as a favorite?</h5>
+      <div class="comment-question">
+        <div class="favorite-question d-flex">
+        <h5>Favorite ?</h5>
         <%= f.input :favorite, as: :boolean, checked_value: 'true', unchecked_value: 'false', label: false, class: "fav-checkbox"%>
       </div>
+      </div>
 
+    <div class="comment-question">
       <div class="tag-question">
         <h5>How would you describe this place ?</h5>
         <p><em>You can select multiple tags</em></p>
@@ -49,15 +54,15 @@
             <% end %>
           <% end %>
       </div>
-
+    </div>
       <div class="comment-question">
       <h5>Add a comment</h5>
       <%= f.input :comment, label: false %>
       </div>
 
-      <%= f.button :submit, "Leave my review", class: "button-main" %>
+  <div class="comment-question">
+      <%= f.button :submit, "Leave my review", class: "button-main-form-review" %>
     <% end %>
   </div>
-
-
+  </div>
 </div>
