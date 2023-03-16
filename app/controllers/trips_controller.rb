@@ -5,6 +5,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    raise
 
     # @trip_places = @trip.places
 
@@ -38,6 +39,7 @@ class TripsController < ApplicationController
   end
 
   def create
+    raise
     @place = Place.find(params[:place_id])
     @trip = Trip.new(name: trip_params)
     if @trip.save!
