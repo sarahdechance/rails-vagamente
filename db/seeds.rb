@@ -305,7 +305,7 @@ hipst_cl3 = Place.create({
 })
 
 hipst_cl4 = Place.create({
-  name: "La Station - Gare des mines",
+  name: "La Station",
   address: "29 Av. de la Prte d'Aubervilliers, 75018 Paris",
   image: "https://offloadmedia.feverup.com/parissecret.com/wp-content/uploads/2017/11/23150847/37032493_1839351469461648_2194463945903833088_n2.jpg",
   description: "Near the Porte d’Auberviliers, La Station bring the best of the emerging musical scene, heavily inspired by garage rock and alternative electro. And with no fewer than 400m² of space available, it’s the perfect place to party without disturbing the neighbours. When the sun is out, why not chill out and relax on the terrace.",
@@ -700,9 +700,12 @@ end
 
 4.times do
   hipst_places.each do |place|
-    bmk_id = place.bookmarks.reviewed.sample.id
-    tag_id = hipst_tags.sample.id
-    Bookmark.create(bookmark_id: bmk_id, tag_id: tag_id)
+    bmk_reviewed = place.bookmarks.reviewed
+    if bmk_reviewed != nil
+      bmk_id = bmk_reviewed.sample.id
+      tag_id = hipst_tags.sample.id
+      BookmarkTag.create(bookmark_id: bmk_id, tag_id: tag_id)
+    end
   end
 end
 
@@ -715,9 +718,12 @@ end
 
 4.times do
 inst_places.each do |place|
-    bmk_id = place.bookmarks.reviewed.sample.id
-    tag_id = inst_tags.sample.id
-    Bookmark.create(bookmark_id: bmk_id, tag_id: tag_id)
+    bmk_reviewed = place.bookmarks.reviewed
+    if bmk_reviewed != nil
+      bmk_id = bmk_reviewed.sample.id
+      tag_id = inst_tags.sample.id
+      BookmarkTag.create(bookmark_id: bmk_id, tag_id: tag_id)
+    end
   end
 end
 
@@ -730,11 +736,15 @@ end
 
 4.times do
   main_places.each do |place|
-      bmk_id = place.bookmarks.reviewed.sample.id
+    bmk_reviewed = place.bookmarks.reviewed
+    if bmk_reviewed != nil
+      bmk_id = bmk_reviewed.sample.id
       tag_id = main_tags.sample.id
-      Bookmark.create(bookmark_id: bmk_id, tag_id: tag_id)
+      BookmarkTag.create(bookmark_id: bmk_id, tag_id: tag_id)
     end
   end
+end
+
 
 puts "BookmarkTags created"
 
