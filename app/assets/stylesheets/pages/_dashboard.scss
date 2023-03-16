@@ -29,9 +29,12 @@
   object-fit: cover;
 }
 
-.user_pseudo {
+.user-pseudo {
   margin: 10px 0;
-  text-align: center;
+
+  h3 {
+    text-align: center;
+  }
 }
 
 .user_name .trip_name {
