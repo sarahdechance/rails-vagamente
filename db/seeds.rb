@@ -362,7 +362,7 @@ hipst_b2 = Place.create({
   name: "L'épicier",
   address: "24 Rue Notre Dame de Nazareth, 75003 Paris",
   image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/da/a5/82/paris.jpg?w=1400&h=-1&s=1",
-  description: "Origianl bar in Paris with great cocktails.",
+  description: "Original bar in Paris with great cocktails.",
   genre: 1
 })
 
