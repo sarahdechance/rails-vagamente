@@ -1,5 +1,7 @@
 <div class="container padding-bottom-wrapper">
-  <%= link_to "Back to my profile", user_dashboard_path, class: "link-secondary-perso" %>
+  <%= link_to user_dashboard_path, class: "link-secondary-perso" do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
 
   <%# IMAGE NE FONCTIONNE PAS - CF PRECEDENT CODE SI BESOIN %>
   <div class="place-show-image">
