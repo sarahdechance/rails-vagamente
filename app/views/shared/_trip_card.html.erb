@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <%= link_to edit_bookmark_path(bookmark) do %>
+    <%= link_to edit_bookmark_path(bookmark), data: {turbo: false}  do %>
     <div class="content-right">
       <!-- contenu de la partie droite ici -->
       <h5 class="place-name"><%= place.name %></h5>
